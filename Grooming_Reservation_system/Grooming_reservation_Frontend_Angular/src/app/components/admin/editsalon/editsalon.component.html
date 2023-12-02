@@ -1,0 +1,307 @@
+<div class="card" style="border-radius: 15px">
+  <div class="card-body">
+    <h2 class="text-uppercase text-center">Edit Salon</h2>
+
+    <form (ngSubmit)="!salonForm.invalid && saveSalon()" #salonForm="ngForm">
+      <!--salonname-->
+      <div class="form-outline">
+        <label class="form-label" for="form3Example1cg"> SALON NAME </label>
+        <input
+          type="text"
+          id="form3Example1cg"
+          class="form-control form-control-lg"
+          name="salonname"
+          minlength="4"
+          required
+          #salonname="ngModel"
+          [(ngModel)]="salon.salonname"
+          pattern="^[A-Za-z]+$"
+        />
+        <div
+          *ngIf="salonname.invalid && (salonname.dirty || salonname.touched)"
+        >
+          <div *ngIf="salonname.errors?.['required']">
+            salonname is required
+          </div>
+          <div *ngIf="salonname.errors?.['minlength']">
+            salonname should have atleast 4 chars
+          </div>
+
+          <div *ngIf="salonname.errors?.['pattern']">
+            salonname should have only alphabets
+          </div>
+        </div>
+        <!--salonaddress-->
+        <label class="form-label" for="form3Example1cg">SALON ADDRESS</label>
+        <input
+          type="text"
+          id="form3Example5cg"
+          class="form-control form-control-lg"
+          name="salonaddress"
+          maxlength="200"
+          required
+          #salonaddress="ngModel"
+          [(ngModel)]="salon.salonaddress"
+        />
+        <div
+          *ngIf="
+            salonaddress.invalid && (salonaddress.dirty || salonaddress.touched)
+          "
+        >
+          <div *ngIf="salonaddress.errors?.['required']">
+            salonaddress is required
+          </div>
+          <div *ngIf="salonaddress.errors?.['maxlength']">
+            salonaddress should have atmost 200 chars
+          </div>
+        </div>
+      </div>
+
+      <!--saloncity-->
+      <div class="form-outline mb-2">
+        <label class="form-label" for="form3Example3cg">SALON CITY</label>
+        <input
+          type="text"
+          id="form3Example3cg"
+          class="form-control form-control-lg"
+          name="saloncity"
+          maxlength="20"
+          required
+          #saloncity="ngModel"
+          [(ngModel)]="salon.saloncity"
+        />
+        <div
+          *ngIf="saloncity.invalid && (saloncity.dirty || saloncity.touched)"
+        >
+          <div *ngIf="saloncity.errors?.['required']">
+            saloncity is required
+          </div>
+          <div *ngIf="saloncity.errors?.['maxlength']">
+            saloncity max length should be less than 20
+          </div>
+        </div>
+      </div>
+
+      <!--salonpincode-->
+      <div class="form-outline mb-2">
+        <label class="form-label" for="form3Example1cg"> SALON PINCODE </label>
+        <input
+          type="text"
+          id="form3Example1cg"
+          class="form-control form-control-lg"
+          name="salonpincode"
+          maxlength="8"
+          required
+          #salonpincode="ngModel"
+          [(ngModel)]="salon.salonpincode"
+          pattern="^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$"
+        />
+        <div
+          *ngIf="
+            salonpincode.invalid && (salonpincode.dirty || salonpincode.touched)
+          "
+        >
+          <div *ngIf="salonpincode.errors?.['required']">
+            salonpincode is required
+          </div>
+          <div *ngIf="salonpincode.errors?.['maxlength']">
+            salonpincode should have atleast 8 chars
+          </div>
+          <div *ngIf="salonpincode.errors?.['pattern']">
+            salonpincode should have only numbers
+          </div>
+        </div>
+      </div>
+
+      <!--salonstate-->
+      <div class="form-outline mb-2">
+        <label class="form-label" for="form3Example1cg"> SALON STATE </label>
+        <input
+          type="text"
+          id="form3Example1cg"
+          class="form-control form-control-lg"
+          name="salonstate"
+          maxlength="50"
+          required
+          #salonstate="ngModel"
+          [(ngModel)]="salon.salonstate"
+          pattern="^[A-Za-z]+$"
+        />
+        <div
+          *ngIf="salonstate.invalid && (salonstate.dirty || salonstate.touched)"
+        >
+          <div *ngIf="salonstate.errors?.['required']">
+            salonstate is required
+          </div>
+          <div *ngIf="salonstate.errors?.['maxlength']">
+            salonstate should have atleast 50 chars
+          </div>
+          <div *ngIf="salonstate.errors?.['pattern']">
+            salonstate should have only alphabets
+          </div>
+        </div>
+      </div>
+
+      <!--salonphonenumber-->
+      <div class="form-outline mb-2">
+        <label class="form-label" for="form3Example1cg">
+          SALON PHONENUMBER
+        </label>
+        <input
+          type="text"
+          id="form3Example1cg"
+          class="form-control form-control-lg"
+          name="salonphone"
+          maxlength="10"
+          required
+          #salonphone="ngModel"
+          [(ngModel)]="salon.salonphone"
+          pattern="^[6-9]\d{9}$"
+        />
+        <div
+          *ngIf="salonphone.invalid && (salonphone.dirty || salonphone.touched)"
+        >
+          <div *ngIf="salonphone.errors?.['required']">
+            salonphonenumber is required
+          </div>
+          <div *ngIf="salonphone.errors?.['maxlength']">
+            salonphonenumber should have atleast 10 digits
+          </div>
+          <div *ngIf="salonphone.errors?.['pattern']">
+            salonphonenumber should have only numbers and phonenumber start from
+            6,7,8 or 9
+          </div>
+        </div>
+      </div>
+
+      <!--salonemail-->
+      <div class="form-outline mb-2">
+        <label class="form-label" for="form3Example1cg"> SALON EMAIL </label>
+        <input
+          type="email"
+          id="form3Example1cg"
+          class="form-control form-control-lg"
+          name="salonemailid"
+          maxlength="30"
+          required
+          #salonemailid="ngModel"
+          [(ngModel)]="salon.salonemailid"
+          pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}"
+        />
+        <div
+          *ngIf="
+            salonemailid.invalid && (salonemailid.dirty || salonemailid.touched)
+          "
+        >
+          <div *ngIf="salonemailid.errors?.['required']">
+            salonemailid is required
+          </div>
+          <div *ngIf="salonemailid.errors?.['maxlength']">
+            salonemailid can have atmost 30 chars
+          </div>
+          <div *ngIf="salonemailid.errors?.['pattern']">salonemail invalid</div>
+        </div>
+      </div>
+      <!--salon opening hours-->
+      <div class="form-outline mb-2">
+        <label class="form-label" for="form3Example1cg">
+          SALON OPENING HOURS
+        </label>
+        <input
+          type="text"
+          id="form3Example1cg"
+          class="form-control form-control-lg"
+          name="salonopeninghours"
+          required
+          #salonopeninghours="ngModel"
+          [(ngModel)]="salon.salonopeninghours"
+          pattern="^(mon|tue|wed|thu|fri)\-(mon|tue|wed|thu|fri)\s+\d{1,2}:\d{2}-\d{1,2}:\d{2}$"
+        />
+        <div
+          *ngIf="
+            salonopeninghours.invalid &&
+            (salonopeninghours.dirty || salonopeninghours.touched)
+          "
+        >
+          <div *ngIf="salonopeninghours.errors?.['required']">
+            salonopeninghours is required
+          </div>
+          <div *ngIf="salonopeninghours.errors?.['pattern']">
+            salonopeninghours invalid
+          </div>
+        </div>
+      </div>
+      <div class="form-outline mb-2">
+        <label class="form-label" for="form3Example1cg">
+          SALON DESCRIPTION
+        </label>
+        <input
+          type="text"
+          id="form3Example1cg"
+          class="form-control form-control-lg"
+          name="salondescription"
+          maxlength="255"
+          required
+          #salondescription="ngModel"
+          [(ngModel)]="salon.salondescription"
+        />
+        <div
+          *ngIf="
+            salondescription.invalid &&
+            (salondescription.dirty || salondescription.touched)
+          "
+        >
+          <div *ngIf="salondescription.errors?.['required']">
+            salondescription is required
+          </div>
+          <div *ngIf="salondescription.errors?.['maxlength']">
+            salondescription can have atmost 255 chars
+          </div>
+        </div>
+      </div>
+      <div class="form-outline mb-2">
+        <label class="form-label" for="form3Example1cg"> SALON PASSWORD </label>
+        <input
+          type="password"
+          id="form3Example1cg"
+          class="form-control form-control-lg"
+          name="salonpassword"
+          minlength="8"
+          maxlength="20"
+          required
+          #salonpassword="ngModel"
+          [(ngModel)]="salon.salonpassword"
+          pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\S+$).{8,20}$"
+        />
+        <div
+          *ngIf="
+            salonpassword.invalid &&
+            (salonpassword.dirty || salonpassword.touched)
+          "
+        >
+          <div *ngIf="salonpassword.errors?.['required']">
+            salonpassword is required
+          </div>
+          <div *ngIf="salonpassword.errors?.['maxlength']">
+            salonpassword can have atmost 20 chars
+          </div>
+          <div *ngIf="salonpassword.errors?.['minlength']">
+            salonpassword can have atleast 8 chars
+          </div>
+          <div *ngIf="salonpassword.errors?.['pattern']">
+            salonpassword invalid , password should contain atleast one
+            lowercase,one uppercase,one special character,one numerical
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button
+          type="submit"
+          class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+        >
+          save
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
