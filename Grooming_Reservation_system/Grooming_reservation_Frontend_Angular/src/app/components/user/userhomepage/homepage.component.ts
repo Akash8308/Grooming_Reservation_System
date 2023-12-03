@@ -13,10 +13,7 @@ useremail:string;
 
   ngOnInit(){
     this.username = sessionStorage.getItem("username"); 
-   this.useremail=sessionStorage.getItem("usermail");
-    console.log(this.username);
-    console.log(this.useremail);
-    
+   this.useremail=sessionStorage.getItem("usermail");    
   }
 
 logout() {

@@ -1,11 +1,14 @@
 package com.edu.grooming.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.edu.grooming.dao.Salon;
 import com.edu.grooming.dao.User;
 
 @Repository
@@ -30,4 +33,10 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	@Query(value=" update user set useris_deleted=true where userid=?",nativeQuery=true)
 	void updateUserisDeleted(Integer userid);
 
+	@Query(value="select * from user where useremail like ?%",nativeQuery = true)
+	List<User> searchUser(String value);	
+	
+	@Query(value="select * from user where useris_deleted=?1",nativeQuery = true)
+	List<User> searchUserByIsDeleted(boolean value);	
+	
 }

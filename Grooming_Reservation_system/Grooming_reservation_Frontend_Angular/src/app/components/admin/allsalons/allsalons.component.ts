@@ -58,7 +58,7 @@ export class AllsalonsComponent {
     }
 
   searchSalonBySearch(searchValue : string){
-    this.salondataservice.searchSalonlike(searchValue).subscribe(data => {this.salons=data;console.log(data)});
+    this.salondataservice.searchSalonlike(searchValue).subscribe(data => this.salons=data);
   }
 
   disableSalon(salonid: string, salon: Salon) {

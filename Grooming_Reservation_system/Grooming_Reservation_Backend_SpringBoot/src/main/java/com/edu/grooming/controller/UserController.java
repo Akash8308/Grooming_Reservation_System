@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.edu.grooming.error.ConflictException;
 import com.edu.grooming.error.NotFoundException;
+import com.edu.grooming.dao.Salon;
 import com.edu.grooming.dao.User;
 import com.edu.grooming.repository.UserRepository;
 import com.edu.grooming.service.UserService;
@@ -100,10 +101,16 @@ public class UserController {
 			//userService.getUserByEmailid(useremail);
 			return ResponseEntity.status(HttpStatus.ACCEPTED).body(user1); 
 		}
-		
-		
-		
 	}
 	
+	@GetMapping("/searchUserlike/{value}")//http://localhost:8990/searchUserlike/{value}
+	public List<User> searchSalonlike(@PathVariable("value") String value){
+		return userService.searchUserlike(value);
+	}
+	
+	@GetMapping("/searchUserByIsDeleted/{value}")//http://localhost:8990/searchUserByIsDeleted/{value}
+	public List<User> searchUserByIsDeleted(@PathVariable("value") String value){
+		return userService.searchUserByIsDeleted(value);
+	}
 
 }

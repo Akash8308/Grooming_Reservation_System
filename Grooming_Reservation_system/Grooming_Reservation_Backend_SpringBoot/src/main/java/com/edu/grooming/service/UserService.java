@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.edu.grooming.dao.Address;
+import com.edu.grooming.dao.Salon;
 import com.edu.grooming.dao.User;
 import com.edu.grooming.error.NotFoundException;
 
@@ -24,5 +26,9 @@ public interface UserService {
 	User getUserByEmail(String useremail, String userpassword);
 
 	User enableUserById(Integer userid);
+
+	List<User> searchUserByIsDeleted(String value);
+
+	List<User> searchUserlike(String value);
 
 }

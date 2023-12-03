@@ -1,41 +1,40 @@
 <div>
   <div class="tablediv">
     <h1 class="tabletitle">All Salons</h1>
-    <div class="">
-      <table class="table">
-        <tr>
-          <td>
+
+    <table class="table">
+      <tr>
+        <td>
+          <mat-form-field>
+            <mat-label>Select salon status</mat-label>
+            <mat-select
+              [(ngModel)]="selectedSalonStatus"
+              name="salonStatus"
+              (selectionChange)="onSalonStatusChange()"
+            >
+              <mat-option *ngFor="let status of salonStatus" [value]="status">
+                {{ status }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </td>
+        <td class="right-align-container rightDiv">
+          <form [formGroup]="searchForm" (ngSubmit)="onSearchSubmit()">
             <mat-form-field>
-              <mat-label>Select salon status</mat-label>
-              <mat-select
-                [(ngModel)]="selectedSalonStatus"
-                name="salonStatus"
-                (selectionChange)="onSalonStatusChange()"
-              >
-                <mat-option *ngFor="let status of salonStatus" [value]="status">
-                  {{ status }}
-                </mat-option>
-              </mat-select>
+              <input
+                matInput
+                type="text"
+                placeholder="Salon Name"
+                formControlName="searchValue"
+              />
             </mat-form-field>
-          </td>
-          <td class="right-align-container rightDiv">
-            <form [formGroup]="searchForm" (ngSubmit)="onSearchSubmit()">
-              <mat-form-field>
-                <input
-                  matInput
-                  type="text"
-                  placeholder="Salon Name"
-                  formControlName="searchValue"
-                />
-              </mat-form-field>
-              <br />
-              <button color="primary" mat-raised-button>search</button>
-            </form>
-            <tr></tr>
-          </td>
-        </tr>
-      </table>
-    </div>
+            <br />
+            <button color="primary" mat-raised-button>search</button>
+          </form>
+          <tr></tr>
+        </td>
+      </tr>
+    </table>
   </div>
   <div class="tablediv">
     <table class="table">

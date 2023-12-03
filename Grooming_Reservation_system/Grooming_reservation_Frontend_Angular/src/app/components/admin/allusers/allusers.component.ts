@@ -3,7 +3,7 @@ import { AdmindataserviceService } from 'src/app/services/admindataservices/admi
 import { MatDialog} from  '@angular/material/dialog';
 import { EdituserComponent } from '../edituser/edituser.component';
 import { User } from 'src/app/dao/user';
-//PipeTransform for search
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-allusers',
@@ -12,14 +12,23 @@ import { User } from 'src/app/dao/user';
 })
 export class AllusersComponent {
 
-
-
   users: any[]=[];
+  searchValue='';
   recordsPerPage: 10;
   pagenum: number=1;
   ButtonDiv: boolean;
+  selectedUserStatus: any;
+  userStatus= [
+    'All Users',
+    'Enabled',
+    'Disabled'
+  ];
 
-  constructor(private admindataservice: AdmindataserviceService, private matDialog: MatDialog){}
+  constructor(private admindataservice: AdmindataserviceService, private matDialog: MatDialog, private fb: FormBuilder){}
+
+  searchForm =this.fb.nonNullable.group({
+    searchValue:'',
+  })
 
   ngOnInit():void{
     this.admindataservice.getAllUser().subscribe(data =>
@@ -40,6 +49,33 @@ export class AllusersComponent {
   enableUserById(userid: any) {
     this.admindataservice.enableUserById(userid).subscribe();
     window.location.reload();
+  }
+
+  searchUserBySearch(searchValue : string){
+    this.admindataservice.searchUserlike(searchValue).subscribe(data => this.users=data);
+  }
+
+  onSearchSubmit() {
+    this.searchValue = this.searchForm.value.searchValue ?? '';
+    if(this.searchValue == ''){
+      this.admindataservice.getAllUser().subscribe(data =>
+        this.users = data);
     }
+    else{
+       this.searchUserBySearch(this.searchValue);
+      }
+    }
+
+  onSalonStatusChange() {
+    console.log(this.selectedUserStatus);
+    if(this.selectedUserStatus == 'All Users'){
+      this.admindataservice.getAllUser().subscribe(data =>
+        this.users = data);
+    }
+    else{
+      this.admindataservice.searchUserByIsDeleted(this.selectedUserStatus).subscribe(data =>
+        this.users = data);
+    }
+  }
 
 }

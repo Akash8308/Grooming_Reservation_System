@@ -10,7 +10,8 @@ import com.edu.grooming.error.NotFoundException;
 @Service
 public interface AddressService {
 
-	public Address addAddress(Address address);
+	
+	public Address addAddress(Address address, Integer userid);
 
 	public List<Address> getAllAddress();
 
@@ -20,4 +21,7 @@ public interface AddressService {
 
 	public Address updateAddressById(Integer addressid, Address address) throws NotFoundException;
 
+	public List<Address> getAddressbyUserid(Integer userid);
+	
+	public Address updateAddressUser(Integer userid, Integer addressid);
 }

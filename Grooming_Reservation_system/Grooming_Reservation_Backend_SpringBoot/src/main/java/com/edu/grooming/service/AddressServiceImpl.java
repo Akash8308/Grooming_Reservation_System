@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.edu.grooming.dao.Address;
+import com.edu.grooming.dao.User;
 import com.edu.grooming.error.NotFoundException;
 import com.edu.grooming.repository.AddressRepository;
+import com.edu.grooming.repository.UserRepository;
 
 @Service
 public class AddressServiceImpl implements AddressService{
@@ -16,8 +18,11 @@ public class AddressServiceImpl implements AddressService{
 	@Autowired
 	private AddressRepository addressRepository;
 	
+	@Autowired
+	private UserRepository userRepository;
+	
 	@Override
-	public Address addAddress(Address address) {
+	public Address addAddress(Address address, Integer userid) {
 		return addressRepository.save(address);
 	}
 
@@ -66,4 +71,17 @@ public class AddressServiceImpl implements AddressService{
 	
 	}
 	
+	@Override
+	public List<Address> getAddressbyUserid(Integer userid) {
+		// TODO Auto-generated method stub
+		return addressRepository.getAddressbyUserid(userid);
+	}
+	
+	@Override
+	public Address updateAddressUser(Integer userid, Integer addressid) {
+		User user=userRepository.findById(userid).get();
+		Address address= addressRepository.findById(addressid).get();
+		address.updateAddressUser(user);
+		return addressRepository.save(address) ;
+	}
 }

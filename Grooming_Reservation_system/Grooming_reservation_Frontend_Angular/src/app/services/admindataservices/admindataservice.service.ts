@@ -9,7 +9,7 @@ import { Salon } from 'src/app/dao/salon';
   providedIn: 'root'
 })
 export class AdmindataserviceService {
-  
+   
   url = this.dataservice.url;
 
   constructor(private http: HttpClient, private dataservice: DataserviceService) { }
@@ -64,6 +64,14 @@ export class AdmindataserviceService {
 
   enableUserById(userid: any) {
     return this.http.get<User>(`${this.url}/enableUserById/${userid}`);
+  }
+
+  searchUserlike(searchValue: string) {
+    return this.http.get<User[]>(`${this.url}/searchUserlike/${searchValue}`);
+  }
+
+  searchUserByIsDeleted(searchValue: string) {
+    return this.http.get<User[]>(`${this.url}/searchUserByIsDeleted/${searchValue}`);
   }
 
 }

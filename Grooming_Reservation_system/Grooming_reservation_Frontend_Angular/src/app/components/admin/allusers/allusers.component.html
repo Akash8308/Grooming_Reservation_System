@@ -1,11 +1,44 @@
 <div>
   <h1 class="tabletitle">Registered Users</h1>
 </div>
+<table class="table">
+  <tr>
+    <td>
+      <mat-form-field>
+        <mat-label>Select user status</mat-label>
+        <mat-select
+          [(ngModel)]="selectedUserStatus"
+          name="salonStatus"
+          (selectionChange)="onSalonStatusChange()"
+        >
+          <mat-option *ngFor="let status of userStatus" [value]="status">
+            {{ status }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </td>
+    <td class="right-align-container rightDiv">
+      <form [formGroup]="searchForm" (ngSubmit)="onSearchSubmit()">
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            placeholder="User Name"
+            formControlName="searchValue"
+          />
+        </mat-form-field>
+        <br />
+        <button color="primary" mat-raised-button>search</button>
+      </form>
+      <tr></tr>
+    </td>
+  </tr>
+</table>
 <div class="tablediv">
   <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col">ID</th>
+        <!-- <th scope="col">ID</th> -->
         <th scope="col">First Name</th>
         <th scope="col">Last Name</th>
         <th scope="col">Email</th>
@@ -21,7 +54,7 @@
             | paginate : { itemsPerPage: recordsPerPage, currentPage: pagenum }
         "
       >
-        <td>{{ user.userid }}</td>
+        <!-- <td>{{ user.userid }}</td> -->
         <td>{{ user.userfirstname }}</td>
         <td>{{ user.userlastname }}</td>
         <td>{{ user.useremail }}</td>

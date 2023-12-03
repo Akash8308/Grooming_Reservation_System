@@ -15,8 +15,8 @@ import { InvalidcomponentComponent } from '../popups/invalidcomponent/invalidcom
 export class LoginComponent {
   inpusermail= "";
   inpuserpass= "";
-  errorMessage="Invalid Credentials";
   loginuser:boolean= false ;
+
   
 
   constructor(private userauthentication: UserauthenticationService, private router: Router, private dataservice: DataserviceService, private matDialog: MatDialog){}
@@ -37,10 +37,17 @@ export class LoginComponent {
   }
   
   errorHandling(banckenderror: any): void {
-      if(banckenderror.status==400){
+    if(banckenderror.status==400){
         this.matDialog.open(InvalidcomponentComponent,{
-          width: '250px'}
-        );
+          width: '250px', 
+          data:"Invalid Credentials"
+        })
+    }
+    else{
+      this.matDialog.open(InvalidcomponentComponent,{
+        width: '250px',
+        data:"Cannot Connect to Server"
+    })
     }
   }
   

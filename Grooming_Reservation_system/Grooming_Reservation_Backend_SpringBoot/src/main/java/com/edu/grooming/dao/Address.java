@@ -126,6 +126,11 @@ public class Address {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	public void updateAddressUser(User user2) {
+		this.user=user2;
+		
+	}
 
 	@Override
 	public String toString() {
