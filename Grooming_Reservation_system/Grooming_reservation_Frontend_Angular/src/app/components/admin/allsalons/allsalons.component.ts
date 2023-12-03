@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Salon } from 'src/app/dao/salon';
 import { SalonService } from 'src/app/services/salonservices/salonservice.service';
 import { EditsalonComponent } from '../editsalon/editsalon.component';
-import { AdmindataserviceService } from 'src/app/services/admindataservices/admindataservice.service';
 import { SalonapprovepopupComponent } from '../../popups/salonapprovepopup/salonapprovepopup.component';
 import { FormBuilder } from '@angular/forms';
 
@@ -63,14 +62,14 @@ export class AllsalonsComponent {
 
   disableSalon(salonid: string, salon: Salon) {
     this.msg= 'Disabled';
-      this.admindataservice.disableSalonById(salonid,salon).subscribe(()=>{
+      this.salondataservice.disableSalonById(salonid,salon).subscribe(()=>{
         this.matDialog.open(SalonapprovepopupComponent,{width: '250px', data:this.msg});
       })
     }
 
   enableSalon(salonid: string, salon: Salon) {
     this.msg= 'Enabled';
-      this.admindataservice.enableSalonById(salonid,salon).subscribe(()=>{
+      this.salondataservice.enableSalonById(salonid,salon).subscribe(()=>{
         this.matDialog.open(SalonapprovepopupComponent,{width: '250px', data:this.msg});
       })
     }
@@ -104,7 +103,7 @@ export class AllsalonsComponent {
   //   })
   // }
 
-  constructor(private salondataservice: SalonService, private matDialog: MatDialog, private admindataservice: AdmindataserviceService, private fb: FormBuilder){}
+  constructor(private salondataservice: SalonService, private matDialog: MatDialog,  private fb: FormBuilder){}
 
 
   

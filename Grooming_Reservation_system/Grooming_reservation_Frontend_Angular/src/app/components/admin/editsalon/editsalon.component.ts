@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AdmindataserviceService } from 'src/app/services/admindataservices/admindataservice.service';
+import { SalonService } from 'src/app/services/salonservices/salonservice.service';
 
 
 @Component({
@@ -13,17 +13,17 @@ export class EditsalonComponent {
 salon: any;
 salonid: any;
 
-    constructor(@Inject(MAT_DIALOG_DATA) public data:any, private admindataservice: AdmindataserviceService)
+    constructor(@Inject(MAT_DIALOG_DATA) public data:any, private salondataservice: SalonService)
     { 
       this.salonid = data;
     }
 
     ngOnInit(){
-      this.admindataservice.getSalonById(this.salonid).subscribe(data=> this.salon=data);
+      this.salondataservice.getSalonById(this.salonid).subscribe(data=> this.salon=data);
     }
 
     saveSalon() {
-      this.admindataservice.updateSalonById(this.salonid, this.salon).subscribe();
+      this.salondataservice.updateSalonById(this.salonid, this.salon).subscribe();
       window.location.reload();
     }
  

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserauthenticationService } from 'src/app/services/userdataservices/userauthentication.service';
+import { UserauthenticationService } from 'src/app/services/userservices/userauthentication.service';
 
 @Component({
   selector: 'app-adminhomepage',

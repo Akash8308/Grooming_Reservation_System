@@ -1,0 +1,48 @@
+<p>viewallsalon works!</p>
+<div>
+    <h1 class="tabletitle">All Registered User Data</h1>
+  </div>
+  <div class="tablediv">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          
+          <th scope="col">Salon Name</th>
+          <th scope="col">Salon Description</th>
+          <th scope="col">Salon Opening Hours</th>
+          <th scope="col">Salon Email</th>
+          <th scope="col">Salon Phone</th>
+          <th scope="col">Salon Address</th>
+          <th scope="col">Salon Pincode</th>
+          <th scope="col">Salon Rating</th>
+          <th scope="col">Salon State</th>
+         
+        
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let salon of salons
+              | paginate : { itemsPerPage: recordsPerPage, currentPage: pagenum } " >
+         
+          <td scope="col">{{ salon.salonname }}</td>
+          <td scope="col">{{ salon.salondescription }}</td>
+          <td scope="col">{{ salon.salonopeninghours }}</td>
+          <td scope="col">{{ salon.salonemailid }}</td>
+          <td scope="col">{{ salon.salonphone }}</td>
+          <td scope="col">{{ salon.salonaddress }}</td>
+          <td scope="col">{{ salon.salonpincode }}</td>
+          <td scope="col">{{ salon.salonrating }}</td>
+          <td scope="col">{{ salon.salonstate }}</td>
+            
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <!--Including the pagination control.-->
+    <div class="text-right">
+      <pagination-controls (pageChange)="pagenum = $event"></pagination-controls>
+    </div>
+  </div>
+  

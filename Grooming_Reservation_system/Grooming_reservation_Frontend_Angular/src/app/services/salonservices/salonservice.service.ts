@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Salon } from 'src/app/dao/salon';
-import { DataserviceService } from '../userdataservices/userdataservice.service';
+import { UserDataService } from '../userservices/userdataservice.service'; 
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class SalonService {
   }
   
 
-  constructor(private http:HttpClient, private dataservice: DataserviceService) { }
+  constructor(private http:HttpClient, private dataservice: UserDataService) { }
 
   url = this.dataservice.url;
 
@@ -48,6 +48,28 @@ export class SalonService {
     return this.http.get<Salon[]>(`${this.url}/searchSalonByStatus/${selectedSalonStatus}`);
   }
   
+  getSalonById(salonid:any){
+    return this.http.get<Salon>(`${this.url}/getSalonById/${salonid}`)
+  }
+
+  disableSalonById(salonid: any, salon: Salon){
+    salon.salonstatus='Disabled';
+    return this.http.put<Salon>(`${this.url}/updateSalonById/${salonid}`, salon);
+  }
+
+  enableSalonById(salonid: any, salon: Salon){
+    salon.salonstatus='Enabled';
+    return this.http.put<Salon>(`${this.url}/updateSalonById/${salonid}`, salon);
+  }
+
+  rejectSalonById(salonid: any, salon: Salon){
+    salon.salonstatus='Rejected';
+    return this.http.put<Salon>(`${this.url}/updateSalonById/${salonid}`, salon);
+  }
+
+  deleteSalonById(salonid: any){
+    return this.http.delete<Salon>(`${this.url}/deleteSalonByid/${salonid}`);
+  }
 }
   
   

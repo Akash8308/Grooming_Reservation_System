@@ -4,7 +4,6 @@ import { EditsalonComponent } from '../editsalon/editsalon.component';
 import { MatDialog } from '@angular/material/dialog';
 import { SalonService } from 'src/app/services/salonservices/salonservice.service';
 import { SalonapprovepopupComponent } from '../../popups/salonapprovepopup/salonapprovepopup.component';
-import { AdmindataserviceService } from 'src/app/services/admindataservices/admindataservice.service';
 
 @Component({
   selector: 'app-salonrequests',
@@ -23,17 +22,17 @@ export class SalonrequestsComponent {
   
     deleteSalon(salonid: any, salon: Salon) {
       this.msg='Rejected';
-      this.admindataservice.rejectSalonById(salonid,salon).subscribe(()=>this.showPopup());
+      this.salondataservice.rejectSalonById(salonid,salon).subscribe(()=>this.showPopup());
     }
   
     approveSalon(salonId: any, salon: Salon){
       this.msg='Approved';
-      this.admindataservice.enableSalonById(salonId,salon).subscribe(()=>this.showPopup());
+      this.salondataservice.enableSalonById(salonId,salon).subscribe(()=>this.showPopup());
     }
 
     showPopup(){
       this.matDialog.open(SalonapprovepopupComponent,{width: '250px',data:this.msg});
     }
 
-    constructor(private salondataservice: SalonService, private matDialog: MatDialog, private admindataservice: AdmindataserviceService){}
+    constructor(private salondataservice: SalonService, private matDialog: MatDialog){}
 }

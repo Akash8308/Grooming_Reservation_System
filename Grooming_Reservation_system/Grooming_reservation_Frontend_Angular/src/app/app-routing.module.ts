@@ -13,10 +13,15 @@ import { AppointmentsComponent } from './components/admin/appointments/appointme
 import { SalonLoginComponent } from './components/salon/salonlogin/salonlogin.component';
 import { SalonhomepageComponent } from './components/salon/salonhomepage/salonhomepage.component';
 import { SalonrequestsComponent } from './components/admin/salonrequests/salonrequests.component';
-// import { UpdateuserComponent } from './components/user/updateuser/updateuser.component';
-// import { UseraddressComponent } from './components/user/useraddressregister/useraddress.component';
-// import { ViewaallappoinmentComponent } from './components/user/viewaallappoinment/viewaallappoinment.component';
-// import {userhomepage} from  './components/user/viewaallappoinment/userhomepage.component';
+import { ViewuserComponent } from './components/user/viewuser/viewuser.component';
+import { ViewallsalonComponent } from './components/user/viewallsalon/viewallsalon.component';
+import { ViewallstylistComponent } from './components/user/viewallstylist/viewallstylist.component';
+import { ViewallserviceComponent } from './components/user/viewallservice/viewallservice.component';
+import { ViewaallappoinmentComponent } from './components/user/viewaallappoinment/viewaallappoinment.component';
+import { UpdateaddressComponent } from './components/user/updateaddress/updateaddress.component';
+import { UseraddressComponent } from './components/user/useraddressregister/useraddress.component';
+import { ViewaddressComponent } from './components/user/viewaddress/viewaddress.component';
+import { UpdateuserComponent } from './components/user/updateuser/updateuser.component';
 
 
 const routes: Routes = [
@@ -34,10 +39,17 @@ const routes: Routes = [
   { path: "salonhomepage", component: SalonhomepageComponent },
   { path: "salonlogin", component: SalonLoginComponent },
   { path: "salonrequests", component: SalonrequestsComponent },
-  // { path: "updateuser", component: UpdateuserComponent },
-  // { path: "useraddress", component: UseraddressComponent },
-  // { path: "userhomepage", component:  userhomepage},
-  // { path: "viewaallappointment", component: ViewaallappoinmentComponent }
+  { path:"viewuser",component:ViewuserComponent },
+  { path:"viewallsalon",component:ViewallsalonComponent },
+  { path:"viewallstylist",component:ViewallstylistComponent },
+  { path:"viewallservice",component:ViewallserviceComponent },
+  { path:"viewallappoinment",component:ViewaallappoinmentComponent },
+  { path:"useraddressregister",component:UseraddressComponent },
+  { path:"viewaddress",component:ViewaddressComponent },
+  { path:"updateaddress",component:UpdateaddressComponent},
+  { path:"UpdateuserComponent",component:UpdateuserComponent},
+  
+  
   
 
 ];

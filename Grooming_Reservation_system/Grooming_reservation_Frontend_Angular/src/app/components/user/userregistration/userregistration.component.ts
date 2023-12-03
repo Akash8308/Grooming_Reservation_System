@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { User } from 'src/app/dao/user';
-import { DataserviceService } from 'src/app/services/userdataservices/userdataservice.service';
+import { UserDataService } from 'src/app/services/userservices/userdataservice.service'; 
 
 @Component({
   selector: 'app-userregistration',
@@ -22,7 +22,7 @@ export class UserregistrationComponent {
 
   register(){
     // console.log(this.user);
-    this.dataservice.adduser(this.user).subscribe( () => this.router.navigate(['login']),banckenderror=>this.errorHandling(banckenderror));
+    this.userDataService.adduser(this.user).subscribe( () => this.router.navigate(['login']),banckenderror=>this.errorHandling(banckenderror));
   }
   errorHandling(banckenderror: any): void {
     if(banckenderror.status==409){
@@ -37,6 +37,6 @@ export class UserregistrationComponent {
     this.router.navigate(['login']);
   }
 
-  constructor(private dataservice: DataserviceService, private router: Router, private snackbar: MatSnackBar){}
+  constructor(private userDataService: UserDataService, private router: Router, private snackbar: MatSnackBar){}
 
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserauthenticationService } from 'src/app/services/userdataservices/userauthentication.service';
-import { DataserviceService } from 'src/app/services/userdataservices/userdataservice.service';
+import { UserauthenticationService } from 'src/app/services/userservices/userauthentication.service';
+import { UserDataService } from 'src/app/services/userservices/userdataservice.service'; 
 import { MatDialog} from  '@angular/material/dialog';
 import { InvalidcomponentComponent } from '../popups/invalidcomponent/invalidcomponent.component';
 
@@ -19,7 +19,7 @@ export class LoginComponent {
 
   
 
-  constructor(private userauthentication: UserauthenticationService, private router: Router, private dataservice: DataserviceService, private matDialog: MatDialog){}
+  constructor(private userauthentication: UserauthenticationService, private router: Router, private userDataService: UserDataService, private matDialog: MatDialog){}
 
   registerBtn(){
     this.router.navigate(['userregistration']);

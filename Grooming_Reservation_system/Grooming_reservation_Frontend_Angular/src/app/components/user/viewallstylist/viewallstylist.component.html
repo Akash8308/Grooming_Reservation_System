@@ -1,0 +1,36 @@
+<div>
+  <h1 class="tabletitle">All Registered Stylist Data</h1>
+</div>
+<div class="tablediv">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">stylist firstname</th>
+        <th scope="col">stylist lastname</th>
+        <th scope="col">stylist Phone</th>
+        <th scope="col">stylist specialization</th>
+        <th scope="col">stylist Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="
+          let stylist of stylist
+            | paginate : { itemsPerPage: recordsPerPage, currentPage: pagenum }
+        "
+      >
+        <td scope="col">{{ stylist.firstname }}</td>
+        <td scope="col">{{ stylist.lastname }}</td>
+        <td scope="col">{{ stylist.stylistphone }}</td>
+        <td scope="col">{{ stylist.stylistspecialization }}</td>
+        <td scope="col">{{ stylist.stylistrating }}</td>
+
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <!--Including the pagination control.-->
+  <div class="text-right">
+    <pagination-controls (pageChange)="pagenum = $event"></pagination-controls>
+  </div>
+</div>

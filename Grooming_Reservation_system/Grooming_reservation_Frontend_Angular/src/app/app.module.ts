@@ -28,6 +28,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { ViewuserComponent } from './components/user/viewuser/viewuser.component';
+import { ViewallserviceComponent } from './components/user/viewallservice/viewallservice.component';
+import { UpdateaddressComponent } from './components/user/updateaddress/updateaddress.component';
+import { UpdateuserComponent } from './components/user/updateuser/updateuser.component';
+import { UseraddressComponent } from './components/user/useraddressregister/useraddress.component';
+import { ViewaallappoinmentComponent } from './components/user/viewaallappoinment/viewaallappoinment.component';
+import { ViewaddressComponent } from './components/user/viewaddress/viewaddress.component';
+import { ViewallsalonComponent } from './components/user/viewallsalon/viewallsalon.component';
+import { ViewallstylistComponent } from './components/user/viewallstylist/viewallstylist.component';
+
 
 @NgModule({
   declarations: [
@@ -46,7 +56,16 @@ import { MatInputModule } from '@angular/material/input';
     EdituserComponent,
     EditsalonComponent,
     SalonrequestsComponent,
-    SalonapprovepopupComponent
+    SalonapprovepopupComponent,
+    ViewuserComponent,
+    ViewallserviceComponent,
+    UpdateaddressComponent,
+    UpdateuserComponent,
+    UseraddressComponent,
+    ViewaallappoinmentComponent,
+    ViewaddressComponent,
+    ViewallsalonComponent,
+    ViewallstylistComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
-import { UserauthenticationService } from './userdataservices/userauthentication.service';
+import { UserauthenticationService } from './userservices/userauthentication.service';
 import { retry } from 'rxjs';
 
 @Injectable({

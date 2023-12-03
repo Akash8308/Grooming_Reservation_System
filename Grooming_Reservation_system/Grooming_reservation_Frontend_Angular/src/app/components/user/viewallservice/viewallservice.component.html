@@ -1,0 +1,41 @@
+<p>viewallsalon works!</p>
+<div>
+    <h1 class="tabletitle">All Registered User Data</h1>
+  </div>
+  <div class="tablediv">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          
+          <th scope="col">Service Name</th>
+          <th scope="col">Service Description</th>
+          <th scope="col">Service price</th>
+          <th scope="col">Service gendertype</th>
+         
+         
+        
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let service of service
+              | paginate : { itemsPerPage: recordsPerPage, currentPage: pagenum } " >
+         
+          <td scope="col">{{ service.servicesname }}</td>
+          <td scope="col">{{ service.servicesdescription }}</td>
+          <td scope="col">{{ service.servicesprice }}</td>
+          <td scope="col">{{ service.servicesgendertype }}</td>
+       
+         
+            
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <!--Including the pagination control.-->
+    <div class="text-right">
+      <pagination-controls (pageChange)="pagenum = $event"></pagination-controls>
+    </div>
+  </div>
+  
