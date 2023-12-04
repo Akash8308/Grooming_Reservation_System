@@ -14,4 +14,23 @@ export class ServiceService {
   getAllServices(){
     return this.http.get<[Service]>(`${this.url}/getAllServices`);
   }
+
+  getAllServicesBySalonId(salonid:number){
+    return this.http.get<Service[]>(`${this.url}/geAlltServicesBySalonId/${salonid}`);
+  }
+
+  getServicesById(servicesid:number){
+    return this.http.get<Service>(`${this.url}/getServicesById/${servicesid}`);
+  }
+
+  updateServiceByServiceId(servicesid:number,services:Service){
+    return this.http.put<Service>(`${this.url}/updateServiceByServiceId/${servicesid}`,services);
+  }
+  deleteServiceByServiceId(servicesid:number){
+    return this.http.delete<Service[]>(`${this.url}/deleteServiceByServiceId/${servicesid}`);
+  }
+
+  saveServices(services:Service,salonid:number){
+    return this.http.post<Service>(`${this.url}/addServices/${salonid}`,services);
+  }
 }

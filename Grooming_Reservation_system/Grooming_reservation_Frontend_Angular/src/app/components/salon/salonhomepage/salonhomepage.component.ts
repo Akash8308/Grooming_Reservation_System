@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SalonService } from 'src/app/services/salonservices/salonservice.service';
 
+
 @Component({
   selector: 'app-salonhomepage',
   templateUrl: './salonhomepage.component.html',
@@ -20,8 +21,6 @@ logout() {
   this.router.navigate(['salonlogin']);
 }
   
-  loginBtn():void{
-    console.log("login button clicked")
-    this.router.navigate(['salonlogin']);
-  }
+
+  
 }

@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-body p-5">
-    <h2 class="text-uppercase text-center mb-5">View User</h2>
+    <h2 class="text-uppercase text-center mb-5">Profile</h2>
 
     <form>
       <div class="form-outline mb-2">
@@ -160,27 +160,22 @@
       <br />
       <div class="d-flex justify-content-center">
         <button
-          type="submit"
-           mat-raised-button color="warn"
+          color="primary"
+          mat-raised-button
+          (click)="updateUser(this.user.userid)"
         >
-          Save
+          Edit
         </button>
-        <button
-        color="primary"
-        mat-raised-button
-        (click)="updateUser(this.user.userid)"
-        >
-        Edit
-      </button>
-      
       </div>
     </form>
   </div>
 </div>
-
-           
-          
-          <!--<td>
+<div class="container">
+  <div class="addressDiv">
+    <app-viewaddress></app-viewaddress>
+  </div>
+</div>
+<!--<td>
             <button
               color="accent"
               mat-raised-button
@@ -189,5 +184,3 @@
               Delete
             </button>
           </td>-->
-     
-  

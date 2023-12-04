@@ -244,26 +244,7 @@
                     </div>
                   </div>
                 </div>
-                <!--
-<mat-form-field>
-  <mat-label>Favorite food</mat-label>
-  <mat-select>
-    @for (food of foods; track food) {
-      <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
-    }
-  </mat-select>
-</mat-form-field>
 
-<h4>Basic native select</h4>
-<mat-form-field>
-  <mat-label>Cars</mat-label>
-  <select matNativeControl required>
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
-  </select>
-</mat-form-field>-->
                 <!--salon opening hours-->
                 <div class="form-outline mb-2">
                   <label class="form-label" for="form3Example1cg">
@@ -292,18 +273,19 @@
                       salonopeninghours invalid
                     </div>
                   </div>
+                  <!--  <mat-form-field>
+                    <mat-label>Select Opening Hours</mat-label>
+                    <mat-select
+                      [(ngModel)]="selectedSalonopeninghours"
+                      name="salonOpeninghours"
+                      (selectionChange)="onselectedSalonOpeningHours()"
+                    >
+                      <mat-option *ngFor="let salonOpeninghours of openinghours" [value]="salonOpeninghours">
+                        {{ salonOpeninghours }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>-->
                 </div>
-                <!--<div class="form-outline mb-2">
-                  <label class="form-label" for="form3Example1cg">
-                    SALON OPENING HOURS
-                  </label>
-                    <select #teams (change)="onSelected(teams.value)">
-                      <option default>Pick a option</option>
-                      <option>mon-fri 9:00-5:00</option>
-                      <option>mon-fri 9:00-5:00</option>
-                      <option>mon-fri 9:00-5:00</option>
-                    </select>
-                  </div>-->
 
                 <!--salon description-->
                 <div class="form-outline mb-2">
@@ -442,3 +424,13 @@
     </div>
   </div>
 </section>
+
+<!-- <div>
+  <mat-form-field>
+  <mat-label>Select Opening Hours</mat-label>
+  <mat-select
+    [(ngModel)]="selectedSalonopeninghours"
+    name="salonOpeninghours"
+    (selectionChange)="onselectedSalonOpeningHours(selectedSalonopeninghours)"
+  >
+    <mat-option *ngFor="let salonOpeninghours of openinghours" [value]="salonOpeninghours"> -->

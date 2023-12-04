@@ -12,6 +12,8 @@ export class Salon {
         public salondescription:string,
         public salonrating:string,
         public salonpassword:string,
-        public salonstatus:string
+        public salonstatus:string,
+        public saloncategory: string,
+        public salonpicurl: string
         ){}   
 }

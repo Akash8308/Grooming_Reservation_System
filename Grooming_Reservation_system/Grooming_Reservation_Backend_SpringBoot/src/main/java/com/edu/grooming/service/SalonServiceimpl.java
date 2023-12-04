@@ -80,6 +80,8 @@ public class SalonServiceimpl implements SalonService {
 			salon2.setSalonrating(salon.getSalonrating());
 			salon2.setSalonstate(salon.getSalonstate());
 			salon2.setSalonstatus(salon.getSalonstatus());
+			salon2.setSaloncategory(salon.getSaloncategory());
+			salon2.setSalonpicurl(salon.getSalonpicurl());
 
 		}
 		return salonRepository.save(salon2);

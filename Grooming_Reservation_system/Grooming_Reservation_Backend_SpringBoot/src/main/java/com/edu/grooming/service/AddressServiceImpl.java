@@ -25,7 +25,7 @@ public class AddressServiceImpl implements AddressService{
 	public Address addAddress(Address address, Integer userid) {
 		return addressRepository.save(address);
 	}
-
+	
 	@Override
 	public List<Address> getAllAddress() {
 		// TODO Auto-generated method stub

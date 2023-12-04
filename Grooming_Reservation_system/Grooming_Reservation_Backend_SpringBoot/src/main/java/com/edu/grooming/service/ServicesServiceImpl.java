@@ -61,5 +61,44 @@ public class ServicesServiceImpl implements ServicesService{
 	public List<Services> getServicesByGender(String servicesgendertype) {
 		return servicesRepository.findByServicesgendertype(servicesgendertype);
 	}
+	
+	@Override
+	public List<Services> getAllServicesBySalonId(Integer salonid) {
+		return servicesRepository.getAllServicesBySalonId(salonid);
+		
+	}
 
+
+	@Override
+	public Services updateServiceByServiceId(Integer servicesid, Services services) throws NotFoundException {
+		
+		Services services2 =null;
+		
+		Optional<Services> services1=servicesRepository.findById(servicesid);
+		if(!services1.isPresent()) {
+			throw new NotFoundException("Service does not exist");
+		}else {
+			services2=servicesRepository.findById(servicesid).get();
+			services2.setServicesname(services.getServicesname());
+			services2.setServicesdescription(services.getServicesdescription());
+			services2.setServicesprice(services.getServicesprice());
+			services2.setServicesgendertype(services.getServicesgendertype());
+		}
+		
+		
+		return servicesRepository.save(services2);
+	}
+
+
+	@Override
+	public List<Services> deleteServiceByServiceId(Integer servicesid) throws NotFoundException {
+		
+		Optional<Services> services=servicesRepository.findById(servicesid);
+		if(!services.isPresent()) {
+			throw new NotFoundException("Services is not found");
+			
+		}
+		servicesRepository.deleteById(servicesid);
+		return servicesRepository.findAll() ;
+	}
 }

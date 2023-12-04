@@ -87,14 +87,14 @@
             <td scope="col">{{ salon.salonstatus }}</td>
             <!-- <td scope="col">{{ salon.salonpassword }}</td> -->
             <!-- <td>
-            <button
-              color="primary"
-              mat-raised-button
-              (click)="editSalon(this.salon.salonid)"
-            >
-              Edit
-            </button>
-          </td> -->
+              <button
+                color="primary"
+                mat-raised-button
+                (click)="editSalon(this.salon.salonid)"
+              >
+                Edit
+              </button>
+            </td> -->
             <div *ngIf="salon.salonstatus === 'Disabled'; else showEnable">
               <td>
                 <button

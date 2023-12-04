@@ -19,10 +19,7 @@ public interface StylistRepository extends JpaRepository<Stylist, Integer> {
 	@Query(value="select * from stylist where stylistspecialization=?1",nativeQuery = true)
 	List<Stylist> findByStylistspecialization(String stylistspecialization);
 
+	@Query(value="select * from stylist where salonid=?",nativeQuery=true)
+	List<Stylist> getAllStylistBySalonId(Integer salonid);
 	
-
-	
-	
-
-
 }

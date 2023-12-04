@@ -16,5 +16,11 @@ public interface ServicesService {
 	Services getServicesById(Integer servicesid) throws NotFoundException;
 
 	List<Services> getServicesByGender(String servicesgendertype);
+	
+	List<Services> getAllServicesBySalonId(Integer salonid);
+
+	Services updateServiceByServiceId(Integer servicesid, Services services) throws NotFoundException;
+
+	List<Services> deleteServiceByServiceId(Integer servicesid) throws NotFoundException;
 
 }

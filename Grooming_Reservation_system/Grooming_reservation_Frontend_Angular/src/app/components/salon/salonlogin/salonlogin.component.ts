@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SalonService } from 'src/app/services/salonservices/salonservice.service';
+import { InvalidcomponentComponent } from '../../popups/invalidcomponent/invalidcomponent.component';
 
 
 @Component({
@@ -14,10 +15,11 @@ export class SalonLoginComponent {
 
   inpusermail= "";
   inpuserpass= "";
+  errorMessage="Invalid Credentials";
   loginuser:boolean= false ;
   
 
-  constructor(private salonservice:SalonService, private router: Router,private snackbar:MatSnackBar){}
+  constructor(private salonservice:SalonService, private router: Router,private matDialog: MatDialog){}
 
   registerbtn(){
     this.router.navigate(['salonregistration']);
@@ -28,6 +30,7 @@ export class SalonLoginComponent {
         data=>{
               sessionStorage.setItem("salonemailid",data.salonemailid),
               sessionStorage.setItem("salonname",data.salonname),
+              sessionStorage.setItem("salonid",data.salonid),
               this.router.navigate(['salonhomepage']),
               this.loginuser = true
               },banckenderror=>this.errorHandling(banckenderror)
@@ -38,15 +41,21 @@ export class SalonLoginComponent {
           }
           
           errorHandling(banckenderror: any): void {
-            if(banckenderror.status==409){
-                  this.snackbar.open("Invalid credentials", 'close', {
-                    duration:3000,
-                    verticalPosition:'top',
-                    
-            });
+            if(banckenderror.status==400){
+              this.matDialog.open(InvalidcomponentComponent,{
+                width: '250px', 
+                data:"Invalid Credentials"
+              })
+          }
+          else{
+            this.matDialog.open(InvalidcomponentComponent,{
+              width: '250px',
+              data:"Cannot Connect to Server"
+          })
+          }
 
           }
-        }
+        
         
     
 }

@@ -37,7 +37,18 @@ import { ViewaallappoinmentComponent } from './components/user/viewaallappoinmen
 import { ViewaddressComponent } from './components/user/viewaddress/viewaddress.component';
 import { ViewallsalonComponent } from './components/user/viewallsalon/viewallsalon.component';
 import { ViewallstylistComponent } from './components/user/viewallstylist/viewallstylist.component';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatIconModule } from '@angular/material/icon';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { AllserviceComponent } from './components/salon/allservice/allservice.component';
+import { EditserviceComponent } from './components/salon/editservice/editservice.component'; 
+import { MatRadioModule } from '@angular/material/radio';
+import { AddserviceComponent } from './components/salon/addservice/addservice.component';
+import { UpdatesalonprofileComponent } from './components/salon/updatesalonprofile/updatesalonprofile.component';
+import { SalonprofileComponent } from './components/salon/salonprofile/salonprofile.component';
+import { AddstylistComponent } from './components/salon/addstylist/addstylist.component';
+import { EditstylistComponent } from './components/salon/editstylist/editstylist.component';
+import { AllstylistComponent } from './components/salon/allstylist/allstylist.component';
 
 @NgModule({
   declarations: [
@@ -65,22 +76,36 @@ import { ViewallstylistComponent } from './components/user/viewallstylist/viewal
     ViewaallappoinmentComponent,
     ViewaddressComponent,
     ViewallsalonComponent,
-    ViewallstylistComponent
+    ViewallstylistComponent,
+    UpdatesalonprofileComponent,
+    AllserviceComponent,
+    EditserviceComponent,
+    AddserviceComponent,
+    SalonprofileComponent,
+    AddstylistComponent,
+    EditstylistComponent,
+    AllstylistComponent
+   
   ],
   imports: [
+    NgxPaginationModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    NgxPaginationModule,
+    
     MatButtonModule,
     MatDialogModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatPaginatorModule,
+    MatIconModule,
+    CarouselModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]

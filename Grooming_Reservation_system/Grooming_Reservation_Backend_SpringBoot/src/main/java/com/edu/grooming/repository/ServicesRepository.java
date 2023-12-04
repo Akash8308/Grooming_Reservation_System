@@ -13,4 +13,8 @@ public interface ServicesRepository extends JpaRepository<Services, Integer>{
 
 	@Query(value = "SELECT * FROM Services WHERE servicesgendertype = ?1", nativeQuery = true)
 	List<Services> findByServicesgendertype(String servicesgendertype);
+	
+	@Query(value = "select * from services where salonid=?",nativeQuery = true)
+	List<Services> getAllServicesBySalonId(Integer salonid);
+	
 }

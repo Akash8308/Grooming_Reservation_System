@@ -88,15 +88,22 @@ public class Salon {
 	@OneToMany(mappedBy = "salon", cascade = CascadeType.ALL)
 	private List<Appointment> appointment;
 
+	@NotBlank(message="Salon category should not be null")
+	@Column(name="saloncategory")
+	private String saloncategory;
+	
+	
+	@Column(name="salonpicurl")
+	private String salonpicurl;
 
-public Salon() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public Salon() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
 
 	public Salon(String salonname, String salonaddress, String saloncity, String salonpincode, String salonstate,
 			String salonphone, String salonemailid, String salonopeninghours, String salondescription,
-			String salonrating, String salonpassword,String salonstatus) {
+			String salonrating, String salonpassword,String salonstatus,String saloncategory,String salonpicurl) {
 		super();
 		this.salonname = salonname;
 		this.salonaddress = salonaddress;
@@ -220,6 +227,22 @@ public Salon() {
 		return stylist;
 	}
 
+	public String getSaloncategory() {
+		return saloncategory;
+	}
+
+	public void setSaloncategory(String saloncategory) {
+		this.saloncategory = saloncategory;
+	}
+
+	public String getSalonpicurl() {
+		return salonpicurl;
+	}
+
+	public void setSalonpicurl(String salonpicurl) {
+		this.salonpicurl = salonpicurl;
+	}
+
 	public void setStylist(List<Stylist> stylist) {
 		this.stylist = stylist;
 	}
@@ -246,7 +269,7 @@ public Salon() {
 				+ ", saloncity=" + saloncity + ", salonpincode=" + salonpincode + ", salonstate=" + salonstate
 				+ ", salonphone=" + salonphone + ", salonemailid=" + salonemailid + ", salonopeninghours="
 				+ salonopeninghours + ", salondescription=" + salondescription + ", salonrating=" + salonrating
-				+ ", salonpassword=" + salonpassword + ", salonstatus=" + salonstatus + "]";
+				+ ", salonpassword=" + salonpassword +  ", salonstatus=" + salonstatus + ", saloncategory=" + saloncategory + ", salonpicurl=" + salonpicurl +"]";
 	}
 
 	

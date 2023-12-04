@@ -1,470 +1,358 @@
-<body>
-  <!-- Navigation
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container px-4 px-lg-5">
-      <img
-        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-        style="width: 185px"
-        alt="logo"
-      />
-      <a class="navbar-brand" href="#!">ChromaCuts</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-      
-      <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#!">Home</a>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              id="navbarDropdown"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              >Shop</a
-            >
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#!">All Products</a></li>
-              <li><hr class="dropdown-divider" /></li>
-              <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-              <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="d-flex">
-          <button
-            class="btn btn-outline-dark"
-            type="submit"
-            (click)="logout()"
-            n
-          >
-            <i class="bi-cart-fill me-1"></i>
-            logout
-          </button>
-        </form>
-      </div>
-    </div>
-  </nav>
--->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container px-4 px-lg-5">
+    <!-- Logo and Company Name on the left -->
+    <img
+      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+      style="width: 120px"
+      alt="logo"
+    />
+    <a class="navbar-brand chromacuts-logoname" href="#page-top">ChromaCuts</a>
 
-  <!--Top Navigation Bar-->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container px-4 px-lg-5">
-      <!-- Logo and Company Name on the left -->
-      <img
-        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
-        style="width: 120px"
-        alt="logo"
-      />
-      <a class="navbar-brand chromacuts-logoname" href="#page-top"
-        >ChromaCuts</a
-      >
-
-      <!-- Toggle Button for Small Screens -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarResponsive"
-        aria-controls="navbarResponsive"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        Menu <i class="fas fa-bars"></i>
-      </button>
-
-      <!-- Navigation Links on the right -->
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#services">Services</a>
-          </li>
-
-          <!-- Dropdown for Login/Signup -->
-          <li class="nav-item dropdown">
-            <button class="nav-link dropdown-btn">Login</button>
-            <div class="dropdown-content">
-              <a href="#">User</a>
-              <a href="#">Salon</a>
-            </div>
-          </li>
-
-          <li class="nav-item dropdown">
-            <button class="nav-link dropdown-btn">Signup</button>
-            <div class="dropdown-content">
-              <a href="#">User</a>
-              <a href="#">Salon</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Header-->
-  <header class="gradient-custom-2 py-5 pt-5">
-    <div
-      class="container px-4 px-lg-5 d-flex flex-column h-100 align-items-center justify-content-center"
+    <!-- Toggle Button for Small Screens -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
-      <div class="text-center mt-5">
-        <h3 class="fw-bold text-playfair">Welcome {{ username }}</h3>
-        <br />
-        <h1 class="fw-normal text-playfair">Style on the Go</h1>
-        <h2 class="lead fw-normal text-white mb-0 text-playfair">
-          With ChromaCuts
-        </h2>
-      </div>
-    </div>
-  </header>
+      Menu <i class="fas fa-bars"></i>
+    </button>
 
+    <!-- Navigation Links on the right -->
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto" style="padding: 2rem">
+        <li class="nav-item">
+          <button
+            mat-fab
+            extended
+            class="nav-link"
+            style="padding: 1rem"
+            (click)="redirect('introductionDiv')"
+          >
+            Home
+          </button>
+        </li>
+        <li class="nav-item" style="padding-left: 0.5rem">
+          <button
+            class="nav-link"
+            mat-fab
+            extended
+            (click)="redirect('salons')"
+          >
+            About
+          </button>
+        </li>
+
+        <li class="nav-item" style="padding-left: 0.5rem">
+          <button
+            class="nav-link"
+            mat-fab
+            extended
+            (click)="redirect('salons')"
+          >
+            Salons
+          </button>
+        </li>
+
+        <li style="padding-left: 0.5rem">
+          <button mat-fab extended routerLink="/viewuser">
+            <mat-icon>account_circle</mat-icon>
+            {{ username }}
+          </button>
+        </li>
+        <li style="padding-left: 0.5rem">
+          <button mat-fab extended (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- main div -->
+<div class="hero" id="introductionDiv">
+  <div class="contentTitle">
+    <h1>Hello! {{ username }}</h1>
+    <h2>
+      🌟 Welcome to ChromaCuts! 🌟
+      <br />
+      Step into luxury and convenience at ChromaCuts! We're delighted to have
+      you on our online platform.
+    </h2>
+  </div>
+</div>
+
+<div class="content sidebar">
   <!-- Section Cards and Sidebar-->
+
   <section class="cards-section pr-1">
     <div class="row">
-      <!-- Sidebar-->
-      <div class="col-md-2 sidebar-div bg-dark text-playfair">
-        <a class="navbar-brand sidebar-top" href="#sidebar"> </a>
-        <!-- Your sidebar content goes here -->
-        <div id="sidebar" class="pt-5 pl-4 sidenav">
-          <a href="#">Home</a>
-          <a href="#">Blog</a>
-          <a href="#">Salon</a>
-          <div class="dropdown">
-            <button class="sidedropdown-btn">
-              Services
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="#">Haircut</a>
-              <a href="#">Spa</a>
-              <a href="#">Bridal Makeup</a>
+      <div
+        class="offcanvas offcanvas-start w-25"
+        tabindex="-1"
+        id="offcanvas"
+        data-bs-keyboard="false"
+        data-bs-backdrop="false"
+      >
+        <div class="offcanvas-header">
+          <h6 class="offcanvas-title d-none d-sm-block" id="offcanvas">Menu</h6>
+          <button
+            type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body px-0">
+          <ul
+            class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start"
+            id="menu"
+          >
+            <li class="nav-item">
+              <a href="#" class="nav-link text-truncate">
+                <i class="fs-5 bi-house"></i
+                ><span class="ms-1 d-none d-sm-inline">Home</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#submenu1"
+                data-bs-toggle="collapse"
+                class="nav-link text-truncate"
+              >
+                <i class="fs-5 bi-speedometer2"></i
+                ><span class="ms-1 d-none d-sm-inline">Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-truncate">
+                <i class="fs-5 bi-table"></i
+                ><span class="ms-1 d-none d-sm-inline">Orders</span></a
+              >
+            </li>
+            <li class="dropdown">
+              <a
+                href="#"
+                class="nav-link dropdown-toggle text-truncate"
+                id="dropdown"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fs-5 bi-bootstrap"></i
+                ><span class="ms-1 d-none d-sm-inline">Bootstrap</span>
+              </a>
+              <ul
+                class="dropdown-menu text-small shadow"
+                aria-labelledby="dropdown"
+              >
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="nav-link text-truncate">
+                <i class="fs-5 bi-grid"></i
+                ><span class="ms-1 d-none d-sm-inline">Products</span></a
+              >
+            </li>
+            <li>
+              <a href="#" class="nav-link text-truncate">
+                <i class="fs-5 bi-people"></i
+                ><span class="ms-1 d-none d-sm-inline">Customers</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div class="container-fluid" id="salons">
+        <div class="row flex-nowrap" style="padding-top: 5rem">
+          <!-- div with side bar and salon cards -->
+          <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+            <!-- sidebar -->
+            <div
+              class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 sidebarMenuCard"
+            >
+              <a
+                href="/"
+                class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+              >
+                <span class="fs-5 d-none d-sm-inline">Menu</span>
+              </a>
+              <ul
+                class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+                id="menu"
+              >
+                <li class="nav-item">
+                  <a
+                    routerLink="/viewallsalon"
+                    class="nav-link align-middle px-0"
+                  >
+                    <i class="fs-4 bi-house"></i>
+                    <span class="ms-1 d-none d-sm-inline">View All Salon</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#submenu1"
+                    data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle"
+                  >
+                    <i class="fs-4 bi-speedometer2"></i>
+                    <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                  </a>
+                  <ul
+                    class="collapse show nav flex-column ms-1"
+                    id="submenu1"
+                    data-bs-parent="#menu"
+                  >
+                    <li class="w-100">
+                      <a href="#" class="nav-link px-0">
+                        <span class="d-none d-sm-inline">Item</span> 1
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="nav-link px-0">
+                        <span class="d-none d-sm-inline">Item</span> 2
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="nav-link px-0 align-middle">
+                    <i class="fs-4 bi-table"></i>
+                    <span class="ms-1 d-none d-sm-inline">Orders</span></a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#submenu2"
+                    data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle"
+                  >
+                    <i class="fs-4 bi-bootstrap"></i>
+                    <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a
+                  >
+                  <ul
+                    class="collapse nav flex-column ms-1"
+                    id="submenu2"
+                    data-bs-parent="#menu"
+                  >
+                    <li class="w-100">
+                      <a href="#" class="nav-link px-0">
+                        <span class="d-none d-sm-inline">Item</span> 1</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="nav-link px-0">
+                        <span class="d-none d-sm-inline">Item</span> 2</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a
+                    href="#submenu3"
+                    data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle"
+                  >
+                    <i class="fs-4 bi-grid"></i>
+                    <span class="ms-1 d-none d-sm-inline">Products</span>
+                  </a>
+                  <ul
+                    class="collapse nav flex-column ms-1"
+                    id="submenu3"
+                    data-bs-parent="#menu"
+                  >
+                    <li class="w-100">
+                      <a href="#" class="nav-link px-0">
+                        <span class="d-none d-sm-inline">Product</span> 1</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="nav-link px-0">
+                        <span class="d-none d-sm-inline">Product</span> 2</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="nav-link px-0">
+                        <span class="d-none d-sm-inline">Product</span> 3</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="nav-link px-0">
+                        <span class="d-none d-sm-inline">Product</span> 4</a
+                      >
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" class="nav-link px-0 align-middle">
+                    <i class="fs-4 bi-people"></i>
+                    <span class="ms-1 d-none d-sm-inline">Customers</span>
+                  </a>
+                </li>
+              </ul>
+              <hr />
+            </div>
+          </div>
+          <div class="col py-3">
+            <!-- Display salon Cards -->
+
+            <div
+              class="row gx-3 gx-lg-3 row-cols-4 row-cols-md-4 row-cols-xl-4 justify-content-center"
+            >
+              <section
+                *ngFor="
+                  let salon of salons
+                    | paginate
+                      : { itemsPerPage: recordsPerPage, currentPage: pagenum }
+                "
+              >
+                <div class="card mb-3" style="width: 18rem">
+                  <img
+                    class="card-img-top"
+                    src="https://shorturl.at/fgNP6"
+                    alt="Card image cap"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">{{ salon.salonname }}</h5>
+                    <p class="card-text">Salon Description</p>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      {{ salon.salondescription }}
+                    </li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         </div>
       </div>
 
       <!--Salon Cards-->
-      <div class="col-md-10 py-5">
-        <div class="text-lg-left col-8">
-          <h2 class="section-title text-playfair mb-4">Salons</h2>
-          <span class="section-subtitle">Where Style meets Innovation</span>
-        </div>
-        <div
-          class="row gx-3 gx-lg-3 row-cols-4 row-cols-md-4 row-cols-xl-4 justify-content-center"
-        >
-          <div class="col mb-3">
-            <div class="card h-100 card-box-shadow">
-              <!-- Product image-->
-              <img
-                class="card-img-top"
-                src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                alt="..."
-              />
-              <!-- Product details-->
-              <div class="card-body p-4">
-                <div class="text-center">
-                  <!-- Product name-->
-                  <h5 class="fw-bolder">Fancy Product</h5>
-                  <!-- Product price-->
-                  $40.00 - $80.00
-                </div>
-              </div>
-              <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                  <a class="btn button-87 mt-auto" href="#">View options</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="col mb-3">
-            <div class="card h-100 card-box-shadow">
-              <!-- Sale badge-->
-              <div
-                class="badge bg-dark text-white position-absolute"
-                style="top: 0.5rem; right: 0.5rem"
-              >
-                Sale
-              </div>
-              <!-- Product image-->
-              <img
-                class="card-img-top"
-                src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                alt="..."
-              />
-              <!-- Product details-->
-              <div class="card-body p-4">
-                <div class="text-center">
-                  <!-- Product name-->
-                  <h5 class="fw-bolder">Special Item</h5>
-                  <!-- Product reviews-->
-                  <div
-                    class="d-flex justify-content-center small text-warning mb-2"
-                  >
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                  </div>
-                  <!-- Product price-->
-                  <span class="text-muted text-decoration-line-through"
-                    >$20.00</span
-                  >
-                  $18.00
-                </div>
-              </div>
-              <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                  <a class="btn button-87 mt-auto" href="#">Add to cart</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col mb-3">
-            <div class="card h-100 card-box-shadow">
-              <!-- Sale badge-->
-              <div
-                class="badge bg-dark text-white position-absolute"
-                style="top: 0.5rem; right: 0.5rem"
-              >
-                Sale
-              </div>
-              <!-- Product image-->
-              <img
-                class="card-img-top"
-                src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                alt="..."
-              />
-              <!-- Product details-->
-              <div class="card-body p-4">
-                <div class="text-center">
-                  <!-- Product name-->
-                  <h5 class="fw-bolder">Sale Item</h5>
-                  <!-- Product price-->
-                  <span class="text-muted text-decoration-line-through"
-                    >$50.00</span
-                  >
-                  $25.00
-                </div>
-              </div>
-              <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                  <a class="btn button-87 mt-auto" href="#">Add to cart</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col mb-3">
-            <div class="card h-100 card-box-shadow">
-              <!-- Product image-->
-              <img
-                class="card-img-top"
-                src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                alt="..."
-              />
-              <!-- Product details-->
-              <div class="card-body p-4">
-                <div class="text-center">
-                  <!-- Product name-->
-                  <h5 class="fw-bolder">Popular Item</h5>
-                  <!-- Product reviews-->
-                  <div
-                    class="d-flex justify-content-center small text-warning mb-2"
-                  >
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                  </div>
-                  <!-- Product price-->
-                  $40.00
-                </div>
-              </div>
-              <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                  <a class="btn button-87 mt-auto" href="#">Add to cart</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col mb-3">
-            <div class="card h-100 card-box-shadow">
-              <!-- Sale badge-->
-              <div
-                class="badge bg-dark text-white position-absolute"
-                style="top: 0.5rem; right: 0.5rem"
-              >
-                Sale
-              </div>
-              <!-- Product image-->
-              <img
-                class="card-img-top"
-                src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                alt="..."
-              />
-              <!-- Product details-->
-              <div class="card-body p-4">
-                <div class="text-center">
-                  <!-- Product name-->
-                  <h5 class="fw-bolder">Sale Item</h5>
-                  <!-- Product price-->
-                  <span class="text-muted text-decoration-line-through"
-                    >$50.00</span
-                  >
-                  $25.00
-                </div>
-              </div>
-              <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                  <a class="btn button-87 mt-auto" href="#">Add to cart</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col mb-3">
-            <div class="card h-100 card-box-shadow">
-              <!-- Product image-->
-              <img
-                class="card-img-top"
-                src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                alt="..."
-              />
-              <!-- Product details-->
-              <div class="card-body p-4">
-                <div class="text-center">
-                  <!-- Product name-->
-                  <h5 class="fw-bolder">Fancy Product</h5>
-                  <!-- Product price-->
-                  $120.00 - $280.00
-                </div>
-              </div>
-              <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                  <a class="btn button-87 mt-auto" href="#">View options</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col mb-3">
-            <div class="card h-100 card-box-shadow">
-              <!-- Sale badge-->
-              <div
-                class="badge bg-dark text-white position-absolute"
-                style="top: 0.5rem; right: 0.5rem"
-              >
-                Sale
-              </div>
-              <!-- Product image-->
-              <img
-                class="card-img-top"
-                src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                alt="..."
-              />
-              <!-- Product details-->
-              <div class="card-body p-4">
-                <div class="text-center">
-                  <!-- Product name-->
-                  <h5 class="fw-bolder">Special Item</h5>
-                  <!-- Product reviews-->
-                  <div
-                    class="d-flex justify-content-center small text-warning mb-2"
-                  >
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                  </div>
-                  <!-- Product price-->
-                  <span class="text-muted text-decoration-line-through"
-                    >$20.00</span
-                  >
-                  $18.00
-                </div>
-              </div>
-              <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                  <a class="btn button-87 mt-auto" href="#">Add to cart</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col mb-3">
-            <div class="card h-100 card-box-shadow">
-              <!-- Product image-->
-              <img
-                class="card-img-top"
-                src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                alt="..."
-              />
-              <!-- Product details-->
-              <div class="card-body p-4">
-                <div class="text-center">
-                  <!-- Product name-->
-                  <h5 class="fw-bolder">Popular Item</h5>
-                  <!-- Product reviews-->
-                  <div
-                    class="d-flex justify-content-center small text-warning mb-2"
-                  >
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                  </div>
-                  <!-- Product price-->
-                  $40.00
-                </div>
-              </div>
-              <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                  <a class="btn button-87 mt-auto" href="#">Add to cart</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
-
-  <!-- Footer-->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; ChromaCuts</p>
-    </div>
-  </footer>
-</body>
+  <div class="paginationControls">
+    <pagination-controls
+      (pageChange)="pagenum = $event"
+      class="paginationControl"
+    ></pagination-controls>
+  </div>
+</div>

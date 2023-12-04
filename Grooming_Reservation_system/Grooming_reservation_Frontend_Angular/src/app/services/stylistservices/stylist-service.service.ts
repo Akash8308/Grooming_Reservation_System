@@ -15,4 +15,20 @@ export class StylistServiceService {
     return this.http.get<Stylist[]>(`${this.url}/getAllStylist`);
   }
 
+  geAlltStylistBySalonId(salonid:number){
+    return this.http.get<Stylist[]>(`${this.url}/geAlltStylistBySalonId/${salonid}`);
+  }
+  addStylist(stylist:Stylist,salonid : number){
+    return this.http.post<Stylist>(`${this.url}/addStylist/${salonid}`,stylist)
+  }
+  updateStylist(stylist:Stylist,stylistid:number){
+    return this.http.put<Stylist>(`${this.url}/updateStylistById/${stylistid}`,stylist)
+  }
+  getStylistById(stylistid:number){
+    return this.http.get<Stylist>(`${this.url}/getStylistById/${stylistid}`)
+  }
+  deleteStylistById(stylistid:number){
+    return this.http.delete<Stylist[]>(`${this.url}/deleteStylistById/${stylistid}`)
+  }
+
 }

@@ -4,12 +4,12 @@ import { LoginComponent } from './components/login/login.component';
 import { HomepageComponent } from './components/user/userhomepage/homepage.component';
 import { RouteguardService } from './services/routeguard.service';
 import { UserregistrationComponent } from './components/user/userregistration/userregistration.component';
-import { SalonregistrationComponent } from './components/salon/salonregistration/salonregistration.component';
 import { LpageComponent } from './components/lpage/lpage.component';
 import { AdminhomepageComponent } from './components/admin/adminhomepage/adminhomepage.component';
 import { AllusersComponent } from './components/admin/allusers/allusers.component';
 import { AllsalonsComponent } from './components/admin/allsalons/allsalons.component';
 import { AppointmentsComponent } from './components/admin/appointments/appointments.component';
+import { SalonregistrationComponent } from './components/salon/salonregistration/salonregistration.component';
 import { SalonLoginComponent } from './components/salon/salonlogin/salonlogin.component';
 import { SalonhomepageComponent } from './components/salon/salonhomepage/salonhomepage.component';
 import { SalonrequestsComponent } from './components/admin/salonrequests/salonrequests.component';
@@ -22,6 +22,12 @@ import { UpdateaddressComponent } from './components/user/updateaddress/updatead
 import { UseraddressComponent } from './components/user/useraddressregister/useraddress.component';
 import { ViewaddressComponent } from './components/user/viewaddress/viewaddress.component';
 import { UpdateuserComponent } from './components/user/updateuser/updateuser.component';
+import { AllstylistComponent } from './components/salon/allstylist/allstylist.component';
+import { AddstylistComponent } from './components/salon/addstylist/addstylist.component';
+import { SalonprofileComponent } from './components/salon/salonprofile/salonprofile.component';
+import { EditsalonComponent } from './components/admin/editsalon/editsalon.component';
+import { AllserviceComponent } from './components/salon/allservice/allservice.component';
+import { AddserviceComponent } from './components/salon/addservice/addservice.component';
 
 
 const routes: Routes = [
@@ -39,16 +45,21 @@ const routes: Routes = [
   { path: "salonhomepage", component: SalonhomepageComponent },
   { path: "salonlogin", component: SalonLoginComponent },
   { path: "salonrequests", component: SalonrequestsComponent },
-  { path:"viewuser",component:ViewuserComponent },
-  { path:"viewallsalon",component:ViewallsalonComponent },
-  { path:"viewallstylist",component:ViewallstylistComponent },
-  { path:"viewallservice",component:ViewallserviceComponent },
-  { path:"viewallappoinment",component:ViewaallappoinmentComponent },
-  { path:"useraddressregister",component:UseraddressComponent },
-  { path:"viewaddress",component:ViewaddressComponent },
-  { path:"updateaddress",component:UpdateaddressComponent},
-  { path:"UpdateuserComponent",component:UpdateuserComponent},
-  
+  { path:" viewuser",component:ViewuserComponent },
+  { path:" viewallsalon",component:ViewallsalonComponent },
+  { path:" viewallstylist",component:ViewallstylistComponent },
+  { path:" viewallservice",component:ViewallserviceComponent },
+  { path:" viewallappoinment",component:ViewaallappoinmentComponent },
+  { path:" useraddressregister",component:UseraddressComponent },
+  { path:" viewaddress",component:ViewaddressComponent },
+  { path:" updateaddress",component:UpdateaddressComponent},
+  { path:" updateuser",component:UpdateuserComponent},
+  { path: "allstylist", component:AllstylistComponent},
+  { path: "addstylist", component:AddstylistComponent},
+  { path: "salonprofile", component:SalonprofileComponent},
+  { path: "editsalon",component:EditsalonComponent},
+  { path: "allservice",component:AllserviceComponent},
+  { path: "addservice",component:AddserviceComponent}
   
   
 

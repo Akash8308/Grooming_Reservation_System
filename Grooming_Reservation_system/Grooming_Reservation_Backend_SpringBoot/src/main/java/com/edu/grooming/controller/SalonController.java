@@ -89,9 +89,9 @@ public class SalonController {
 //		return salonRepository.findById(salonid).get();
 	}
 	
-	@GetMapping("/getSalonById/{id}")//http://localhost:8990/getSalonById/{id}
-	public Salon getSalonById(@PathVariable("id") Integer salonId) {
-		return salonRepository.getSalonById(salonId);
+	@GetMapping("/getSalonById/{salonid}")
+	public Salon getSalonById(@PathVariable("salonid") Integer salonid) throws NotFoundException {
+		return salonService.getSalonById(salonid);
 	}
 	
 	@GetMapping("/searchSalonlike/{value}")//http://localhost:8990/searchSalonlike/{value}

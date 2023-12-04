@@ -22,7 +22,7 @@
     }
 }
 .loginDivBackground {
-    background-image: url("\src\app\images\barber1.jpg"),url("\src\app\images\barber2.jpg"),url("\src\app\images\barber7.jpg") ;
+    background-image: url("\src\assets\barber1.jpg"),url("\src\assets\barber2.jpg"),url("\src\assets\barber7.jpg") ;
     background-size: contain;
     background-repeat: no-repeat, no-repeat, no-repeat;
     background-position: left top, center  , right, right;
