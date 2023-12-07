@@ -49,6 +49,17 @@ import { SalonprofileComponent } from './components/salon/salonprofile/salonprof
 import { AddstylistComponent } from './components/salon/addstylist/addstylist.component';
 import { EditstylistComponent } from './components/salon/editstylist/editstylist.component';
 import { AllstylistComponent } from './components/salon/allstylist/allstylist.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { UsersidebarComponent } from './components/usersidebar/usersidebar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { AboutComponent } from './components/about/about.component';
+import { SalonpageComponent } from './components/user/salonpage/salonpage.component';
+import { ViewallappointmentsComponent } from './components/admin/viewallappointments/viewallappointments.component';
+import { ViewuserappointmentsComponent } from './components/admin/viewuserappointments/viewuserappointments.component';
+import { AdminViewAllStylistComponent } from './components/admin/admin-view-all-stylist/admin-view-all-stylist.component';
+import { MatTableModule } from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -84,7 +95,15 @@ import { AllstylistComponent } from './components/salon/allstylist/allstylist.co
     SalonprofileComponent,
     AddstylistComponent,
     EditstylistComponent,
-    AllstylistComponent
+    AllstylistComponent,
+    NavbarComponent,
+    UsersidebarComponent,
+    FooterComponent,
+    AboutComponent,
+    SalonpageComponent,
+    ViewallappointmentsComponent,
+    ViewuserappointmentsComponent,
+    AdminViewAllStylistComponent
    
   ],
   imports: [
@@ -105,7 +124,10 @@ import { AllstylistComponent } from './components/salon/allstylist/allstylist.co
     MatPaginatorModule,
     MatIconModule,
     CarouselModule,
-    MatRadioModule
+    MatRadioModule,
+    MatAutocompleteModule,
+    MatTableModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

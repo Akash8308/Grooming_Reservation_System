@@ -36,6 +36,12 @@ public class SalonServiceimpl implements SalonService {
 		// TODO Auto-generated method stub
 		return salonRepository.findAll();
 	}
+	
+	@Override
+	public List<Salon> getAllEnabledSalon() {
+		// TODO Auto-generated method stub
+		return salonRepository.findAllEnabled();
+	}
 
 	@Override
 	public Salon getSalonByName(String salonname) {
@@ -141,5 +147,21 @@ public class SalonServiceimpl implements SalonService {
 	public List<Salon> searchSalonByStatus(String value) {
 		return salonRepository.searchSalonByStatus(value);
 	}
+
+	@Override
+	public List<String> getAllSalonCategories() {
+		return salonRepository.getAllSalonCategories();
+	}
+	
+	@Override
+	public List<Salon> getAllEnabledSalonByRatingDesc() {
+		return salonRepository.getAllEnabledSalonByRatingDesc();
+	}
+
+	@Override
+	public List<Salon> getSalonByCategory(String salonCategory) {
+		return salonRepository.getSalonByCategory(salonCategory);
+	}
+	
 
 }

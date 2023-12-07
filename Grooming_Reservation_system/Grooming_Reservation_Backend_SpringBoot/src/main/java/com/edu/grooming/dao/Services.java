@@ -15,6 +15,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -47,6 +48,9 @@ public class Services {
 	@JsonIgnore
 	@OneToMany(mappedBy = "services", cascade = CascadeType.ALL)
 	private List<Appointment> appointment;
+	
+//	@ManyToOne
+//	private Appointment appointment;
 
 	public Services() {
 		super();

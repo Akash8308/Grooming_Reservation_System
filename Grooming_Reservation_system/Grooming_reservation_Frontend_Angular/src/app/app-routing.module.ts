@@ -28,7 +28,10 @@ import { SalonprofileComponent } from './components/salon/salonprofile/salonprof
 import { EditsalonComponent } from './components/admin/editsalon/editsalon.component';
 import { AllserviceComponent } from './components/salon/allservice/allservice.component';
 import { AddserviceComponent } from './components/salon/addservice/addservice.component';
-
+import { AboutComponent } from './components/about/about.component';
+import { SalonpageComponent } from './components/user/salonpage/salonpage.component';
+import { ViewallappointmentsComponent } from './components/admin/viewallappointments/viewallappointments.component';
+import { AdminViewAllStylistComponent } from './components/admin/admin-view-all-stylist/admin-view-all-stylist.component';
 
 const routes: Routes = [
   { path: '', redirectTo: "lpage", pathMatch: 'full' },
@@ -45,23 +48,25 @@ const routes: Routes = [
   { path: "salonhomepage", component: SalonhomepageComponent },
   { path: "salonlogin", component: SalonLoginComponent },
   { path: "salonrequests", component: SalonrequestsComponent },
-  { path:" viewuser",component:ViewuserComponent },
-  { path:" viewallsalon",component:ViewallsalonComponent },
-  { path:" viewallstylist",component:ViewallstylistComponent },
-  { path:" viewallservice",component:ViewallserviceComponent },
-  { path:" viewallappoinment",component:ViewaallappoinmentComponent },
-  { path:" useraddressregister",component:UseraddressComponent },
-  { path:" viewaddress",component:ViewaddressComponent },
-  { path:" updateaddress",component:UpdateaddressComponent},
-  { path:" updateuser",component:UpdateuserComponent},
+  { path: "viewuser",component:ViewuserComponent },
+  { path: "viewallsalon",component:ViewallsalonComponent },
+  { path: "viewallstylist/:salonid/:servicesid",component:ViewallstylistComponent },
+  { path: "viewallservice/:salonid",component:ViewallserviceComponent },
+  { path: "viewallappoinment",component:ViewaallappoinmentComponent },
+  { path: "useraddressregister",component:UseraddressComponent },
+  { path: "viewaddress",component:ViewaddressComponent },
+  { path: "updateaddress",component:UpdateaddressComponent},
+  { path: "updateuser",component:UpdateuserComponent},
   { path: "allstylist", component:AllstylistComponent},
   { path: "addstylist", component:AddstylistComponent},
   { path: "salonprofile", component:SalonprofileComponent},
   { path: "editsalon",component:EditsalonComponent},
   { path: "allservice",component:AllserviceComponent},
-  { path: "addservice",component:AddserviceComponent}
-  
-  
+  { path: "addservice",component:AddserviceComponent},
+  { path: "about",component: AboutComponent},
+  { path: "salonpage/:salonid",component: SalonpageComponent},
+  { path: "viewallappointments",component: ViewallappointmentsComponent},
+  { path: "adminViewAllStylist",component: AdminViewAllStylistComponent},
 
 ];
 

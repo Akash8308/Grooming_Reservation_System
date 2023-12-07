@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <div class="container px-4 px-lg-5">
+    <!-- Logo and Company Name on the left -->
+    <img
+      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+      style="width: 120px"
+      alt="logo"
+    />
+    <a class="navbar-brand chromacuts-logoname" routerLink="/lpage"
+      >ChromaCuts</a
+    >
+
+    <!-- Toggle Button for Small Screens -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      Menu <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Navigation Links on the right -->
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto" style="padding: 2rem">
+        <li class="nav-item">
+          <button
+            mat-fab
+            extended
+            style="padding: 1rem"
+            routerLink="/homepage"
+            fragment="introductionDiv"
+          >
+            Home
+          </button>
+        </li>
+        <li class="nav-item" style="padding-left: 0.5rem">
+          <button mat-fab extended routerLink="/About">About</button>
+        </li>
+
+        <li class="nav-item" style="padding-left: 0.5rem">
+          <button mat-fab extended routerLink="/homepage" fragment="salons">
+            Salons
+          </button>
+        </li>
+
+        <li style="padding-left: 0.5rem">
+          <button mat-fab extended routerLink="/viewuser">
+            <mat-icon>account_circle</mat-icon>
+            {{ username }}
+          </button>
+        </li>
+        <li style="padding-left: 0.5rem">
+          <button mat-fab extended (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+            Logout
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

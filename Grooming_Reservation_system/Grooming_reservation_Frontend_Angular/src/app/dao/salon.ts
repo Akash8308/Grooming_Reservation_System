@@ -14,6 +14,7 @@ export class Salon {
         public salonpassword:string,
         public salonstatus:string,
         public saloncategory: string,
-        public salonpicurl: string
+        public salonpicurl: string,
+        public saloncountry: string
         ){}   
 }

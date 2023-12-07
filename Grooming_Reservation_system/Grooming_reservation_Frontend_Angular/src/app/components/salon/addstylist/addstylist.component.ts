@@ -18,11 +18,11 @@ export class AddstylistComponent {
   stylistphonenum="";
   stylistemail="";
   stylistspecialization="";
-  stylistrating="";
-  salonidstr=sessionStorage.getItem("salonid");
-  salonid = parseInt(this.salonidstr);
+  stylistrating=1;
+  // salonidstr=sessionStorage.getItem("salonid");
+  salonid = sessionStorage.getItem("salonid");
   
-  stylist:Stylist=new Stylist(this.stylistid,this.firstname,this.lastname,this.stylistphonenum,this.stylistemail,this.stylistspecialization,this.stylistrating)
+  stylist:Stylist=new Stylist(this.salonid,this.firstname,this.lastname,this.stylistphonenum,this.stylistemail,this.stylistspecialization,this.stylistrating, this.salonid)
   addstylist()
   {
    this.stylistservice.addStylist(this.stylist,this.salonid).subscribe(()=>this.router.navigate(['salonhomepage']),banckenderror=>this.errorHandling(banckenderror));

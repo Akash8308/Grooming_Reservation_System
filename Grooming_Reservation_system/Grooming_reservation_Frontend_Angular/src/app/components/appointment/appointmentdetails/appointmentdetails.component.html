@@ -1,0 +1,88 @@
+<div class="card">
+  <div class="card-body p-5">
+    <h2 class="text-uppercase text-center mb-5">Appoinment details</h2>
+
+    <!-- <form (ngSubmit)="!userForm.invalid && saveUser()" #userForm="ngForm"> -->
+      
+      <!--Appintment Id-->
+      <!--<div class="form-outline mb-2">
+        <label class="form-label" for="form3Example1cg">Appoinment id</label>
+        <input
+          type="text"
+          id="form3Example1cg"
+          class="form-control form-control-lg"
+          name="appointmentid"
+          minlength="3"
+          required
+          #appointmentid="ngModel"
+          [(ngModel)]="appointment.appointmentId"
+         />
+      </div>-->
+      <form>
+      <!--Appointment Date-->
+
+      <div class="form-outline mb-2">
+
+        <label for="target"><b>appointmentDate</b></label>
+        <!--<input type="date"
+        class="form-control"
+        name="targetdate"
+        required
+        #targetdate="ngModel"
+        [(ngModel)]="todo.targetDate"
+        >-->
+        <input type="date" 
+        class="form-control" 
+        #appointmentdate="ngModel" 
+        [ngModel]="appointment.appointmentDate| date:'yyyy-MM-dd'" 
+        (ngModelChange)= "appointment.appointmentDate=$event" 
+        name="appointmentdate"
+        required="required" />
+    </div>
+  
+
+      <!--Appointment Time-->
+      <div class="form-outline mb-2">
+          <label class="form-label" for="form3Example1cg">Appoinment Time</label>
+      <mat-form-field>
+          <mat-label>Select Appointment Time</mat-label>
+          <mat-select
+            [(ngModel)]="selectedAppointmentTime"
+            name="appointmentTime"
+            (selectionChange)="onAppointmentTimeChange()"
+          >
+            <mat-option *ngFor="let time of appointmenttime" [value]="time">
+              {{ time }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <!--Appointment Type-->
+      <div class="form-outline mb-2">
+          <label class="form-label" for="form3Example1cg">Appoinment Type</label>
+          <mat-form-field>
+              <mat-label>Select Appointment Type</mat-label>
+              <mat-select
+                [(ngModel)]="selectedAppointmentType"
+                name="appointmentType"
+                (selectionChange)="onAppointmentTypeChange()"
+              >
+                <mat-option *ngFor="let aptype of appointmenttype" [value]="aptype">
+                  {{ aptype }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+      </div>
+      <div class="d-flex justify-content-center">
+          <button
+            type="submit"
+            class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+            (click)="bookAppointment()"
+          >
+           Book
+          </button>
+        </div>
+     </form>
+  </div>
+</div>

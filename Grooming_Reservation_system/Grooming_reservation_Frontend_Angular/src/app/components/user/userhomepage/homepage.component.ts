@@ -15,31 +15,16 @@ import { UserauthenticationService } from 'src/app/services/userservices/useraut
 export class HomepageComponent {
 
 
-
+  p : number =1;
+  count : number =4;
   username: string;
   useremail:string;
   salons: Salon[]=[];
-  recordsPerPage: 8;
-  pagenum: any;
   currentIndex: number;
-  slides = [
-    // { image: '../../assets/barber1.jpg', text: 'Slide 1' },
-    { image: 'https://shorturl.at/eCNQ2', text: 'Slide 1' },
-    { image: 'https://shorturl.at/nuwyU', text: 'Slide 2' },
-    { image: 'https://shorturl.at/gkqzH', text: 'Slide 3' }
-  ];
 
   redirect(elementId: string) {
     this.viewportScroller.scrollToAnchor(elementId);
     }
-
-  nextSlide() {
-    this.currentIndex = (this.currentIndex + 1);
-  }
-
-  prevSlide() {
-    this.currentIndex = (this.currentIndex - 1 + this.slides.length);
-  }
   
   logout() {
     console.log('loggedout');
@@ -50,7 +35,7 @@ export class HomepageComponent {
   ngOnInit(){
     this.username = sessionStorage.getItem("username"); 
     this.useremail=sessionStorage.getItem("usermail");    
-    this.salondataservice.getAllSalon().subscribe(data=>this.salons=data);
+    this.salondataservice.getAllEnabledSalonByRatingDesc().subscribe(data=>this.salons=data);
     // console.log('abcd',this.salondataservice.getAllSalonWithCount());
   }
 

@@ -10,12 +10,16 @@ import { SalonService } from 'src/app/services/salonservices/salonservice.servic
 export class ViewallsalonComponent {
 
   salons: Salon[]=[];
-recordsPerPage: string|number;
-pagenum: string|number;
-constructor(private salondataservice: SalonService){}
-  ngOnInit(){
-    this.salondataservice.getAllSalon().subscribe(data => this.salons=data);
-  }
+  p : number =1;
+  count : number =8;
+
+  constructor(private salondataservice: SalonService){}
+
+    ngOnInit(){
+      this.salondataservice.getAllSalon().subscribe(data => this.salons=data);
+    }
+
+    
 
 }
   

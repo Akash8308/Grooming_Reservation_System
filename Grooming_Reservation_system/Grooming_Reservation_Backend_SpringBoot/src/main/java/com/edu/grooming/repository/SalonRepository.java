@@ -22,11 +22,23 @@ public interface SalonRepository extends JpaRepository<Salon, Integer> {
 	@Query(value="select * from salon where salonid=?1",nativeQuery = true)
 	Salon getSalonById(Integer salonId);
 
-//	@Query(value="select * from salon where salonname like ?% and salonstatus='Enabled'",nativeQuery = true)
+
 	@Query(value="select * from salon where salonname like ?%",nativeQuery = true)
 	List<Salon> searchSalon(String value);	
 	
 	@Query(value="select * from salon where salonstatus=?",nativeQuery = true)
-	List<Salon> searchSalonByStatus(String value);	
+	List<Salon> searchSalonByStatus(String value);
+	
+	@Query(value="select * from salon where salonstatus='Enabled'",nativeQuery=true)
+	List<Salon> findAllEnabled();	
+	
+	@Query(value="select distinct saloncategory from salon",nativeQuery = true)
+	List<String> getAllSalonCategories();	
+
+	@Query(value="select * from salon order by salonrating desc",nativeQuery=true)
+	List<Salon> getAllEnabledSalonByRatingDesc();
+	
+	@Query(value="select * from salon where saloncategory=?",nativeQuery=true)
+	List<Salon> getSalonByCategory(String salonCategory);
 
 }

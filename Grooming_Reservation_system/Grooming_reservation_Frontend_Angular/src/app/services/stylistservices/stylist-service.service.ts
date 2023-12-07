@@ -18,7 +18,7 @@ export class StylistServiceService {
   geAlltStylistBySalonId(salonid:number){
     return this.http.get<Stylist[]>(`${this.url}/geAlltStylistBySalonId/${salonid}`);
   }
-  addStylist(stylist:Stylist,salonid : number){
+  addStylist(stylist:Stylist,salonid : any){
     return this.http.post<Stylist>(`${this.url}/addStylist/${salonid}`,stylist)
   }
   updateStylist(stylist:Stylist,stylistid:number){

@@ -5,6 +5,7 @@ import { SalonService } from 'src/app/services/salonservices/salonservice.servic
 import { EditsalonComponent } from '../editsalon/editsalon.component';
 import { SalonapprovepopupComponent } from '../../popups/salonapprovepopup/salonapprovepopup.component';
 import { FormBuilder } from '@angular/forms';
+import { AppointmentsComponent } from '../appointments/appointments.component';
 
 @Component({
   selector: 'app-allsalons',
@@ -12,7 +13,6 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./allsalons.component.css']
 })
 export class AllsalonsComponent {
-
 
   searchValue='';
   salons: Salon[]=[];
@@ -84,6 +84,10 @@ export class AllsalonsComponent {
       }
     }
 
+    getAllAppointmentsBySalonId(salon: Salon) {
+      this.matDialog.open(AppointmentsComponent,{width: '80%',height: '80%', data:salon});
+      }
+
       
   // delete salon
 
@@ -96,12 +100,12 @@ export class AllsalonsComponent {
   // }
 
     //  Edit Salon
-  // editSalon(salonid: any) {
-  //   this.matDialog.open(EditsalonComponent,{
-  //     width: '800px',
-  //     data:salonid
-  //   })
-  // }
+  editSalon(salonid: any) {
+    this.matDialog.open(EditsalonComponent,{
+      width: '800px',
+      data:salonid
+    })
+  }
 
   constructor(private salondataservice: SalonService, private matDialog: MatDialog,  private fb: FormBuilder){}
 

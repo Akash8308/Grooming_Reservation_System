@@ -4,6 +4,7 @@ import { EdituserComponent } from '../edituser/edituser.component';
 import { User } from 'src/app/dao/user';
 import { FormBuilder } from '@angular/forms';
 import { UserDataService } from 'src/app/services/userservices/userdataservice.service';
+import { ViewuserappointmentsComponent } from '../viewuserappointments/viewuserappointments.component';
 
 @Component({
   selector: 'app-allusers',
@@ -11,6 +12,7 @@ import { UserDataService } from 'src/app/services/userservices/userdataservice.s
   styleUrls: ['./allusers.component.css']
 })
 export class AllusersComponent {
+
 
   users: any[]=[];
   searchValue='';
@@ -46,6 +48,10 @@ export class AllusersComponent {
     })
   }
 
+  viewUserAppointments(user: User) {
+    this.matDialog.open(ViewuserappointmentsComponent,{width: '80%',height: '80%', data:user});
+    }
+
   enableUserById(userid: any) {
     this.userDataService.enableUserById(userid).subscribe();
     window.location.reload();
@@ -67,7 +73,6 @@ export class AllusersComponent {
   }
 
   onSalonStatusChange() {
-    console.log(this.selectedUserStatus);
     if(this.selectedUserStatus == 'All Users'){
       this.userDataService.getAllUser().subscribe(data =>
         this.users = data);

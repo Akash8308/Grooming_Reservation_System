@@ -51,10 +51,14 @@
           <th scope="col">Salon Rating</th>
           <th scope="col">Salon City</th>
           <th scope="col">Salon State</th>
+          <th scope="col">Salon Category</th>
           <th scope="col">Salon Status</th>
+          <th scope="col">Salon Appointments</th>
+
           <!-- <th scope="col">Salon Password</th> -->
-          <!-- <th>Edit Salon</th> -->
+          <th>Edit Salon</th>
           <th>Delete Salon</th>
+          <th scope="col">Go to SalonPage</th>
         </tr>
       </thead>
       <tbody>
@@ -84,9 +88,19 @@
             <td scope="col">{{ salon.salonrating }}</td>
             <td scope="col">{{ salon.saloncity }}</td>
             <td scope="col">{{ salon.salonstate }}</td>
+            <td scope="col">{{ salon.saloncategory }}</td>
             <td scope="col">{{ salon.salonstatus }}</td>
             <!-- <td scope="col">{{ salon.salonpassword }}</td> -->
-            <!-- <td>
+            <td>
+              <button
+                color="primary"
+                mat-raised-button
+                (click)="getAllAppointmentsBySalonId(this.salon)"
+              >
+                Appointments
+              </button>
+            </td>
+            <td>
               <button
                 color="primary"
                 mat-raised-button
@@ -94,7 +108,7 @@
               >
                 Edit
               </button>
-            </td> -->
+            </td>
             <div *ngIf="salon.salonstatus === 'Disabled'; else showEnable">
               <td>
                 <button
@@ -117,7 +131,7 @@
                 </button>
               </td>
             </ng-template>
-            <td></td>
+            <td><button mat-raised-button>View</button></td>
           </tr>
         </ng-container>
       </tbody>

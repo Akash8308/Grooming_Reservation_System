@@ -22,9 +22,9 @@
 }
 
 .paginationControls{
-    align-items: center;
-    width: 100%;
-    justify-content: center;
+   background-color: #f2f2f2;;
+    width: 95%;
+
 }
 
 /* Add animation for the carousel effect */
@@ -53,8 +53,9 @@
     background-color: #f2f2f2;
 }
 
-.sidebarMenuCard{
-    padding: 1rem;
-    background-color: #f2f2f2;
-    border-right: double;
-}
+
+.card-deck {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }

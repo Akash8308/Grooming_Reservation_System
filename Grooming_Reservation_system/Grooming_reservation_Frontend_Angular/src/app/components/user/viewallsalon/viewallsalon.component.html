@@ -1,226 +1,67 @@
-<!-- <p>viewallsalon works!</p>
-<div>
-    <h1 class="tabletitle">All Registered User Data</h1>
-  </div>
-  <div class="tablediv">
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          
-          <th scope="col">Salon Name</th>
-          <th scope="col">Salon Description</th>
-          <th scope="col">Salon Opening Hours</th>
-          <th scope="col">Salon Email</th>
-          <th scope="col">Salon Phone</th>
-          <th scope="col">Salon Address</th>
-          <th scope="col">Salon Pincode</th>
-          <th scope="col">Salon Rating</th>
-          <th scope="col">Salon State</th>
-         
-        
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          *ngFor="
-            let salon of salons
-              | paginate : { itemsPerPage: recordsPerPage, currentPage: pagenum } " >
-         
-          <td scope="col">{{ salon.salonname }}</td>
-          <td scope="col">{{ salon.salondescription }}</td>
-          <td scope="col">{{ salon.salonopeninghours }}</td>
-          <td scope="col">{{ salon.salonemailid }}</td>
-          <td scope="col">{{ salon.salonphone }}</td>
-          <td scope="col">{{ salon.salonaddress }}</td>
-          <td scope="col">{{ salon.salonpincode }}</td>
-          <td scope="col">{{ salon.salonrating }}</td>
-          <td scope="col">{{ salon.salonstate }}</td>
-            
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
-    <!--Including the pagination control 
-    <div class="text-right">
-      <pagination-controls (pageChange)="pagenum = $event"></pagination-controls>
-    </div>
-  </div>
-   -->
+<!-- navbar -->
+<app-navbar></app-navbar>
 
-<div class="container-fluid" id="salons">
-  <div class="row flex-nowrap" style="padding-top: 5rem">
-    <!-- div with side bar and salon cards -->
-    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
-      <!-- sidebar -->
-      <div
-        class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 sidebarMenuCard"
-      >
-        <a
-          href="/"
-          class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+<!-- All salons -->
+<div class="viewallsalonBackground">
+  <div class="container-fluid" id="salons">
+    <div class="row flex-nowrap" style="padding-top: 5rem">
+      <!-- div with side bar and salon cards -->
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
+        <!-- sidebar -->
+        <app-usersidebar></app-usersidebar>
+      </div>
+      <div class="col py-3">
+        <!-- Display salon Cards -->
+
+        <div
+          class="row gx-3 gx-lg-3 row-cols-4 row-cols-md-4 row-cols-xl-4 justify-content-center"
         >
-          <span class="fs-5 d-none d-sm-inline">Menu</span>
-        </a>
-        <ul
-          class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
-          id="menu"
-        >
-          <li class="nav-item">
-            <a routerLink="/viewallsalon" class="nav-link align-middle px-0">
-              <i class="fs-4 bi-house"></i>
-              <span class="ms-1 d-none d-sm-inline">View All Salon</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href="#submenu1"
-              data-bs-toggle="collapse"
-              class="nav-link px-0 align-middle"
-            >
-              <i class="fs-4 bi-speedometer2"></i>
-              <span class="ms-1 d-none d-sm-inline">Dashboard</span>
-            </a>
-            <ul
-              class="collapse show nav flex-column ms-1"
-              id="submenu1"
-              data-bs-parent="#menu"
-            >
-              <li class="w-100">
-                <a href="#" class="nav-link px-0">
-                  <span class="d-none d-sm-inline">Item</span> 1
-                </a>
-              </li>
-              <li>
-                <a href="#" class="nav-link px-0">
-                  <span class="d-none d-sm-inline">Item</span> 2
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" class="nav-link px-0 align-middle">
-              <i class="fs-4 bi-table"></i>
-              <span class="ms-1 d-none d-sm-inline">Orders</span></a
-            >
-          </li>
-          <li>
-            <a
-              href="#submenu2"
-              data-bs-toggle="collapse"
-              class="nav-link px-0 align-middle"
-            >
-              <i class="fs-4 bi-bootstrap"></i>
-              <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a
-            >
-            <ul
-              class="collapse nav flex-column ms-1"
-              id="submenu2"
-              data-bs-parent="#menu"
-            >
-              <li class="w-100">
-                <a href="#" class="nav-link px-0">
-                  <span class="d-none d-sm-inline">Item</span> 1</a
+          <section
+            *ngFor="
+              let salon of salons
+                | paginate : { itemsPerPage: count, currentPage: p }
+            "
+          >
+            <div class="card mb-3" style="width: 18rem; height: 600px">
+              <img
+                class="card-img-top"
+                src="{{ salon.salonpicurl }}"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{ salon.salonname }}</h5>
+                <p class="card-text">{{ salon.salondescription }}</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  {{ salon.salondescription }}
+                </li>
+                <li class="list-group-item">
+                  Salon Category: <b> {{ salon.saloncategory }}</b>
+                </li>
+                <li class="list-group-item">
+                  Salon Rating: <b>{{ salon.salonrating }}</b>
+                </li>
+              </ul>
+              <div class="card-body" style="text-align: center">
+                <button
+                  mat-raised-button
+                  color="accent"
+                  routerLink="/salonpage/{{ salon.salonid }}"
                 >
-              </li>
-              <li>
-                <a href="#" class="nav-link px-0">
-                  <span class="d-none d-sm-inline">Item</span> 2</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a
-              href="#submenu3"
-              data-bs-toggle="collapse"
-              class="nav-link px-0 align-middle"
-            >
-              <i class="fs-4 bi-grid"></i>
-              <span class="ms-1 d-none d-sm-inline">Products</span>
-            </a>
-            <ul
-              class="collapse nav flex-column ms-1"
-              id="submenu3"
-              data-bs-parent="#menu"
-            >
-              <li class="w-100">
-                <a href="#" class="nav-link px-0">
-                  <span class="d-none d-sm-inline">Product</span> 1</a
-                >
-              </li>
-              <li>
-                <a href="#" class="nav-link px-0">
-                  <span class="d-none d-sm-inline">Product</span> 2</a
-                >
-              </li>
-              <li>
-                <a href="#" class="nav-link px-0">
-                  <span class="d-none d-sm-inline">Product</span> 3</a
-                >
-              </li>
-              <li>
-                <a href="#" class="nav-link px-0">
-                  <span class="d-none d-sm-inline">Product</span> 4</a
-                >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" class="nav-link px-0 align-middle">
-              <i class="fs-4 bi-people"></i>
-              <span class="ms-1 d-none d-sm-inline">Customers</span>
-            </a>
-          </li>
-        </ul>
-        <hr />
+                  View
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
     </div>
-    <div class="col py-3">
-      <!-- Display salon Cards -->
-
-      <div
-        class="row gx-3 gx-lg-3 row-cols-4 row-cols-md-4 row-cols-xl-4 justify-content-center"
-      >
-        <section
-          *ngFor="
-            let salon of salons
-              | paginate
-                : { itemsPerPage: recordsPerPage, currentPage: pagenum }
-          "
-        >
-          <div class="card mb-3" style="width: 18rem">
-            <img
-              class="card-img-top"
-              src="https://shorturl.at/fgNP6"
-              alt="Card image cap"
-            />
-            <div class="card-body">
-              <h5 class="card-title">{{ salon.salonname }}</h5>
-              <p class="card-text">Salon Description</p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                {{ salon.salondescription }}
-              </li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
-            <div class="card-body">
-              <a href="#" class="card-link">Card link</a>
-              <a href="#" class="card-link">Another link</a>
-            </div>
-          </div>
-        </section>
-      </div>
+    <div class="paginationControls">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
   </div>
-</div>
 
-<!--Salon Cards-->
-
-<div class="paginationControls">
-  <pagination-controls
-    (pageChange)="pagenum = $event"
-    class="paginationControl"
-  ></pagination-controls>
+  <!--Salon Cards Pagination Controls-->
 </div>
+<app-footer></app-footer>

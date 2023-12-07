@@ -1,6 +1,7 @@
 package com.edu.grooming.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import com.edu.grooming.dao.Salon;
 import com.edu.grooming.dao.Services;
 import com.edu.grooming.dao.Stylist;
 import com.edu.grooming.dao.User;
+import com.edu.grooming.error.NotFoundException;
 import com.edu.grooming.repository.AppointmentRepository;
 import com.edu.grooming.repository.SalonRepository;
 import com.edu.grooming.repository.ServicesRepository;
@@ -78,6 +80,36 @@ public class AppointmentServiceImpl implements AppointmentService{
 		Appointment appointment =  appointmentRepository.findById(appointmentId).get();
 		appointment.updateAppointmentStylist(services);
 		return appointmentRepository.save(appointment);
+	}
+
+	
+	@Override
+	public Appointment getAppointmentByAppointmentId(Integer appointmentId) {
+		Appointment appointment=appointmentRepository.findById(appointmentId).get();
+		return appointment;
+	}
+
+	@Override
+	public List<Appointment> getAppointmentByUserId(Integer userid) {
+		
+		return appointmentRepository.getAppointmentByUserId(userid) ;
+	}
+
+	@Override
+	public List<Appointment> deleteAppointmentByAppointmentId(Integer appointmentId) throws NotFoundException {
+		
+		Optional<Appointment> appointment=appointmentRepository.findById(appointmentId);
+		if(!appointment.isPresent()) {
+			throw new NotFoundException("appointment is not found");
+		}
+		appointmentRepository.deleteById(appointmentId);
+		return appointmentRepository.findAll() ;
+	}
+
+	@Override
+	public List<Appointment> getAllAppointmentsBySalonId(Integer salonid) {
+		// TODO Auto-generated method stub
+		return appointmentRepository.findBySalonId(salonid);
 	}
 
 	

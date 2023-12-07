@@ -15,4 +15,11 @@ export class AppointmentService {
   getAllAppointments(){
     return this.http.get<Appointment[]>(`${this.url}/getAllAppointments`);
   }
+  getAllAppointmentsBySalonId(salonid: any){
+    return this.http.get<Appointment[]>(`${this.url}/getAllAppointmentsBySalonId/${salonid}`);
+  }
+
+  getAppointmentsByUserId(userid: any) {
+    return this.http.get<Appointment[]>(`${this.url}/getAppointmentsByUserId/${userid}`);
+  }
 }

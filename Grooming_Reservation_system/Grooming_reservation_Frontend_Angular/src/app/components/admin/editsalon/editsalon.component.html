@@ -15,7 +15,7 @@
           required
           #salonname="ngModel"
           [(ngModel)]="salon.salonname"
-          pattern="^[A-Za-z]+$"
+          pattern="[a-zA-Z][a-zA-Z ]+"
         />
         <div
           *ngIf="salonname.invalid && (salonname.dirty || salonname.touched)"

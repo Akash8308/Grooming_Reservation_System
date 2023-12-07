@@ -1,0 +1,11 @@
+.sidebarColor{
+    
+        background-image: rgba(#f2f2f2, #f2f2f2, #f2f2f2, #ff0000);
+        margin-top: 100px;
+        position: sticky;
+        top: 8rem;
+        left: 0;
+        overflow-y: auto;
+        
+    
+}

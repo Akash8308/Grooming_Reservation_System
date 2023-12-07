@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Salon } from 'src/app/dao/salon';
 import { UserDataService } from '../userservices/userdataservice.service'; 
+import { Service } from 'src/app/dao/service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SalonService {
-
+  
   salon:Salon;
   isUserLoggedIn(){
     let salon= sessionStorage.getItem('salonemailid');
@@ -83,6 +84,26 @@ export class SalonService {
 
   deleteSalonById(salonid: any){
     return this.http.delete<Salon>(`${this.url}/deleteSalonByid/${salonid}`);
+  }
+
+  getAllSalonCategories() {
+    return this.http.get<string[]>(`${this.url}/getAllSalonCategories`);
+  }
+
+  getAllEnabledSalon(){
+    return this.http.get<Salon[]>(`${this.url}/getAllEnabledSalon`);
+  }
+
+  getAllCities(obj:any){
+    return this.http.get<Salon[]>(`https://countriesnow.space/api/v0.1/countries/state/cities`,obj);
+  }
+
+  geAlltServicesBySalonId(salonid:any){
+    return this.http.get<Service[]>(`${this.url}/geAlltServicesBySalonId/${salonid}`);
+  }
+
+  getAllEnabledSalonByRatingDesc() {
+    return this.http.get<Salon[]>(`${this.url}/getAllEnabledSalonByRatingDesc`);
   }
 }
   

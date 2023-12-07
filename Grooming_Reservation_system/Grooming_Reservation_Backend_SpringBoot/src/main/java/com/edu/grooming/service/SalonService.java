@@ -27,7 +27,14 @@ public interface SalonService  {
 
 	List<Salon> searchSalonByStatus(String value);
 
-	
+	List<Salon> getAllEnabledSalon();
+
+	List<String> getAllSalonCategories();
+
+	List<Salon> getAllEnabledSalonByRatingDesc();
+
+	List<Salon> getSalonByCategory(String salonCategory);
+
 	
 
 }

@@ -43,7 +43,8 @@
         <th scope="col">Last Name</th>
         <th scope="col">Email</th>
         <th scope="col">Phone</th>
-        <!-- <th scope="col">Edit User</th> -->
+        <th scope="col">Edit User</th>
+        <th scope="col">User Appointments</th>
         <th scope="col">Enable / Disable User</th>
       </tr>
     </thead>
@@ -59,7 +60,7 @@
         <td>{{ user.userlastname }}</td>
         <td>{{ user.useremail }}</td>
         <td>{{ user.userphonenumber }}</td>
-        <!-- <td>
+        <td>
           <button
             color="primary"
             mat-raised-button
@@ -67,7 +68,16 @@
           >
             Edit
           </button>
-        </td> -->
+        </td>
+        <td>
+          <button
+            color="primary"
+            mat-raised-button
+            (click)="viewUserAppointments(this.user)"
+          >
+            View Appointments
+          </button>
+        </td>
         <div *ngIf="!user.userisDeleted">
           <td>
             <button

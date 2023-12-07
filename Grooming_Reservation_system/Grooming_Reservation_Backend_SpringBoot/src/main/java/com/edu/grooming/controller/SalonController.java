@@ -52,6 +52,26 @@ public class SalonController {
 		return salonService.getAllSalon();
 	}
 	
+	@GetMapping("/getAllEnabledSalon")
+	public List<Salon> getAllEnabledSalon(){
+		return salonService.getAllEnabledSalon();
+	}
+	
+	@GetMapping("/getAllSalonCategories") //http://localhost:8990/getsalonCategories
+	public List<String> getAllSalonCategories(){
+		return salonService.getAllSalonCategories();
+	}
+	
+	@GetMapping("/getAllEnabledSalonByRatingDesc")
+	public List<Salon> getAllEnabledSalonByRatingDesc(){
+		return salonService.getAllEnabledSalonByRatingDesc();
+	}
+	
+	@GetMapping("/getSalonByCategory/{salonCategory}")
+	public List<Salon> getSalonByCategory(@PathVariable("salonCategory") String salonCategory){
+		return salonService.getSalonByCategory(salonCategory);
+	}
+	
 	@GetMapping("/getSalonByName/name/{name}") // http://localhost:8990/getSalonByName/name/
 	public Salon getSalonByName(@PathVariable("name") String salonname) {
 		return salonService.getSalonByName(salonname);
@@ -86,7 +106,7 @@ public class SalonController {
 	public Salon saveServicesBySalonId(@Valid @RequestBody Services services, @PathVariable("id") Integer salonid) throws NotFoundException
 	{
 		return salonService.saveServicesBySalonId(services,salonid);
-//		return salonRepository.findById(salonid).get();
+
 	}
 	
 	@GetMapping("/getSalonById/{salonid}")
