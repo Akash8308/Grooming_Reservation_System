@@ -7,9 +7,9 @@
       class="container px-4 px-lg-5 d-flex flex-column h-100 align-items-center justify-content-center"
     >
       <div class="text-center mt-5">
-        <h3 class="fw-bold text-playfair">Welcome {{ username }}</h3>
+        <h1 class="fw-bold text-playfair">Welcome {{ username }}</h1>
         <br />
-        <h1 class="fw-normal text-playfair">Style on the Go</h1>
+        <h2 class="fw-normal text-playfair">Style on the Go</h2>
         <h2 class="lead fw-normal text-white mb-0 text-playfair">
           With ChromaCuts
         </h2>
@@ -21,7 +21,18 @@
   <section class="cards-section pr-1">
     <div class="row">
       <!-- Sidebar-->
-      <app-usersidebar></app-usersidebar>
+      <div class="col-md-2 sidebar-div gradient-custom-2 text-playfair">
+        <a class="navbar-brand sidebar-top" href="#sidebar"> </a>
+        <!-- Your sidebar content goes here -->
+        <div id="sidebar" class="pt-5 pl-4 sidenav">
+          <a routerLink="/viewallsalon"> All Salons</a>
+          <a
+            (click)="getSalonbyCategory(salonCategory)"
+            *ngFor="let salonCategory of categories"
+            >{{ salonCategory }}</a
+          >
+        </div>
+      </div>
       <!--Salon Cards-->
       <div class="col-md-10 py-5">
         <div class="text-lg-left col-8">
@@ -43,22 +54,37 @@
               <!-- Product image-->
               <img
                 class="card-img-top"
-                src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg"
-                alt="..."
+                style="height: 16rem"
+                src="{{ salon.salonpicurl }}"
+                alt="Salon Picture"
               />
               <!-- Product details-->
               <div class="card-body p-4">
                 <div class="text-center">
                   <!-- Product name-->
-                  <h5 class="fw-bolder">Fancy Product</h5>
-                  <!-- Product price-->
-                  $40.00 - $80.00
+                  <h2 class="fw-bolder">{{ salon.salonname }}</h2>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      Category: <b>{{ salon.saloncategory }}</b>
+                    </li>
+                    <li class="list-group-item">
+                      Salon Rating: {{ salon.salonrating }}
+                    </li>
+                    <li class="list-group-item">
+                      Salon Address: {{ salon.salonaddress }} ,
+                      {{ salon.saloncity }}
+                    </li>
+                  </ul>
                 </div>
               </div>
               <!-- Product actions-->
               <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center">
-                  <a class="btn button-87 mt-auto" href="#">View options</a>
+                  <a
+                    class="btn button-87 mt-auto"
+                    routerLink="/salonpage/{{ salon.salonid }}"
+                    >View Salon</a
+                  >
                 </div>
               </div>
             </div>

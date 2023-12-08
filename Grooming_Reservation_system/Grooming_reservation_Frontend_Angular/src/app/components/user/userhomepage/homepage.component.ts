@@ -15,12 +15,14 @@ import { UserauthenticationService } from 'src/app/services/userservices/useraut
 export class HomepageComponent {
 
 
+
   p : number =1;
   count : number =8;
   username: string;
   useremail:string;
   salons: Salon[]=[];
   currentIndex: number;
+  categories: string[];
 
   redirect(elementId: string) {
     this.viewportScroller.scrollToAnchor(elementId);
@@ -36,9 +38,15 @@ export class HomepageComponent {
     this.username = sessionStorage.getItem("username"); 
     this.useremail=sessionStorage.getItem("usermail");    
     this.salondataservice.getAllEnabledSalonByRatingDesc().subscribe(data=>this.salons=data);
+    this.salondataservice.getAllSalonCategories().subscribe(data => this.categories=data);
     // console.log('abcd',this.salondataservice.getAllSalonWithCount());
   }
 
+  getSalonbyCategory(salonCatergory: string) {
+    this.salondataservice.getEnabledSalonByCategory(salonCatergory).subscribe(data=>this.salons=data);
+    }
+
+  
  
 
   constructor(private viewportScroller: ViewportScroller,private router:Router, private userauthentication: UserauthenticationService, private salondataservice: SalonService){}

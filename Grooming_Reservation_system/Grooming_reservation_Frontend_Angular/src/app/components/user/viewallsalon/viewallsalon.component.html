@@ -1,67 +1,92 @@
-<!-- navbar -->
-<app-navbar></app-navbar>
+<body>
+  <!--Top Navigation Bar-->
+  <app-navbar></app-navbar>
+  <!-- Header-->
 
-<!-- All salons -->
-<div class="viewallsalonBackground">
-  <div class="container-fluid" id="salons">
-    <div class="row flex-nowrap" style="padding-top: 5rem">
-      <!-- div with side bar and salon cards -->
-      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0">
-        <!-- sidebar -->
-        <app-usersidebar></app-usersidebar>
+  <!-- Section Cards and Sidebar-->
+  <section class="cards-section pr-1">
+    <div class="row">
+      <!-- Sidebar-->
+      <div class="col-md-2 sidebar-div gradient-custom-2 text-playfair">
+        <a class="navbar-brand sidebar-top" href="#sidebar"> </a>
+        <!-- Your sidebar content goes here -->
+        <div id="sidebar" class="pt-5 pl-4 sidenav">
+          <a routerLink="/viewallsalon"> All Salons</a>
+          <a
+            (click)="getSalonbyCategory(salonCategory)"
+            *ngFor="let salonCategory of categories"
+            >{{ salonCategory }}</a
+          >
+        </div>
       </div>
-      <div class="col py-3">
-        <!-- Display salon Cards -->
+      <!--Salon Cards-->
+      <div class="col-md-10 py-5">
+        <div class="text-lg-left col-8">
+          <h2 class="section-title text-playfair mb-4">Salons</h2>
+          <span class="section-subtitle">Where Style meets Innovation</span>
+        </div>
 
         <div
           class="row gx-3 gx-lg-3 row-cols-4 row-cols-md-4 row-cols-xl-4 justify-content-center"
         >
-          <section
+          <div
+            class="col mb-3"
             *ngFor="
               let salon of salons
                 | paginate : { itemsPerPage: count, currentPage: p }
             "
           >
-            <div class="card mb-3" style="width: 18rem; height: 600px">
+            <div class="card h-100 card-box-shadow">
+              <!-- Product image-->
               <img
-                class="card-img-top card-image"
+                class="card-img-top"
+                style="height: 16rem"
                 src="{{ salon.salonpicurl }}"
-                alt="Card image cap"
+                alt="Salon Picture"
               />
-              <div class="card-body">
-                <h5 class="card-title">{{ salon.salonname }}</h5>
-                <p class="card-text">{{ salon.salondescription }}</p>
+              <!-- Product details-->
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <!-- Product name-->
+                  <h2 class="fw-bolder">{{ salon.salonname }}</h2>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      Category: <b>{{ salon.saloncategory }}</b>
+                    </li>
+                    <li class="list-group-item">
+                      Salon Rating: {{ salon.salonrating }}
+                    </li>
+                    <li class="list-group-item">
+                      Salon Address: {{ salon.salonaddress }} ,
+                      {{ salon.saloncity }}
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  {{ salon.salondescription }}
-                </li>
-                <li class="list-group-item">
-                  Salon Category: <b> {{ salon.saloncategory }}</b>
-                </li>
-                <li class="list-group-item">
-                  Salon Rating: <b>{{ salon.salonrating }}</b>
-                </li>
-              </ul>
-              <div class="card-body" style="text-align: center">
-                <button
-                  mat-raised-button
-                  color="accent"
-                  routerLink="/salonpage/{{ salon.salonid }}"
-                >
-                  View
-                </button>
+              <!-- Product actions-->
+              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                <div class="text-center">
+                  <a
+                    class="btn button-87 mt-auto"
+                    routerLink="/salonpage/{{ salon.salonid }}"
+                    >View Salon</a
+                  >
+                </div>
               </div>
             </div>
-          </section>
+          </div>
         </div>
       </div>
     </div>
-    <div class="paginationControls">
+    <div class="text-right">
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
-  </div>
+  </section>
 
-  <!--Salon Cards Pagination Controls-->
-</div>
-<app-footer></app-footer>
+  <!-- Footer-->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; ChromaCuts</p>
+    </div>
+  </footer>
+</body>

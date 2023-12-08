@@ -162,6 +162,10 @@ public class SalonServiceimpl implements SalonService {
 	public List<Salon> getSalonByCategory(String salonCategory) {
 		return salonRepository.getSalonByCategory(salonCategory);
 	}
-	
+
+	@Override
+	public List<Salon> getEnabledSalonByCategory(String salonCategory) {
+		return salonRepository.getEnabledSalonByCategory(salonCategory);
+	}
 
 }

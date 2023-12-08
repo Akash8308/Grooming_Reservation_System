@@ -131,7 +131,14 @@
                 </button>
               </td>
             </ng-template>
-            <td><button mat-raised-button>View</button></td>
+            <td>
+              <button
+                routerLink="/salonpage/{{ salon.salonid }}"
+                mat-raised-button
+              >
+                View
+              </button>
+            </td>
           </tr>
         </ng-container>
       </tbody>

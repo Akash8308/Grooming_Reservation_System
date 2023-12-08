@@ -16,8 +16,12 @@
         All Salons
       </button>
     </li>
-    <li class="nav-item text-black" *ngFor="let salonCategory of categories">
-      <a class="nav-link align-middle px-0" style="padding: 1rem">
+    <li class="nav-item text-black">
+      <a
+        class="nav-link align-middle px-0"
+        style="padding: 1rem"
+        *ngFor="let salonCategory of categories"
+      >
         <button color="primary" mat-raised-button>
           {{ salonCategory }}
         </button>

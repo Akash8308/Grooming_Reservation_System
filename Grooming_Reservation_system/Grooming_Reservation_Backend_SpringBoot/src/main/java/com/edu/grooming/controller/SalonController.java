@@ -124,4 +124,9 @@ public class SalonController {
 		return salonService.searchSalonByStatus(value);
 	}
 	
+	@GetMapping("/getEnabledSalonByCategory/{salonCategory}")//http://localhost:8990/searchEnabledSalonByCategory/{salonCategory}
+	public List<Salon> getEnabledSalonByCategory(@PathVariable("salonCategory") String salonCategory){
+		return salonService.getEnabledSalonByCategory(salonCategory);
+	}
+	
 }
