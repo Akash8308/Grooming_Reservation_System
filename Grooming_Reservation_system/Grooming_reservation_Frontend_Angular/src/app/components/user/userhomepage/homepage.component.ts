@@ -16,7 +16,7 @@ export class HomepageComponent {
 
 
   p : number =1;
-  count : number =4;
+  count : number =8;
   username: string;
   useremail:string;
   salons: Salon[]=[];
@@ -27,7 +27,7 @@ export class HomepageComponent {
     }
   
   logout() {
-    console.log('loggedout');
+    console.log('loggeedout');
     this.userauthentication.logout();
     this.router.navigate(['lpage']);
   }

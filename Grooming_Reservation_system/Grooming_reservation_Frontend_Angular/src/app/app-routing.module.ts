@@ -33,6 +33,7 @@ import { SalonpageComponent } from './components/user/salonpage/salonpage.compon
 import { ViewallappointmentsComponent } from './components/admin/viewallappointments/viewallappointments.component';
 import { AdminViewAllStylistComponent } from './components/admin/admin-view-all-stylist/admin-view-all-stylist.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: "lpage", pathMatch: 'full' },
   { path: "lpage", component: LpageComponent},
@@ -67,6 +68,7 @@ const routes: Routes = [
   { path: "salonpage/:salonid",component: SalonpageComponent},
   { path: "viewallappointments",component: ViewallappointmentsComponent},
   { path: "adminViewAllStylist",component: AdminViewAllStylistComponent},
+  
 
 ];
 

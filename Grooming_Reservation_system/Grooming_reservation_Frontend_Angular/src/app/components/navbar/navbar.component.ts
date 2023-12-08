@@ -9,6 +9,7 @@ import { UserauthenticationService } from 'src/app/services/userservices/useraut
 })
 export class NavbarComponent {
 
+
   username: any;
   ngOnInit() {
     // Subscribe to route fragment changes
@@ -28,17 +29,15 @@ export class NavbarComponent {
     this.username = sessionStorage.getItem("username");
   }
 
+  // logout() {
+  //   this.userauthentication.logout();
+  //   this.router.navigate(['lpage']);
+  // }
+
   logout() {
     console.log('loggedout');
     this.userauthentication.logout();
     this.router.navigate(['lpage']);
-  }
-
-  redirect(arg0: string) {
-    this.router.navigate(['homepage']);
-  }
-
-  redirectTo(page: string) {
-    this.router.navigate(['homepage']);
     }
+
 }

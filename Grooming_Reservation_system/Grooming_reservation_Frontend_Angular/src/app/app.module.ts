@@ -61,6 +61,7 @@ import { AdminViewAllStylistComponent } from './components/admin/admin-view-all-
 import { MatTableModule } from '@angular/material/table';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,7 +104,7 @@ import { MatTableModule } from '@angular/material/table';
     SalonpageComponent,
     ViewallappointmentsComponent,
     ViewuserappointmentsComponent,
-    AdminViewAllStylistComponent
+    AdminViewAllStylistComponent,
    
   ],
   imports: [

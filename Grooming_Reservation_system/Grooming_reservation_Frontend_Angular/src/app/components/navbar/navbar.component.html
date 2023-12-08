@@ -1,4 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+<nav
+  class="navbar navbar-expand-lg navbar-light gradient-custom-2"
+  id="mainNav"
+>
   <div class="container px-4 px-lg-5">
     <!-- Logo and Company Name on the left -->
     <img
@@ -6,9 +9,7 @@
       style="width: 120px"
       alt="logo"
     />
-    <a class="navbar-brand chromacuts-logoname" routerLink="/lpage"
-      >ChromaCuts</a
-    >
+    <a class="navbar-brand chromacuts-logoname" href="#page-top">ChromaCuts</a>
 
     <!-- Toggle Button for Small Screens -->
     <button
@@ -25,39 +26,33 @@
 
     <!-- Navigation Links on the right -->
     <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ms-auto" style="padding: 2rem">
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <button
-            mat-fab
-            extended
-            style="padding: 1rem"
-            routerLink="/homepage"
-            fragment="introductionDiv"
-          >
-            Home
-          </button>
-        </li>
-        <li class="nav-item" style="padding-left: 0.5rem">
-          <button mat-fab extended routerLink="/About">About</button>
+          <a class="nav-link" href="#about">About</a>
         </li>
 
-        <li class="nav-item" style="padding-left: 0.5rem">
-          <button mat-fab extended routerLink="/homepage" fragment="salons">
-            Salons
-          </button>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Services</a>
         </li>
 
-        <li style="padding-left: 0.5rem">
-          <button mat-fab extended routerLink="/viewuser">
-            <mat-icon>account_circle</mat-icon>
-            {{ username }}
-          </button>
+        <!-- Dropdown for Login/Signup -->
+        <li class="nav-item dropdown">
+          <button class="nav-link dropdown-btn">Login</button>
+          <div class="dropdown-content">
+            <a href="#">User</a>
+            <a href="#">Salon</a>
+          </div>
         </li>
-        <li style="padding-left: 0.5rem">
-          <button mat-fab extended (click)="logout()">
-            <mat-icon>exit_to_app</mat-icon>
-            Logout
-          </button>
+
+        <li class="nav-item dropdown">
+          <button class="nav-link dropdown-btn">Signup</button>
+          <div class="dropdown-content">
+            <a href="#">User</a>
+            <a href="#">Salon</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="nav-link" (click)="logout()">Logout</button>
         </li>
       </ul>
     </div>
