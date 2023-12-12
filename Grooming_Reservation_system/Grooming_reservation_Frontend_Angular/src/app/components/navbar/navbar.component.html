@@ -36,24 +36,60 @@
         </li>
 
         <!-- Dropdown for Login/Signup -->
-        <li class="nav-item dropdown">
-          <button class="nav-link dropdown-btn">Login</button>
-          <div class="dropdown-content">
-            <a href="#">User</a>
-            <a href="#">Salon</a>
-          </div>
-        </li>
+        <section *ngIf="!isUserLoggedIn">
+          <section *ngIf="!isSalonLoggedIn">
+            <li class="nav-item dropdown">
+              <button *ngIf="!isUserLoggedIn" class="nav-link dropdown-btn">
+                Login
+              </button>
+              <div *ngIf="!isUserLoggedIn" class="dropdown-content">
+                <a routerLink="/login">User</a>
+                <a routerLink="/salonlogin">Salon</a>
+              </div>
+            </li>
 
-        <li class="nav-item dropdown">
-          <button class="nav-link dropdown-btn">Signup</button>
-          <div class="dropdown-content">
-            <a href="#">User</a>
-            <a href="#">Salon</a>
-          </div>
+            <li class="nav-item dropdown" *ngIf="!isUserLoggedIn">
+              <button class="nav-link dropdown-btn">Signup</button>
+              <div class="dropdown-content">
+                <a routerLink="/userregistration">User</a>
+                <a routerLink="/salonregistration">Salon</a>
+              </div>
+            </li>
+          </section>
+        </section>
+        <li class="nav-item" *ngIf="isUserLoggedIn">
+          <a class="nav-link" routerLink="/homepage" fragment="salons">
+            Salons</a
+          >
         </li>
         <li class="nav-item">
-          <button class="nav-link" (click)="logout()">Logout</button>
+          <button
+            *ngIf="isUserLoggedIn"
+            class="nav-link"
+            routerLink="/viewuser"
+          >
+            Profile
+          </button>
         </li>
+        <li class="nav-item">
+          <button
+            *ngIf="isUserLoggedIn"
+            class="nav-link"
+            (click)="userLogout()"
+          >
+            Logout
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            *ngIf="isSalonLoggedIn"
+            class="nav-link"
+            (click)="salonLogout()"
+          >
+            Logout
+          </button>
+        </li>
+        <li></li>
       </ul>
     </div>
   </div>

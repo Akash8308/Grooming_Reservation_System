@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class AddstylistComponent {
   constructor(private stylistservice:StylistServiceService,private matDialog:MatDialog,private router:Router){}
-  stylistid:number=0;
+  stylistid:string=""
   firstname="";
   lastname="";
   stylistphonenum="";
@@ -20,9 +20,9 @@ export class AddstylistComponent {
   stylistspecialization="";
   stylistrating=1;
   // salonidstr=sessionStorage.getItem("salonid");
-  salonid = sessionStorage.getItem("salonid");
-  
-  stylist:Stylist=new Stylist(this.salonid,this.firstname,this.lastname,this.stylistphonenum,this.stylistemail,this.stylistspecialization,this.stylistrating, this.salonid)
+  salonidstr = sessionStorage.getItem("salonid");
+  salonid=parseInt(this.salonidstr);
+  stylist:Stylist=new Stylist(this.stylistid,this.firstname,this.lastname,this.stylistphonenum,this.stylistemail,this.stylistspecialization,this.stylistrating, this.salonidstr)
   addstylist()
   {
    this.stylistservice.addStylist(this.stylist,this.salonid).subscribe(()=>this.router.navigate(['salonhomepage']),banckenderror=>this.errorHandling(banckenderror));

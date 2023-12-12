@@ -1,5 +1,6 @@
 package com.edu.grooming.dao;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -10,8 +11,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.FutureOrPresent;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -55,13 +59,20 @@ public class Appointment {
 	@JoinColumn(name = "stylistid")
 	private Stylist stylist;
 	
-	@ManyToOne
-	@JoinColumn(name = "servicesid")
-	private Services services;
-	
-//	@OneToMany
-//	private List<Services> services;
 
+
+	@ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+			    name = "appointment_services", 
+				joinColumns = {@JoinColumn(name = "appointmentId")},
+				inverseJoinColumns = {@JoinColumn(name = "servicesid")}
+			  )
+    private List<Services> services;
+	
+//	@ManyToOne
+//	@JoinColumn(name="addressid")
+//	private Address address;
+//	
 	public Appointment() {
 		super();
 	}
@@ -146,15 +157,23 @@ public class Appointment {
 	}
 
 
-	public Services getServices() {
+	public List<Services> getServices() {
 		return services;
 	}
 
 
-	public void setServices(Services services) {
+	public void setServices(List<Services> services) {
 		this.services = services;
 	}
 
+//	public Address getAddress() {
+//		return address;
+//	}
+//
+//
+//	public void setAddress(Address address) {
+//		this.address = address;
+//	}
 
 	@Override
 	public String toString() {
@@ -183,8 +202,8 @@ public class Appointment {
 	}
 
 
-	public void updateAppointmentStylist(Services services2) {
-		this.services = services2;
+	public void addAppointmentServices(Services services2) {
+		this.services.add(services2);
 		
 	}
 

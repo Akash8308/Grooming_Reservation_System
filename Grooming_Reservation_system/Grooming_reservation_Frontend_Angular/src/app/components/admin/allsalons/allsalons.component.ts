@@ -16,8 +16,8 @@ export class AllsalonsComponent {
 
   searchValue='';
   salons: Salon[]=[];
-  recordsPerPage: string|number;
-  pagenum: string|number;
+  p : number =1;
+  count : number =10;
   msg: string;
   salStatus: any;
   selectedSalonStatus: any;
@@ -103,6 +103,7 @@ export class AllsalonsComponent {
   editSalon(salonid: any) {
     this.matDialog.open(EditsalonComponent,{
       width: '800px',
+      height: '1000px',
       data:salonid
     })
   }

@@ -7,8 +7,7 @@
       <tr>
         <th scope="col">appointmentId</th>
         <th scope="col">appointmentDate</th>
-        <th scope="col">appointmentStartTime</th>
-        <th scope="col">appointmentEndTime</th>
+        <th scope="col">appointmentTime</th>
         <th scope="col">appointmentStatus</th>
         <th scope="col">appointmentType</th>
       </tr>
@@ -16,14 +15,13 @@
     <tbody>
       <tr
         *ngFor="
-          let appointment of Appointment
-            | paginate : { itemsPerPage: recordsPerPage, currentPage: pagenum }
+          let appointment of appointments
+            | paginate : { itemsPerPage: count, currentPage: p }
         "
       >
         <td scope="col">{{ appointment.appointmentId }}</td>
         <td scope="col">{{ appointment.appointmentDate }}</td>
-        <td scope="col">{{ appointment.appointmentStartTime }}</td>
-        <td scope="col">{{ appointment.appointmentEndTime }}</td>
+        <td scope="col">{{ appointment.appointmentTime }}</td>
         <td scope="col">{{ appointment.appointmentStatus }}</td>
         <td scope="col">{{ appointment.appointmentType }}</td>
 
@@ -33,6 +31,6 @@
   </table>
   <!--Including the pagination control.-->
   <div class="text-right">
-    <pagination-controls (pageChange)="pagenum = $event"></pagination-controls>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>

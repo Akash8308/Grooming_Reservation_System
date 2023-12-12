@@ -30,6 +30,7 @@ export class LoginComponent {
         data=>{
               sessionStorage.setItem("usermail",data.useremail),
               sessionStorage.setItem("username",data.userfirstname),
+              sessionStorage.setItem("userid",data.userid.toString()),
               this.loginuser = true,
               this.redirect();
               },banckenderror=>this.errorHandling(banckenderror)
@@ -52,7 +53,7 @@ export class LoginComponent {
   }
   
   redirect(){
-    if(sessionStorage.getItem("username") == "Admin"){
+    if(sessionStorage.getItem("usermail") == "Admin@gmail.com"){
       this.router.navigate(['adminhomepage']);
     }
     else{

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Salon } from 'src/app/dao/salon';
 import { Service } from 'src/app/dao/service';
 import { Stylist } from 'src/app/dao/stylist';
@@ -26,7 +26,8 @@ export class SalonpageComponent {
 
   constructor(private salondataservice: SalonService, 
     private stylistDataService: StylistServiceService,
-    private activeRoute: ActivatedRoute){}
+    private activeRoute: ActivatedRoute,
+    private router: Router){}
 
   ngOnInit(){
     this.salonid = this.activeRoute.snapshot.params['salonid'];
@@ -35,5 +36,8 @@ export class SalonpageComponent {
     this.stylistDataService.geAlltStylistBySalonId(this.salonid).subscribe(data => this.stylists =data);
   }
   
+  OnselectSalon(salonid:string) {
+    this.router.navigate(['viewallservice',salonid]);
+  }
 
 }

@@ -25,8 +25,7 @@ address:Address =new Address(this.addressid,this.houseno,this.street,this.city,t
 
 
 registerAddress() {
- 
-  this.addressService.addAddress(this.address,this.userid).subscribe(()=>this.router.navigate['viewaddress']);
+  this.addressService.addAddress(this.address,this.userid).subscribe(()=>this.router.navigate['viewuser']);
 }
   
 

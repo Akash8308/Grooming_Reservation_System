@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Max;
@@ -40,17 +41,18 @@ public class Services {
 	@Column(nullable = false, name = "servicesgendertype", length = 6)
 	private String servicesgendertype;
 	
+	
+	
 
 	@ManyToOne
 	@JoinColumn(name = "salonid")
 	private Salon salon;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "services", cascade = CascadeType.ALL)
-	private List<Appointment> appointment;
+
 	
-//	@ManyToOne
-//	private Appointment appointment;
+	@JsonIgnore
+	@ManyToMany(mappedBy = "services")
+	private List<Appointment> appointment;
 
 	public Services() {
 		super();

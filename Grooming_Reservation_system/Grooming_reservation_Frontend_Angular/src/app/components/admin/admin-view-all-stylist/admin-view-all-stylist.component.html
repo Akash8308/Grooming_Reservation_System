@@ -1,4 +1,4 @@
-<div style="padding: 2rem">
+<div style="padding: 2rem" class="h-100">
   <div>
     <h1 class="tabletitle">Registered Stylists</h1>
   </div>
@@ -28,7 +28,12 @@
           <td scope="col">{{ stylist.stylistspecialization }}</td>
           <td scope="col">{{ stylist.stylistrating }}</td>
           <td scope="col">
-            <button mat-raised-button>{{ stylist.salon.salonid }}</button>
+            <button
+              mat-raised-button
+              routerLink="/salonpage/{{ stylist.salon.salonid }}"
+            >
+              {{ stylist.salon.salonid }}
+            </button>
           </td>
 
           <td></td>

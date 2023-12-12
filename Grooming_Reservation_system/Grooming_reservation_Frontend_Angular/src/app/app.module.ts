@@ -59,6 +59,11 @@ import { ViewallappointmentsComponent } from './components/admin/viewallappointm
 import { ViewuserappointmentsComponent } from './components/admin/viewuserappointments/viewuserappointments.component';
 import { AdminViewAllStylistComponent } from './components/admin/admin-view-all-stylist/admin-view-all-stylist.component';
 import { MatTableModule } from '@angular/material/table';
+import { SalonAppointmentsComponent } from './components/salon/salon-appointments/salon-appointments.component';
+import { AppointmentdetailsComponent } from './components/user/appointment/appointmentdetails/appointmentdetails.component';
+import { AppointmentdisplayComponent } from './components/user/appointment/appointmentdisplay/appointmentdisplay.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component'; 
 
 
 
@@ -105,7 +110,12 @@ import { MatTableModule } from '@angular/material/table';
     ViewallappointmentsComponent,
     ViewuserappointmentsComponent,
     AdminViewAllStylistComponent,
-   
+    SalonAppointmentsComponent,
+    AppointmentdetailsComponent,
+    AppointmentdisplayComponent,
+    PaymentComponent,
+    TermsAndConditionsComponent
+    
   ],
   imports: [
     NgxPaginationModule,
@@ -115,7 +125,6 @@ import { MatTableModule } from '@angular/material/table';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    
     MatButtonModule,
     MatDialogModule,
     ReactiveFormsModule,
@@ -127,7 +136,9 @@ import { MatTableModule } from '@angular/material/table';
     CarouselModule,
     MatRadioModule,
     MatAutocompleteModule,
-    MatTableModule
+    MatTableModule,
+   
+    
 
   ],
   providers: [],

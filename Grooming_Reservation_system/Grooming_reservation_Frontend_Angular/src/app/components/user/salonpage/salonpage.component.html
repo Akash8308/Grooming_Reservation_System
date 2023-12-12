@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar> -->
 <main class="flex-shrink-0">
   <!-- Header-->
   <header class="py-5" style="background-color: #f2f2f2">
@@ -11,7 +11,7 @@
                 <p>Welcome to {{ salon.salonname }}</p>
               </h1>
             </h1>
-            <p class="lead fw-normal text-white-50 mb-4">
+            <p class="lead text-white-50 mb-4 linespacing">
               {{ salon.salondescription }}
             </p>
             <div
@@ -35,9 +35,11 @@
               <button
                 mat-raised-button
                 color="accent"
-                routerLink="/salonpage/sercvices"
+                (click)="OnselectSalon(this.salon.salonid)"
               >
                 Book Appointment
+
+                <!-- <a href="#" class="card-link">Another link</a> -->
               </button>
             </div>
           </div>
@@ -167,7 +169,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <!-- <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="col-12 text-right" style="padding-left: 60rem">
@@ -175,7 +177,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </main>
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->

@@ -16,7 +16,6 @@ export class UserauthenticationService {
     return this.dataservice.getUserByEmailPassword(usermail,userpass);
   }
   
-
   isUserLoggedIn(){
     let user= sessionStorage.getItem('usermail');
     return !(user==null);

@@ -16,8 +16,8 @@ export class AllusersComponent {
 
   users: any[]=[];
   searchValue='';
-  recordsPerPage: 10;
-  pagenum: number=1;
+  p : number =1;
+  count : number =8;
   ButtonDiv: boolean;
   selectedUserStatus: any;
   userStatus= [

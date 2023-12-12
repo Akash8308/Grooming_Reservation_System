@@ -28,7 +28,7 @@ export class SalonregistrationComponent {
   
 
 
-  salonCategories: string[]=[];
+  salonCategories: string[]=['Hair salon','Barber','Massages','Nail salon','Waxing','Facials','Hair care','Hair cutting','Tanning','Hybrid'];
   timeString='';
   selectedSalonBuisnesHoursStart: any;
   selectedSalonBuisnesHoursEnd: any;
@@ -171,7 +171,7 @@ export class SalonregistrationComponent {
   
   ngOnInit() {
     this.getCountries();    
-    this.salonservice.getAllSalonCategories().subscribe(data=> this.salonCategories=data);
+    // this.salonservice.getAllSalonCategories().subscribe(data=> this.salonCategories=data);
   }
 
        salonregister(){

@@ -1,6 +1,8 @@
 package com.edu.grooming.controller;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.edu.grooming.dao.Appointment;
@@ -23,21 +26,26 @@ public class AppointmentController {
 	@Autowired
 	private AppointmentService appointmentService;
 
-	@PostMapping("/saveAppointment/{userid}/{salonid}/{serviceid}/{stylistid}") //http://localhost:8990/saveAppointment
+	@PostMapping("/saveAppointment/{userid}/{salonid}/{stylistid}/{servicesidstr}") //http://localhost:8990/saveAppointment
 	public Appointment saveAppointment(@RequestBody Appointment appointment,@PathVariable("userid") Integer userid,
-			@PathVariable("salonid") Integer salonid,@PathVariable("serviceid") Integer serviceid,
-			@PathVariable("stylistid") Integer stylistid) {
+			@PathVariable("salonid") Integer salonid,
+			@PathVariable("stylistid") Integer stylistid,@PathVariable("servicesidstr") String servicesidstr) {
 	
-		Appointment appointment1=appointmentService.saveAppointment(appointment);
+		System.out.println(servicesidstr);
+		//Appointment appointment1=appointmentService.saveAppointment(appointment,servicesid);
+		Appointment appointment1=appointmentService.saveAppointment(appointment,servicesidstr);
 		Appointment appointment2=appointmentService.updateAppointmentUser(userid,appointment1.getAppointmentId());
 		appointment2=appointmentService.updateAppointmentSalon(salonid,appointment1.getAppointmentId());
-		appointment2=appointmentService.updateAppointmentService(serviceid,appointment1.getAppointmentId());
+		//appointment2=appointmentService.updateAppointmentService(serviceid,appointment1.getAppointmentId());
 		appointment2=appointmentService.updateAppointmentStylist(stylistid,appointment1.getAppointmentId());
-
+	
 		return appointment2 ;
 	}
 	
-	
+	@GetMapping("/checkStylistAvailability/{appointmentdate}/{stylistid}")
+	public List<Appointment> checkStylistAvailability(@PathVariable("appointmentdate") String appointmentdate ,@PathVariable("stylistid") Integer stylistid){
+		return appointmentService.checkStylistAvailability(appointmentdate,stylistid);
+	}
 	
 	@GetMapping("/getAppointmentByAppointmentId/{appointmentid}")
 	public Appointment getAppointmentByAppointmentId(@PathVariable("appointmentid") Integer appointmentId) {
@@ -60,6 +68,11 @@ public class AppointmentController {
 		return appointmentService.getAllAppointments();
 	}
 	
+	@GetMapping("/getAllBookedAppointments/{userid}")
+	public List<Appointment> getAllBookedAppointments(@PathVariable("userid")Integer userid) {
+		return appointmentService.getAllBookedAppointments(userid);
+	}
+	
 	@GetMapping("/getAllAppointmentsBySalonId/{salonid}")
 	public List<Appointment> getAllAppointmentsBySalonId(@PathVariable("salonid") Integer salonid){
 		return appointmentService.getAllAppointmentsBySalonId(salonid);
@@ -80,8 +93,14 @@ public class AppointmentController {
 		return appointmentService.updateAppointmentStylist(stylistid,appointmentId);
 	}
 	
-	@PutMapping("/updateAppointmentService/{serviceid}/{appointmentid}")//http://localhost:8990/updateAppointmentService/{serviceid}/{appointmentid}
-	public Appointment updateAppointmentService(@PathVariable("serviceid") Integer serviceid,@PathVariable("appointmentid") Integer appointmentId) {
-		return appointmentService.updateAppointmentService(serviceid,appointmentId);
+	@PutMapping("/addServiceAppointment/{serviceid}/{appointmentid}")//http://localhost:8990/updateAppointmentService/{serviceid}/{appointmentid}
+	public Appointment addServiceAppointment(@PathVariable("serviceid") Integer serviceid,@PathVariable("appointmentid") Integer appointmentId) throws NotFoundException {
+		System.out.println("addservice");
+		return appointmentService.addServiceAppointment(serviceid,appointmentId);
+	}
+	
+	@PutMapping("/updateBooking/{appointmentid}")
+	public Appointment updateBooking(@PathVariable("appointmentid") Integer appointmentId,@RequestBody Appointment appointment) {
+		return appointmentService.updateBooking(appointmentId,appointment);
 	}
 }

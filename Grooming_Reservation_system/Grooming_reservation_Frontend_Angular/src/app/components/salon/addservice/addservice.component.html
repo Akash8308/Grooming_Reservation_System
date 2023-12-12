@@ -89,6 +89,9 @@
                         (click)="setradio('Female')"
                         >Female</mat-radio-button
                       >
+                      <mat-radio-button value="Both" (click)="setradio('Both')"
+                        >Both</mat-radio-button
+                      >
                     </mat-radio-group>
                   </div>
 
@@ -119,7 +122,7 @@
                       servicesprice is required
                     </div>
                     <div *ngIf="servicesprice.errors?.['min']">
-                      servicesprice should be atleast 500.
+                      servicesprice should be atleast 100.
                     </div>
                     <div *ngIf="servicesprice.errors?.['max']">
                       servicesprice should be atmost 2000000.

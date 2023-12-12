@@ -11,14 +11,18 @@ export class ViewallsalonComponent {
 
   salons: Salon[]=[];
   p : number =1;
-  count : number =12;
+  count : number =8;
   categories: string[];
 
   constructor(private salondataservice: SalonService){}
 
     ngOnInit(){
-      this.salondataservice.getAllSalon().subscribe(data => this.salons=data);
+     this.getAllSalons();
       this.salondataservice.getAllSalonCategories().subscribe(data => this.categories=data);
+    }
+
+    getAllSalons(){
+      this.salondataservice.getAllEnabledSalon().subscribe(data => this.salons=data);
     }
 
     getSalonbyCategory(salonCatergory: string) {

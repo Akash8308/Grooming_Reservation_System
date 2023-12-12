@@ -1,4 +1,4 @@
-<div>
+<div class="h-400">
   <div class="tablediv">
     <h1 class="tabletitle">All Salons</h1>
 
@@ -65,8 +65,7 @@
         <ng-container
           *ngFor="
             let salon of salons
-              | paginate
-                : { itemsPerPage: recordsPerPage, currentPage: pagenum }
+              | paginate : { itemsPerPage: count, currentPage: p }
           "
         >
           <!-- <tr
@@ -145,9 +144,7 @@
     </table>
     <!--Including the pagination control.-->
     <div class="text-right">
-      <pagination-controls
-        (pageChange)="pagenum = $event"
-      ></pagination-controls>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
   </div>
 </div>

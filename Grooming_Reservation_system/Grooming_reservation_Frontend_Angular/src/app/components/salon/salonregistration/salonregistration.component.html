@@ -1,5 +1,5 @@
 <section
-  class="vh-100 bg-image"
+  class="bg-image"
   style="
     background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');
   "
@@ -8,7 +8,7 @@
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 w-50 col-md-9 col-lg-7 col-xl-6">
-          <div class="card" style="border-radius: 15px">
+          <div class="card my-4" style="border-radius: 15px">
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
@@ -19,7 +19,7 @@
                 <!--salonname-->
                 <div class="form-outline mb-2">
                   <label class="form-label" for="form3Example1cg">
-                    SALON NAME
+                    Salon Name
                   </label>
                   <input
                     type="text"
@@ -179,7 +179,7 @@
                 <!--salonphonenumber-->
                 <div class="form-outline mb-2">
                   <label class="form-label" for="form3Example1cg">
-                    SALON PHONENUMBER
+                    Salon Phonenumber
                   </label>
                   <input
                     type="text"
@@ -214,7 +214,7 @@
                 <!--salonemail-->
                 <div class="form-outline mb-2">
                   <label class="form-label" for="form3Example1cg">
-                    SALON EMAIL
+                    Salon Email
                   </label>
                   <input
                     type="email"
@@ -245,7 +245,7 @@
                   </div>
                 </div>
 
-                <!--salon opening hours-->
+                <!--salon business days-->
                 <div class="form-outline mb-2">
                   <label class="form-label" for="form3Example1cg">
                     Salon Buisnes Days
@@ -346,7 +346,7 @@
                 <!--salon description-->
                 <div class="form-outline mb-2">
                   <label class="form-label" for="form3Example1cg">
-                    SALON DESCRIPTION
+                    Salon Description
                   </label>
                   <input
                     type="text"
@@ -376,7 +376,7 @@
                 <!--salon password-->
                 <div class="form-outline mb-2">
                   <label class="form-label" for="form3Example1cg">
-                    SALON PASSWORD
+                    Salon Password
                   </label>
                   <input
                     type="password"
@@ -441,7 +441,7 @@
                 <!-- Salon Picture -->
                 <div class="form-outline mb-2" style="padding: 2rem">
                   <label class="form-label" for="form3Example1cg">
-                    Enter url to Salon picture
+                    Enter URL to Salon Picture
                   </label>
                   <input
                     type="text"
@@ -469,15 +469,19 @@
                 </div>
                 <!--checkbox-->
                 <div class="form-check d-flex justify-content-center mb-5">
-                  <input
-                    class="form-check-input me-2"
-                    type="checkbox"
-                    value=""
-                    id="form2Example3cg"
-                  />
+                  <div>
+                    <input
+                      class="form-check-input me-2"
+                      type="checkbox"
+                      value=""
+                      id="form2Example3cg"
+                    />
+                  </div>
                   <label class="form-check-label" for="form2Example3g">
                     I agree all statements in
-                    <a href="#!" class="text-body"><u>Terms of service</u></a>
+                    <a routerLink="/T&C" class="text-body"
+                      ><u>Terms of service</u></a
+                    >
                   </label>
                 </div>
 

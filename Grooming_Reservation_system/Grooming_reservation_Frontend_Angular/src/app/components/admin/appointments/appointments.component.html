@@ -7,35 +7,31 @@
       <tr>
         <th scope="col">Appointment ID</th>
         <th scope="col">User ID</th>
-        <th scope="col">Salon ID</th>
         <th scope="col">Stylist ID</th>
         <th scope="col">Appointment Date</th>
-        <th scope="col">Appointment End Date</th>
-        <th scope="col">Appointment Start Time</th>
-        <th scope="col">Appointment End Time</th>
+        <th scope="col">Appointment Time</th>
         <th scope="col">Appointment Type</th>
+        <th scope="col">Appointment Status</th>
       </tr>
     </thead>
     <tbody>
       <tr
         *ngFor="
           let appointment of appointments
-            | paginate : { itemsPerPage: recordsPerPage, currentPage: pagenum }
+            | paginate : { itemsPerPage: count, currentPage: p }
         "
       >
         <td>{{ appointment.appointmentId }}</td>
         <td>{{ appointment.user.userid }}</td>
-        <td>{{ appointment.salon.salonid }}</td>
         <td>{{ appointment.stylist.stylistid }}</td>
         <td>{{ appointment.appointmentDate }}</td>
-        <td>{{ appointment.appointmentDate }}</td>
-        <td>{{ appointment.appointmentStartTime }}</td>
-        <td>{{ appointment.appointmentEndTime }}</td>
+        <td>{{ appointment.appointmentTime }}</td>
         <td>{{ appointment.appointmentType }}</td>
+        <td>{{ appointment.appointmentStatus }}</td>
       </tr>
     </tbody>
   </table>
   <div class="text-right">
-    <pagination-controls (pageChange)="pagenum = $event"></pagination-controls>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>

@@ -35,13 +35,16 @@ public interface SalonRepository extends JpaRepository<Salon, Integer> {
 	@Query(value="select distinct saloncategory from salon",nativeQuery = true)
 	List<String> getAllSalonCategories();	
 
-	@Query(value="select * from salon order by salonrating desc",nativeQuery=true)
+	@Query(value="select * from salon where salonstatus='Enabled' order by salonrating desc",nativeQuery=true)
 	List<Salon> getAllEnabledSalonByRatingDesc();
 	
-	@Query(value="select * from salon where saloncategory=?",nativeQuery=true)
+	@Query(value="select * from salon where salonstatus='Enabled' and saloncategory=?",nativeQuery=true)
+	List<Salon> getEnabledSalonByCategory(String salonCategory);
+
+	@Query(value="select * from salon where salonstatus='Enabled' and saloncategory=?",nativeQuery=true)
 	List<Salon> getSalonByCategory(String salonCategory);
 
-	@Query(value="select * from salon where saloncategory=? and salonstatus='Enabled'",nativeQuery=true)
-	List<Salon> getEnabledSalonByCategory(String salonCategory);
+	@Query(value="select distinct saloncategory from salon where salonstatus='Enabled'",nativeQuery=true)
+	List<String> getAllEnabledSalonCategories();
 
 }

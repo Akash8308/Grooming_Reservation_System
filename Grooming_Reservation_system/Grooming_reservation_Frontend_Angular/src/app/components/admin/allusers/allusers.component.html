@@ -34,7 +34,7 @@
     </td>
   </tr>
 </table>
-<div class="tablediv">
+<div class="tablediv h-100">
   <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -51,8 +51,7 @@
     <tbody>
       <tr
         *ngFor="
-          let user of users
-            | paginate : { itemsPerPage: recordsPerPage, currentPage: pagenum }
+          let user of users | paginate : { itemsPerPage: count, currentPage: p }
         "
       >
         <!-- <td>{{ user.userid }}</td> -->
@@ -62,6 +61,7 @@
         <td>{{ user.userphonenumber }}</td>
         <td>
           <button
+            *ngIf="user.userfirstname != 'Admin'"
             color="primary"
             mat-raised-button
             (click)="editUser(this.user.userid)"
@@ -71,6 +71,7 @@
         </td>
         <td>
           <button
+            *ngIf="user.userfirstname != 'Admin'"
             color="primary"
             mat-raised-button
             (click)="viewUserAppointments(this.user)"
@@ -81,6 +82,7 @@
         <div *ngIf="!user.userisDeleted">
           <td>
             <button
+              *ngIf="user.userfirstname != 'Admin'"
               color="accent"
               mat-raised-button
               (click)="deleteUser(this.user.userid)"
@@ -106,6 +108,6 @@
   </table>
   <!--Including the pagination control.-->
   <div class="text-right">
-    <pagination-controls (pageChange)="pagenum = $event"></pagination-controls>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>

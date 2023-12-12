@@ -15,8 +15,8 @@ export class AppointmentsComponent {
 
   appointments: any[]=[];
   salon=this.data;
-  recordsPerPage: string|number;
-  pagenum: string|number;
+  p : number =1;
+  count : number =8;
   
   constructor(@Inject(MAT_DIALOG_DATA) public data:any,
     private appointmentService: AppointmentService,

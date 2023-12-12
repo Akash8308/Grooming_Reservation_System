@@ -13,8 +13,8 @@ export class ViewuserappointmentsComponent {
 
   salon: User;
   appointments: any[]=[];
-  recordsPerPage: string|number;
-  pagenum: string|number; 
+  p : number =1;
+  count : number =8;
   user=this.data;
 
   constructor(private appointmentDataService: AppointmentService,

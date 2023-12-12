@@ -23,3 +23,7 @@ p {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
  }
+
+ .linespacing{
+    line-height: 30px;
+ }

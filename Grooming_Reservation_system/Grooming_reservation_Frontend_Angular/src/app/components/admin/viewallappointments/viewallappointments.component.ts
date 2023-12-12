@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AppointmentService } from 'src/app/services/appointmentservices/appointment.service';
 import { InvalidcomponentComponent } from '../../popups/invalidcomponent/invalidcomponent.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Appointment } from 'src/app/dao/appointment';
 
 @Component({
   selector: 'app-viewallappointments',
@@ -9,8 +10,9 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./viewallappointments.component.css']
 })
 export class ViewallappointmentsComponent {
-salon: any;
-appointments: any;
+  
+  salon: any;
+  appointments: any;
 
   constructor(private appointmentdataservice: AppointmentService,
     private matDialog: MatDialog,
@@ -29,4 +31,3 @@ appointments: any;
       );
     }
   }
-

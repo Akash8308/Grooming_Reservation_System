@@ -43,11 +43,10 @@ export class HomepageComponent {
   }
 
   getSalonbyCategory(salonCatergory: string) {
+
+    console.log('inside getSalonbyCategory');
     this.salondataservice.getEnabledSalonByCategory(salonCatergory).subscribe(data=>this.salons=data);
     }
-
-  
- 
 
   constructor(private viewportScroller: ViewportScroller,private router:Router, private userauthentication: UserauthenticationService, private salondataservice: SalonService){}
   

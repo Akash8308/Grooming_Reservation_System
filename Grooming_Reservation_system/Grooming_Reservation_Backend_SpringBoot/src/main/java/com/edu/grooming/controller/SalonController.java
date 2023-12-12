@@ -59,7 +59,7 @@ public class SalonController {
 	
 	@GetMapping("/getAllSalonCategories") //http://localhost:8990/getsalonCategories
 	public List<String> getAllSalonCategories(){
-		return salonService.getAllSalonCategories();
+		return salonService.getAllEnabledSalonCategories();
 	}
 	
 	@GetMapping("/getAllEnabledSalonByRatingDesc")
@@ -124,9 +124,8 @@ public class SalonController {
 		return salonService.searchSalonByStatus(value);
 	}
 	
-	@GetMapping("/getEnabledSalonByCategory/{salonCategory}")//http://localhost:8990/searchEnabledSalonByCategory/{salonCategory}
-	public List<Salon> getEnabledSalonByCategory(@PathVariable("salonCategory") String salonCategory){
-		return salonService.getEnabledSalonByCategory(salonCategory);
+	@GetMapping("/getEnabledSalonByCategory/{value}")//http://localhost:8990/searchSalonByStatus/{value}
+	public List<Salon> getEnabledSalonByCategory(@PathVariable("value") String value){
+		return salonService.getEnabledSalonByCategory(value);
 	}
-	
 }

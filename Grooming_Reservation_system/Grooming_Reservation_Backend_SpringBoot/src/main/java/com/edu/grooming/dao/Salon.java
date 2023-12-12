@@ -57,7 +57,7 @@ public class Salon {
 	private String salonemailid;
 	
 	@NotBlank(message="Salon Opening Time Should not be null")
-//	@Pattern(message="Invalid Time",regexp="^(mon|tue|wed|thu|fri)\\-(mon|tue|wed|thu|fri)\\s+\\d{1,2}:\\d{2}-\\d{1,2}:\\d{2}$")
+	//@Pattern(message="Invalid Time",regexp="^(mon|tue|wed|thu|fri)\\-(mon|tue|wed|thu|fri)\\s+\\d{1,2}:\\d{2}-\\d{1,2}:\\d{2}$")
 	@Column(name = "salonopeninghours")
 	private String salonopeninghours;
 	

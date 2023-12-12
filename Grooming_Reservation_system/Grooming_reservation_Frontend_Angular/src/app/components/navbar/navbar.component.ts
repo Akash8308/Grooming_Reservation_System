@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SalonService } from 'src/app/services/salonservices/salonservice.service';
 import { UserauthenticationService } from 'src/app/services/userservices/userauthentication.service';
 
 @Component({
@@ -11,7 +12,17 @@ export class NavbarComponent {
 
 
   username: any;
+  usermail: any;
+  isUserLoggedIn:boolean=false;
+  isSalonLoggedIn: boolean=false;
+  isLoggedIn:boolean;
   ngOnInit() {
+    this.isUserLoggedIn = this.userauthentication.isUserLoggedIn();
+    this.isSalonLoggedIn = this.salonservice.isUserLoggedIn();
+    if( this.isUserLoggedIn || this.isSalonLoggedIn){
+      this.isLoggedIn =true;
+    }
+
     // Subscribe to route fragment changes
     this.route.fragment.subscribe(fragment => {
       if (fragment) {
@@ -25,8 +36,12 @@ export class NavbarComponent {
   }
 
 
-  constructor(private router: Router, private userauthentication: UserauthenticationService, private route: ActivatedRoute){
+  constructor(private router: Router,
+     public userauthentication: UserauthenticationService,
+     public salonservice:SalonService,
+      private route: ActivatedRoute){
     this.username = sessionStorage.getItem("username");
+    
   }
 
   // logout() {
@@ -34,9 +49,14 @@ export class NavbarComponent {
   //   this.router.navigate(['lpage']);
   // }
 
-  logout() {
-    console.log('loggedout');
+  userLogout() {
+
     this.userauthentication.logout();
+    this.router.navigate(['lpage']);
+    }
+    salonLogout() {
+
+    this.salonservice.logout();
     this.router.navigate(['lpage']);
     }
 

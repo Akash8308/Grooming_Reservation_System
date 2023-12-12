@@ -21,6 +21,7 @@
         class="nav-link align-middle px-0"
         style="padding: 1rem"
         *ngFor="let salonCategory of categories"
+        onclick="getSalonByCategory(salonCategory)"
       >
         <button color="primary" mat-raised-button>
           {{ salonCategory }}

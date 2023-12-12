@@ -8,7 +8,7 @@ import { UserDataService } from '../userservices/userdataservice.service';
 })
 export class ServiceService {
   url = this.userDataService.url;
-  
+  totalserviceprice:number;
   constructor(private http:HttpClient,private userDataService: UserDataService ) { }
   
   getAllServices(){
@@ -32,5 +32,13 @@ export class ServiceService {
 
   saveServices(services:Service,salonid:number){
     return this.http.post<Service>(`${this.url}/addServices/${salonid}`,services);
+  }
+
+  sendTotalPrice(serviceprice:number){
+   this.totalserviceprice=serviceprice;
+  }
+
+  getTotalPrice():number{
+    return this.totalserviceprice;
   }
 }

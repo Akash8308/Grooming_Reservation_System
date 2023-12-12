@@ -32,6 +32,11 @@ import { AboutComponent } from './components/about/about.component';
 import { SalonpageComponent } from './components/user/salonpage/salonpage.component';
 import { ViewallappointmentsComponent } from './components/admin/viewallappointments/viewallappointments.component';
 import { AdminViewAllStylistComponent } from './components/admin/admin-view-all-stylist/admin-view-all-stylist.component';
+import { SalonAppointmentsComponent } from './components/salon/salon-appointments/salon-appointments.component';
+import { AppointmentdetailsComponent } from './components/user/appointment/appointmentdetails/appointmentdetails.component';
+import { AppointmentdisplayComponent } from './components/user/appointment/appointmentdisplay/appointmentdisplay.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component';
 
 
 const routes: Routes = [
@@ -52,8 +57,8 @@ const routes: Routes = [
   { path: "viewuser",component:ViewuserComponent },
   { path: "viewallsalon",component:ViewallsalonComponent },
   { path: "viewallstylist/:salonid/:servicesid",component:ViewallstylistComponent },
-  { path: "viewallservice/:salonid",component:ViewallserviceComponent },
-  { path: "viewallappoinment",component:ViewaallappoinmentComponent },
+  { path: "viewallservice/:salonid",component:ViewallserviceComponent, canActivate:[RouteguardService] },
+  { path: "viewuserallappoinment",component:ViewaallappoinmentComponent },
   { path: "useraddressregister",component:UseraddressComponent },
   { path: "viewaddress",component:ViewaddressComponent },
   { path: "updateaddress",component:UpdateaddressComponent},
@@ -66,8 +71,13 @@ const routes: Routes = [
   { path: "addservice",component:AddserviceComponent},
   { path: "about",component: AboutComponent},
   { path: "salonpage/:salonid",component: SalonpageComponent},
-  { path: "viewallappointments",component: ViewallappointmentsComponent},
-  { path: "adminViewAllStylist",component: AdminViewAllStylistComponent},
+  { path: "adminviewallappointments",component: ViewallappointmentsComponent},
+  { path: "adminViewAllStylist",component: AdminViewAllStylistComponent, canActivate:[RouteguardService]},
+  { path: "salonAppointments",component: SalonAppointmentsComponent},
+  { path: "salonAppointments",component: AppointmentdetailsComponent},
+  { path: "payment", component: PaymentComponent},
+  { path: "appointmentdisplay/:salonid/:servicesid/:stylistid/:appointmentid",component:AppointmentdisplayComponent},
+  { path: "T&C", component:TermsAndConditionsComponent}
   
 
 ];
