@@ -53,6 +53,7 @@ export class AppointmentdetailsComponent {
   selectedAppointmentTime: any=null;
   date:Date;
   isDisabled:boolean=true;
+  today = new Date().toISOString().split('T')[0];
   appointmenttime= [
     '10:00:00',
     '11:00:00',

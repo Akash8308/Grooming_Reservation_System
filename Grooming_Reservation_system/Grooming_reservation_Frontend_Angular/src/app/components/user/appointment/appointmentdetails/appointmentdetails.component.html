@@ -12,7 +12,7 @@
           type="date"
           class="form-control"
           #appointmentdate="ngModel"
-          [min]="date"
+          [min]="today"
           [ngModel]="appointment.appointmentDate | date : 'yyyy-MM-dd'"
           (ngModelChange)="appointment.appointmentDate = $event"
           name="appointmentdate"

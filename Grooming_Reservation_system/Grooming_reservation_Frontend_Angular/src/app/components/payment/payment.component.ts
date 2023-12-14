@@ -13,7 +13,7 @@ declare var Razorpay:any;
 })
 export class PaymentComponent {
 constructor(private router:Router,private servicesServices:ServiceService,private appointmentService:AppointmentService){}
-totalserviceprice=this.servicesServices.getTotalPrice();
+  totalserviceprice= parseInt(sessionStorage.getItem("totalserviceprice"));
   usename=sessionStorage.getItem("username");
   useremail=sessionStorage.getItem("usermail");
   flag:number=0;

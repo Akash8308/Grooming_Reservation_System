@@ -36,6 +36,7 @@ export class ServiceService {
 
   sendTotalPrice(serviceprice:number){
    this.totalserviceprice=serviceprice;
+   sessionStorage.setItem("totalserviceprice", this.totalserviceprice.toString());
   }
 
   getTotalPrice():number{

@@ -2,10 +2,7 @@
   <div class="card-body p-5">
     <h2 class="text-uppercase text-center mb-5">Edit Salon</h2>
 
-    <form
-      (ngSubmit)="!salonForm.invalid && salonregister()"
-      #salonForm="ngForm"
-    >
+    <form (ngSubmit)="!salonForm.invalid && saveSalon()" #salonForm="ngForm">
       <!--salonname-->
       <div class="form-outline mb-2">
         <label class="form-label" for="form3Example1cg"> SALON NAME </label>
@@ -440,7 +437,7 @@
           type="submit"
           class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
         >
-          Register
+          Update
         </button>
       </div>
 

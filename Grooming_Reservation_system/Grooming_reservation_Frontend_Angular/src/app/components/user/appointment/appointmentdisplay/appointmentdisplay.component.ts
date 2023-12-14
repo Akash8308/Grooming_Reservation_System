@@ -42,7 +42,8 @@ export class AppointmentdisplayComponent {
   
   totalserviceprice:number;
     ngOnInit(){
-      this.totalserviceprice=this.serviceService.getTotalPrice();
+      // this.totalserviceprice=this.serviceService.getTotalPrice();
+      this.totalserviceprice = parseInt(sessionStorage.getItem("totalserviceprice"));
       console.log(this.totalserviceprice);
       this.salonid=this.activeRoute.snapshot.params['salonid'];
       this.servicesid=this.activeRoute.snapshot.params['servicesid'];
