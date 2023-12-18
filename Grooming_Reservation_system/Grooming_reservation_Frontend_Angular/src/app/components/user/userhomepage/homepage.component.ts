@@ -40,6 +40,10 @@ export class HomepageComponent {
     this.salondataservice.getAllEnabledSalonByRatingDesc().subscribe(data=>this.salons=data);
     this.salondataservice.getAllSalonCategories().subscribe(data => this.categories=data);
     // console.log('abcd',this.salondataservice.getAllSalonWithCount());
+    if(sessionStorage.getItem("navReloadFlag") == '0'){
+      sessionStorage.setItem("navReloadFlag", '1');
+      window.location.reload();
+    }
   }
 
   getSalonbyCategory(salonCatergory: string) {

@@ -32,7 +32,7 @@ public class Services {
 	@Column(name = "servicesdescription", length = 255)
 	private String servicesdescription;
 
-	@Min(500)
+	@Min(100)
 	@Max(200000)
 	@Column(nullable = false, name = "servicesprice")
 	private double servicesprice;

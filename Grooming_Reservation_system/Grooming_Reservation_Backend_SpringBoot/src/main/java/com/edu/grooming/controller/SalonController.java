@@ -59,7 +59,7 @@ public class SalonController {
 	
 	@GetMapping("/getAllSalonCategories") //http://localhost:8990/getsalonCategories
 	public List<String> getAllSalonCategories(){
-		return salonService.getAllEnabledSalonCategories();
+		return salonService.getAllSalonCategories();
 	}
 	
 	@GetMapping("/getAllEnabledSalonByRatingDesc")
@@ -128,4 +128,5 @@ public class SalonController {
 	public List<Salon> getEnabledSalonByCategory(@PathVariable("value") String value){
 		return salonService.getEnabledSalonByCategory(value);
 	}
+	
 }

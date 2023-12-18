@@ -19,7 +19,7 @@ export class AppointmentService {
     return this.http.get<Appointment[]>(`${this.url}/getAllAppointmentsBySalonId/${salonid}`);
   }
 
-  getAppointmentsByUserId(userid: any) {
+  getAppointmentsByUserId(userid: number) {
     return this.http.get<Appointment[]>(`${this.url}/getAppointmentByUserId/${userid}`);
   }
 
@@ -36,9 +36,10 @@ export class AppointmentService {
     return this.http.get<Appointment[]>(`${this.url}/checkStylistAvailability/${appointmentdate}/${stylistid}`);
   }
 
-  updateBooking(appointmentid:number,appointment:Appointment){
-    // appointment.appointmentStatus = 'Booked';
-    return this.http.put<Appointment>(`${this.url}/updateBooking/${appointmentid}`,appointment); 
+  updateBooking(appointmentId:number,appointment:Appointment){
+    console.log("inside update booking");
+    //appointment.appointmentStatus = 'Booked';
+    return this.http.put<Appointment>(`${this.url}/updateBookingByAppointmentId/${appointmentId}`,appointment); 
   }
 
   getAllBookedAppointments(userid:number){

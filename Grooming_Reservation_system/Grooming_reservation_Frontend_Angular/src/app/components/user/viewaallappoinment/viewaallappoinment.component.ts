@@ -12,42 +12,48 @@ import { AppointmentService } from 'src/app/services/appointmentservices/appoint
 export class ViewaallappoinmentComponent {
   p : number =1;
   count : number =10;
-  salon: any;
-  appointments: any;
-  appointmentidstr=sessionStorage.getItem("appointmentid");
-  appointmentid=parseInt(this.appointmentidstr);
-  useridstr=sessionStorage.getItem("userid");
+  appointments:Appointment[]=[];
+  
+  // appointmentidstr=sessionStorage.getItem("appointmentid");
+  // appointmentid=parseInt(this.appointmentidstr);
+  useridstr=sessionStorage.getItem("userid").toString();
   userid=parseInt(this.useridstr);
-  appointment:Appointment;
-  constructor(private appointmentdataservice: AppointmentService,
-    private matDialog: MatDialog,
+  // appointment:Appointment;
+  constructor(private appointmentdataservice: AppointmentService
     ){}
 
-  ngOnInit(){
-    this.appointmentdataservice.getAppointmentByAppointmentId(this.appointmentid).subscribe(
-          data=>{this.appointment=data,
-                 this.updateBooking(),
-                 this.getAllBookedAppointment()
-                }
-       )
+  // ngOnInit(){
+  //   this.appointmentdataservice.getAppointmentByAppointmentId(this.appointmentid).subscribe(
+  //         data=>{this.appointment=data,
+  //                this.updateBooking(),
+  //                this.getAllBookedAppointment()
+  //               }
+  //      )
     
     
-    }
+  //   }
 
-  getAllBookedAppointment(){
-    this.appointmentdataservice.getAllBookedAppointments(this.userid).subscribe(
-      data => {this.appointments =data, 
-                console.log(this.appointments);
-             })
-  }
-  updateBooking() {
-    this.appointmentdataservice.updateBooking(this.appointmentid,this.appointment);
-  }
+  // getAllBookedAppointment(){
+  //   this.appointmentdataservice.getAllBookedAppointments(this.userid).subscribe(
+  //     data => {this.appointments =data, 
+  //               console.log(this.appointments);
+  //            })
+  // }
+  // updateBooking() {
+  //   this.appointmentdataservice.updateBooking(this.appointmentid,this.appointment);
+  // }
   
-    // errorHandling(banckenderror: any): void {
-    //   this.matDialog.open(InvalidcomponentComponent,{
-    //   width: '250px', data: banckenderror.response}
-    //   );
-    // }
+  //   // errorHandling(banckenderror: any): void {
+  //   //   this.matDialog.open(InvalidcomponentComponent,{
+  //   //   width: '250px', data: banckenderror.response}
+  //   //   );
+  //   // }
 
+  ngOnInit(){
+    this.appointmentdataservice.getAppointmentsByUserId(this.userid).subscribe(
+      data=>{
+        this.appointments=data
+      }
+    )
+  }
 }

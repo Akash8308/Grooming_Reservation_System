@@ -57,20 +57,31 @@
             </li>
           </section>
         </section>
-        <li class="nav-item" *ngIf="isUserLoggedIn">
+        <li class="nav-item" *ngIf="isUserLoggedIn && !isAdminLoggedIn">
+          <!-- <ng-container *ngIf="!isAdminLoggedIn"></ng-container> -->
           <a class="nav-link" routerLink="/homepage" fragment="salons">
             Salons</a
           >
         </li>
         <li class="nav-item">
           <button
-            *ngIf="isUserLoggedIn"
+            *ngIf="isUserLoggedIn && !isAdminLoggedIn"
+            class="nav-link"
+            (click)="userAppointments()"
+          >
+            My Appointments
+          </button>
+        </li>
+        <li class="nav-item">
+          <button
+            *ngIf="isUserLoggedIn && !isAdminLoggedIn"
             class="nav-link"
             routerLink="/viewuser"
           >
             Profile
           </button>
         </li>
+
         <li class="nav-item">
           <button
             *ngIf="isUserLoggedIn"

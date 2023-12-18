@@ -42,7 +42,7 @@ export class AppointmentdetailsComponent {
   appointmentId:number=0;
   appointmentDatestr:any="";
   appointmentTime="";
-  appointmentStatus="Booked";
+  appointmentStatus="Pending";
   appointmentType="";
   bookedid:number;
   salonid:number=0;

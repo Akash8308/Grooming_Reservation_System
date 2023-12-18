@@ -99,8 +99,9 @@ public class AppointmentController {
 		return appointmentService.addServiceAppointment(serviceid,appointmentId);
 	}
 	
-	@PutMapping("/updateBooking/{appointmentid}")
-	public Appointment updateBooking(@PathVariable("appointmentid") Integer appointmentId,@RequestBody Appointment appointment) {
+	@PutMapping("/updateBookingByAppointmentId/{appointmentid}")
+	public Appointment updateBooking(@PathVariable("appointmentid") Integer appointmentId,@RequestBody Appointment appointment) throws NotFoundException {
+		System.out.println("update booking sts");
 		return appointmentService.updateBooking(appointmentId,appointment);
 	}
 }

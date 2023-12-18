@@ -57,6 +57,7 @@ export class LoginComponent {
       this.router.navigate(['adminhomepage']);
     }
     else{
+      sessionStorage.setItem("navReloadFlag", '0');
       this.router.navigate(['homepage']);
     }
   }

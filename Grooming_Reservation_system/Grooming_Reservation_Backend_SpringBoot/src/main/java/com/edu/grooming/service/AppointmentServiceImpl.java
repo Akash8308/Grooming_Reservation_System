@@ -137,8 +137,7 @@ public class AppointmentServiceImpl implements AppointmentService{
 	@Override
 	public List<Appointment> getAllAppointmentsBySalonId(Integer salonid) {
 		// TODO Auto-generated method stub
-//		return appointmentRepository.findBySalonId(salonid);
-		return appointmentRepository.getAllAppointmentsBySalonId(salonid);
+		return appointmentRepository.findBySalonId(salonid);
 	}
 
 	@Override
@@ -149,9 +148,18 @@ public class AppointmentServiceImpl implements AppointmentService{
 	}
 
 	@Override
-	public Appointment updateBooking(Integer appointmentId, Appointment appointment) {
-		
-		return appointmentRepository.updateBooking(appointmentId);
+	public Appointment updateBooking(Integer appointmentId, Appointment appointment) throws NotFoundException {
+		Appointment appointment2=null;
+		Optional<Appointment> appointment1=appointmentRepository.findById(appointmentId);
+		if(!appointment1.isPresent()) {
+			throw new NotFoundException("Appointment does not exist");
+		}else {
+			appointment2=appointmentRepository.findById(appointmentId).get();
+			appointment2.setAppointmentStatus("Booked");
+		}
+		         
+				//appointmentRepository.updateBooking(appointmentId);
+				return appointmentRepository.save(appointment2);
 	}
 
 	@Override

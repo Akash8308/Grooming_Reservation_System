@@ -32,7 +32,7 @@ public interface AppointmentService {
 
 	List<Appointment> checkStylistAvailability(String appointmentdate, Integer stylistid);
 
-	Appointment updateBooking(Integer appointmentId, Appointment appointment);
+	Appointment updateBooking(Integer appointmentId, Appointment appointment) throws NotFoundException;
 
 	List<Appointment> getAllBookedAppointments(Integer userid);
 
