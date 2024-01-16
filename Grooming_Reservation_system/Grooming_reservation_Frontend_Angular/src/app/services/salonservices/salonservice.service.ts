@@ -32,6 +32,14 @@ export class SalonService {
   getSalonByEmailPassword(salonemailid :string,salonpassword:string){
     return this.http.get<Salon>(`${this.url}/getSalonByEmailPassword/${salonemailid}/${salonpassword}`)
   }
+
+  getAllSalonReq(){
+    return this.http.get<Salon[]>(`${this.url}/getAllSalonReq`);
+  }
+  
+  getSalonByEmail(salonemailid :string){
+    return this.http.get<Salon>(`${this.url}/getSalonByEmail/${salonemailid}`);
+  }
   
   getAllSalon(){
     return this.http.get<Salon[]>(`${this.url}/getAllSalon`);

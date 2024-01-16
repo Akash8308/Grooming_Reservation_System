@@ -64,7 +64,9 @@ import { AppointmentdetailsComponent } from './components/user/appointment/appoi
 import { AppointmentdisplayComponent } from './components/user/appointment/appointmentdisplay/appointmentdisplay.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component'; 
-
+import { ForgotpassswordComponent } from './components/user/forgotpasssword/forgotpasssword.component';
+import { SalonforgotpasswordComponent } from './components/salon/salonforgotpassword/salonforgotpassword.component';
+import { ThankyouComponent } from './components/user/appointment/thankyou/thankyou.component'; 
 
 
 @NgModule({
@@ -114,8 +116,10 @@ import { TermsAndConditionsComponent } from './components/terms-and-conditions/t
     AppointmentdetailsComponent,
     AppointmentdisplayComponent,
     PaymentComponent,
-    TermsAndConditionsComponent
-    
+    TermsAndConditionsComponent,
+    ForgotpassswordComponent,
+    SalonforgotpasswordComponent,
+    ThankyouComponent
   ],
   imports: [
     NgxPaginationModule,

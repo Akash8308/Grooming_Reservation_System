@@ -11,11 +11,16 @@
           <div class="card my-4" style="border-radius: 15px">
             <div class="card-body p-5">
               <div class="text-center">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px"
-                  alt="logo" />
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                  style="width: 185px"
+                  alt="logo"
+                />
                 <h4 class="mt-1 mb-5 pb-1 chromacuts-logoname">ChromaCuts</h4>
               </div>
-              <h2 class="text-uppercase text-center mb-5 text-playfair-black">Create an account</h2>
+              <h2 class="text-uppercase text-center mb-5 text-playfair-black">
+                Create an account
+              </h2>
 
               <form
                 (ngSubmit)="!salonForm.invalid && salonregister()"
@@ -215,8 +220,8 @@
                       *Salon phonenumber should have atleast 10 digits
                     </div>
                     <div *ngIf="salonphone.errors?.['pattern']">
-                      *Salon phonenumber should have only numbers and phonenumber
-                      start from 6,7,8 or 9
+                      *Salon phonenumber should have only numbers and
+                      phonenumber start from 6,7,8 or 9
                     </div>
                   </div>
                 </div>
@@ -493,8 +498,8 @@
                   </div>
                   <label class="form-check-label" for="form2Example3g">
                     I agree all statements in
-                    <a routerLink="/T&C" class="text-body"
-                      ><u>Terms of service</u></a
+                    <a (click)="termsandcondition()" class="text-body"
+                      ><u>Terms of conditions</u></a
                     >
                   </label>
                 </div>

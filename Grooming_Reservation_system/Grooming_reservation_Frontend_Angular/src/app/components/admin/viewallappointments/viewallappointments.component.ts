@@ -11,6 +11,8 @@ import { Appointment } from 'src/app/dao/appointment';
 })
 export class ViewallappointmentsComponent {
   
+  p : number =1;
+  count : number =21;
   salon: any;
   appointments: any;
 

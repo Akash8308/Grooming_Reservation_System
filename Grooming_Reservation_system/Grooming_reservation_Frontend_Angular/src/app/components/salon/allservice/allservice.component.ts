@@ -20,8 +20,8 @@ export class AllserviceComponent {
   }
 
   services: Service[]=[];
-  recordsPerPage:5;
-  pagenum:number= 1;
+  p : number =1;
+  count : number =8;
 
   editServicesbtn(servicesid:any){
     this.matDialog.open(EditserviceComponent,{

@@ -185,7 +185,7 @@
           class="form-control form-control-lg"
           name="salonemailid"
           maxlength="30"
-          required
+          disabled
           #salonemailid="ngModel"
           [(ngModel)]="salon.salonemailid"
           pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}"
@@ -398,23 +398,9 @@
           class="form-control form-control-lg"
           name="salondescription"
           maxlength="255"
-          required
           #salondescription="ngModel"
           [(ngModel)]="salon.salonpicurl"
         />
-        <div
-          *ngIf="
-            salondescription.invalid &&
-            (salondescription.dirty || salondescription.touched)
-          "
-        >
-          <div *ngIf="salondescription.errors?.['required']">
-            salondescription is required
-          </div>
-          <div *ngIf="salondescription.errors?.['maxlength']">
-            salondescription can have atmost 255 chars
-          </div>
-        </div>
       </div>
       <!--checkbox-->
       <!-- <div class="form-check d-flex justify-content-center mb-5">
@@ -440,11 +426,6 @@
           Update
         </button>
       </div>
-
-      <p class="text-center text-muted mt-5 mb-0">
-        Have already an account?
-        <a class="fw-bold text-body" (click)="loginBtn()"><u>Login here</u></a>
-      </p>
     </form>
   </div>
 </div>

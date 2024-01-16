@@ -4,6 +4,7 @@ import { UserauthenticationService } from 'src/app/services/userservices/useraut
 import { UserDataService } from 'src/app/services/userservices/userdataservice.service'; 
 import { MatDialog} from  '@angular/material/dialog';
 import { InvalidcomponentComponent } from '../popups/invalidcomponent/invalidcomponent.component';
+import { ForgotpassswordComponent } from '../user/forgotpasssword/forgotpasssword.component';
 
 // import {DialogBodyComponent} from 
 
@@ -44,10 +45,17 @@ export class LoginComponent {
           data:"Invalid Credentials"
         })
     }
+    else if(banckenderror.status==404){
+      this.matDialog.open(InvalidcomponentComponent,{
+        width: '250px',
+        data:"Cannot connect to the server 😐"
+        // data:banckenderror
+    })}
     else{
       this.matDialog.open(InvalidcomponentComponent,{
         width: '250px',
-        data:"Cannot Connect to Server"
+        data:"Something Went Wrong 😐"
+        // data:banckenderror
     })
     }
   }
@@ -60,6 +68,11 @@ export class LoginComponent {
       sessionStorage.setItem("navReloadFlag", '0');
       this.router.navigate(['homepage']);
     }
+  }
+  forgotPass(){
+      this.matDialog.open(ForgotpassswordComponent,{
+        width: '700px'
+      })
   }
 
 }

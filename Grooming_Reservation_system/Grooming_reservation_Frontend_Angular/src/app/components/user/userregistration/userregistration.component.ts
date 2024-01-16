@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { User } from 'src/app/dao/user';
 import { UserDataService } from 'src/app/services/userservices/userdataservice.service'; 
+import { TermsAndConditionsComponent } from '../../terms-and-conditions/terms-and-conditions.component';
 
 @Component({
   selector: 'app-userregistration',
@@ -36,7 +38,16 @@ export class UserregistrationComponent {
   loginBtn(){
     this.router.navigate(['login']);
   }
+  showTandC(){
+    this.matDialog.open(TermsAndConditionsComponent,
+      {width: '900px'}
+      )
+  }
 
-  constructor(private userDataService: UserDataService, private router: Router, private snackbar: MatSnackBar){}
+  constructor(private userDataService: UserDataService,
+     private router: Router,
+      private snackbar: MatSnackBar,
+      private matDialog : MatDialog
+      ){}
 
 }

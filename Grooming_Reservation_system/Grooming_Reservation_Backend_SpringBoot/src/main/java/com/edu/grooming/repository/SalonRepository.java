@@ -44,4 +44,7 @@ public interface SalonRepository extends JpaRepository<Salon, Integer> {
 	@Query(value="select * from salon where saloncategory=? and salonstatus='Enabled'",nativeQuery=true)
 	List<Salon> getEnabledSalonByCategory(String value);
 
+	@Query(value="select * from salon where salonstatus='Applied'",nativeQuery=true)
+	List<Salon> getgetAllSalonReq();
+
 }

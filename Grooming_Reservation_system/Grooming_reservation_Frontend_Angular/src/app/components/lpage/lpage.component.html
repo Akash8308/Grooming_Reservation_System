@@ -345,11 +345,13 @@
             <td>
               <input
                 type="text"
-                name="name"
+                name="to_name"
                 id="name"
                 class="form-control"
                 placeholder="Your Name"
                 required
+                [(ngModel)]="toName" 
+               
               />
             </td>
           </tr>
@@ -359,7 +361,8 @@
             <td>
               <input
                 type="email"
-                name="email"
+                [(ngModel)]="emailaddress" 
+                name="emailaddress"
                 id="email"
                 class="form-control"
                 placeholder="Your Email"
@@ -390,6 +393,8 @@
                 id="ta"
                 class="form-control"
                 rows="5"
+                [(ngModel)]="message"
+                 name="message"
               ></textarea>
             </td>
           </tr>
@@ -397,7 +402,7 @@
           <tr>
             <td></td>
             <td>
-              <button type="submit" class="btn button-87 w-50 h-75">
+              <button type="submit" class="btn button-87 w-50 h-75" (click)="sendEmail()">
                 Send feedback
               </button>
             </td>
@@ -432,7 +437,7 @@
             <h4 class="text-uppercase m-0">Email</h4>
             <hr class="my-4 mx-auto" />
             <div class="p text-black-100">
-              <a href="#!">chromacuts@gmail.com</a>
+              <a href="#!">groomingreservation@gmail.com</a>
             </div>
           </div>
         </div>

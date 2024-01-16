@@ -44,7 +44,7 @@ export class EditsalonComponent {
   
 
 
-  salonCategories: string[]=[];
+  salonCategories: string[]=['Hair salon','Barber','Massages','Nail salon','Waxing','Facials','Hair care','Hair cutting','Tanning','Hybrid'];
   timeString='';
   selectedSalonBuisnesHoursStart: any;
   selectedSalonBuisnesHoursEnd: any;
@@ -96,7 +96,7 @@ export class EditsalonComponent {
 
       ngOnInit(){
         this.getCountries();    
-        this.salondataservice.getAllSalonCategories().subscribe(data=> this.salonCategories=data);
+        // this.salondataservice.getAllSalonCategories().subscribe(data=> this.salonCategories=data);
         this.salondataservice.getSalonById(this.salonid).subscribe(data=> this.salon=data);
       }
 
@@ -139,7 +139,6 @@ export class EditsalonComponent {
         }
         if(this.selectedSalonBuisnesDayStart == this.selectedSalonBuisnesDayEnd){
           this.msg ='Buisnes opening and closing day cannot be same';
-          this.msg ='Please select Salon Buisnes Days';
           this.matDialog.open(InvalidcomponentComponent,{
             width: '700px',
             data:this.msg
@@ -200,7 +199,7 @@ export class EditsalonComponent {
           this.salon.salonstate = this.salonstate;
           this.salon.saloncity = this.saloncity;
           console.log(this.salon);        
-          this.salondataservice.addsalon(this.salon).subscribe( () => this.router.navigate(['salonlogin']),banckenderror=>this.errorHandling(banckenderror));
+          this.salondataservice.updateSalonById(this.salon.salonid,this.salon).subscribe( () => this.router.navigate(['salonlogin']),banckenderror=>this.errorHandling(banckenderror));
         }
     
       }
@@ -208,8 +207,14 @@ export class EditsalonComponent {
         if(banckenderror.status==409){
               this.matDialog.open(RecordexistcomponentComponent,{
                 width:'250px',
-                data:banckenderror.response
+                data:"409"
               });
+        }
+        else{
+          this.matDialog.open(RecordexistcomponentComponent,{
+            width:'250px',
+            data:"Error"
+          });
         }
       }
 

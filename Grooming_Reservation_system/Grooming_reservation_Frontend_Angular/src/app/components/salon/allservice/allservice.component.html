@@ -18,7 +18,7 @@
       <tr
         *ngFor="
           let service of services
-            | paginate : { itemsPerPage: recordsPerPage, currentPage: pagenum }
+            | paginate : { itemsPerPage: count, currentPage: p }
         "
       >
         <td scope="col">{{ service.servicesid }}</td>
@@ -55,6 +55,6 @@
   </div>
   <!--Including the pagination control.-->
   <div class="text-right">
-    <pagination-controls (pageChange)="pagenum = $event"></pagination-controls>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>

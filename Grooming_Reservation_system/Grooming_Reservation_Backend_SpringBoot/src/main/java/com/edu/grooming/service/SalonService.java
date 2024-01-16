@@ -37,6 +37,8 @@ public interface SalonService  {
 
 	List<Salon> getEnabledSalonByCategory(String value);
 
+	List<Salon> getAllSalonReq();
+
 	
 
 }

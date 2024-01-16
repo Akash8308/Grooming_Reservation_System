@@ -52,6 +52,11 @@ public class SalonController {
 		return salonService.getAllSalon();
 	}
 	
+	@GetMapping("/getAllSalonReq")  // http://localhost:8990/getSalon
+	public List<Salon> getAllSalonReq(){
+		return salonService.getAllSalonReq();
+	}
+	
 	@GetMapping("/getAllEnabledSalon")
 	public List<Salon> getAllEnabledSalon(){
 		return salonService.getAllEnabledSalon();

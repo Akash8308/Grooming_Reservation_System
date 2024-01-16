@@ -6,6 +6,7 @@ import { EditsalonComponent } from '../editsalon/editsalon.component';
 import { SalonapprovepopupComponent } from '../../popups/salonapprovepopup/salonapprovepopup.component';
 import { FormBuilder } from '@angular/forms';
 import { AppointmentsComponent } from '../appointments/appointments.component';
+import { UpdatesalonprofileComponent } from '../../salon/updatesalonprofile/updatesalonprofile.component';
 
 @Component({
   selector: 'app-allsalons',
@@ -101,9 +102,9 @@ export class AllsalonsComponent {
 
     //  Edit Salon
   editSalon(salonid: any) {
-    this.matDialog.open(EditsalonComponent,{
-      width: '800px',
-      height: '1000px',
+    this.matDialog.open(UpdatesalonprofileComponent,{
+      width: '700px',
+      height:'1000px',
       data:salonid
     })
   }

@@ -23,8 +23,14 @@
           "
         >
           <td>{{ appointment.appointmentId }}</td>
-          <td>{{ appointment.user.userid }}</td>
-          <td>{{ appointment.stylist.stylistid }}</td>
+          <td>
+            {{ appointment.user.userfirstname }}
+            &nbsp;{{ appointment.user.userlastname }}
+          </td>
+          <td>
+            {{ appointment.stylist.firstname }} &nbsp;
+            {{ appointment.stylist.lastname }}
+          </td>
           <td>{{ appointment.appointmentDate }}</td>
           <td>{{ appointment.appointmentTime }}</td>
           <td>{{ appointment.appointmentType }}</td>

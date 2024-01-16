@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-lpage',
@@ -15,5 +16,23 @@ export class LpageComponent {
     else{
       sessionStorage.setItem("navReloadFlag", '0');
     }
+  }
+  toName:string=""
+  message:string=""
+  emailaddress:string="";
+ 
+  async sendEmail(){
+  
+  emailjs.init('LoBRX2-7OGdsF-RST');
+  let response= emailjs.send("service_dn35s9b","template_m7ovp4y",{
+  
+      // from_name: "thivya shree",
+      message: this.message,
+      // reply_to: ,
+      to_name: this.toName,
+      from_email: this.emailaddress,
+     
+    });
+    alert("Message has been sent");
   }
 }

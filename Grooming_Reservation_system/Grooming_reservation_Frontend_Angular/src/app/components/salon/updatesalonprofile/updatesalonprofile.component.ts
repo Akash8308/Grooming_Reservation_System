@@ -43,7 +43,7 @@ export class UpdatesalonprofileComponent {
   
 
 
-  salonCategories: string[]=[];
+  salonCategories: string[]=['Hair salon','Barber','Massages','Nail salon','Waxing','Facials','Hair care','Hair cutting','Tanning','Hybrid'];
   timeString='';
   selectedSalonBuisnesHoursStart: any;
   selectedSalonBuisnesHoursEnd: any;
@@ -95,7 +95,7 @@ export class UpdatesalonprofileComponent {
 
       ngOnInit(){
         this.getCountries();    
-        this.salondataservice.getAllSalonCategories().subscribe(data=> this.salonCategories=data);
+        // this.salondataservice.getAllSalonCategories().subscribe(data=> this.salonCategories=data);
         this.salondataservice.getSalonById(this.salonid).subscribe(data=> this.salon=data);
       }
 

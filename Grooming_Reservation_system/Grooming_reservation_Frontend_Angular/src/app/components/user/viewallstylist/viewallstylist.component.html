@@ -47,12 +47,15 @@
 
   <section
     class="d-flex justify-content-start flex-wrap py-3 py-lg-4 stylist-card-section"
-    *ngFor="
-      let stylist of stylist
-        | paginate : { itemsPerPage: count, currentPage: p }
-    "
   >
-    <div class="card mb-3 mx-2 mx-lg-3" style="width: 18rem">
+    <div
+      class="card mb-3 mx-2 mx-lg-3"
+      style="width: 18rem"
+      *ngFor="
+        let stylist of stylist
+          | paginate : { itemsPerPage: count, currentPage: p }
+      "
+    >
       <div class="row m-2">
         <div class="col-md-12">
           <div class="p-2 py-3 text-center">

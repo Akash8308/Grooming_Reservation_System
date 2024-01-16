@@ -11,13 +11,14 @@ import { AppointmentService } from 'src/app/services/appointmentservices/appoint
 })
 export class ViewaallappoinmentComponent {
   p : number =1;
-  count : number =10;
+  count : number =20;
   appointments:Appointment[]=[];
   
   // appointmentidstr=sessionStorage.getItem("appointmentid");
   // appointmentid=parseInt(this.appointmentidstr);
   useridstr=sessionStorage.getItem("userid").toString();
   userid=parseInt(this.useridstr);
+  username: string;
   // appointment:Appointment;
   constructor(private appointmentdataservice: AppointmentService
     ){}
@@ -50,6 +51,7 @@ export class ViewaallappoinmentComponent {
   //   // }
 
   ngOnInit(){
+    this.username = sessionStorage.getItem("username");
     this.appointmentdataservice.getAppointmentsByUserId(this.userid).subscribe(
       data=>{
         this.appointments=data

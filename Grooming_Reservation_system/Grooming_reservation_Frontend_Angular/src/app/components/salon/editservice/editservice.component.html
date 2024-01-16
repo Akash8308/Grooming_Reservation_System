@@ -63,7 +63,7 @@
         <label class="form-label" for="form3Example1cg">
           SERVICES GENDER
         </label>
-        <div *ngIf="services.servicesgendertype == 'Male'; else changegender">
+        <div *ngIf="services.servicesgendertype == 'Male'; else femaleRadioBtn">
           <mat-radio-group [(ngModel)]="services.servicesgendertype" required>
             <mat-radio-button
               value="Male"
@@ -82,17 +82,44 @@
           </mat-radio-group>
         </div>
         <div>
-          <ng-template #changegender>
+          <ng-template #femaleRadioBtn>
+            <div
+              *ngIf="services.servicesgendertype == 'Female'; else bothRadioBtn"
+            >
+              <mat-radio-group
+                [(ngModel)]="services.servicesgendertype"
+                required
+              >
+                <mat-radio-button value="Male" (click)="setradio('Male')"
+                  >Male</mat-radio-button
+                >
+
+                <mat-radio-button
+                  value="Female"
+                  [checked]="services.servicesgendertype"
+                  (click)="setradio('Female')"
+                  >Female</mat-radio-button
+                >
+                <mat-radio-button value="Both" (click)="setradio('Both')"
+                  >Both</mat-radio-button
+                >
+              </mat-radio-group>
+            </div>
+          </ng-template>
+          <ng-template #bothRadioBtn>
             <mat-radio-group [(ngModel)]="services.servicesgendertype" required>
               <mat-radio-button value="Male" (click)="setradio('Male')"
                 >Male</mat-radio-button
               >
 
-              <mat-radio-button
-                value="Female"
-                [checked]="services.servicesgendertype"
-                (click)="setradio('Female')"
+              <mat-radio-button value="Female" (click)="setradio('Female')"
                 >Female</mat-radio-button
+              >
+              <mat-radio-button
+                value="Both"
+                [checked]="services.servicesgendertype"
+                (click)="setradio('Both')"
+                >Both</mat-radio-button
               >
             </mat-radio-group>
           </ng-template>

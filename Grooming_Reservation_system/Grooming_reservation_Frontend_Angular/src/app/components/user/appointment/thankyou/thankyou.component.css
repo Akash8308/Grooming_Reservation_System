@@ -1,5 +1,10 @@
-/* Card Button */
-.button-87 {
+.bg-image {
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  /* Card Button */
+  .button-87 {
     margin: 20px auto;
     padding: 10px 1.5rem;
     text-align: center;
@@ -21,15 +26,19 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-}
-
-.button-87:hover {
+  }
+  
+  .button-87:hover {
     background-position: right center;
     /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
-}
-
-.button-87:active {
+  }
+  
+  .button-87:active {
     transform: scale(0.95);
-}
+  }
+  
+  .bi-check-circle{
+     color: rgb(6, 102, 6);
+  }

@@ -33,3 +33,21 @@
 .button-87:active {
     transform: scale(0.95);
 }
+
+.form-outline{
+    margin-bottom: 10px !important;
+}
+
+.form-content{
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    padding: 2% 5%;
+}
+
+.error-message{
+    color: red;
+    font-size: 13px;
+    margin: 0;
+}

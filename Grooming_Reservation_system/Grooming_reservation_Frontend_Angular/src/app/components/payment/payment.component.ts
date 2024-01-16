@@ -80,7 +80,7 @@ constructor(private router:Router,private servicesServices:ServiceService,privat
         this.processResponse(response);  
         if(response){
           this.onSubmit();
-          this.router.navigate(['/homepage'])
+          this.router.navigate(['/thankyou'])
         }
         },
         prefill:{

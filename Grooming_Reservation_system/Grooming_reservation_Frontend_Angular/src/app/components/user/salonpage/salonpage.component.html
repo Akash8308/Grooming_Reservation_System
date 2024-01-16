@@ -28,7 +28,8 @@
               <button
                 mat-raised-button
                 color="primary"
-                routerLink="/salonpage/sercvices"
+                routerLink="/salonpage/{{ salonid }}"
+                fragment="stylist"
               >
                 Show Stylists
               </button>
@@ -115,6 +116,7 @@
       <!-- Stylists -->
       <div
         class="row gx-3 gx-lg-3 row-cols-4 row-cols-md-4 row-cols-xl-4 justify-content-center"
+        id="stylist"
       >
         <section
           *ngFor="

@@ -13,9 +13,9 @@ export class ViewaddressComponent {
 
 
   constructor(private addressService:AddressServiceService, private matDialog: MatDialog){}
-recordsPerPage: string|number;
-pagenum: string|number;
-address: Address[]=[];
+  p : number =1;
+  count : number =4;
+  address: Address[]=[];
 
 useridstr=sessionStorage.getItem("userid");
 useridd=parseInt(this.useridstr);

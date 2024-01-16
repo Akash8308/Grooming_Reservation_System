@@ -1,6 +1,6 @@
 <div class="containr text-align-center h-100" style="padding: 2rem">
   <div class="">
-    <h1 class="tabletitle">ALl Appointments</h1>
+    <h1 class="tabletitle">ALL Appointments</h1>
   </div>
   <div class="tablediv">
     <table class="table">
@@ -16,7 +16,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let appointment of appointments">
+        <tr
+          *ngFor="
+            let appointment of appointments
+              | paginate : { itemsPerPage: count, currentPage: p }
+          "
+        >
           <td>{{ appointment.appointmentId }}</td>
           <td>{{ appointment.user.userid }}</td>
           <td>{{ appointment.salon.salonid }}</td>
@@ -27,5 +32,9 @@
         </tr>
       </tbody>
     </table>
+    <!--Including the pagination control.-->
+    <div class="text-right">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
   </div>
 </div>

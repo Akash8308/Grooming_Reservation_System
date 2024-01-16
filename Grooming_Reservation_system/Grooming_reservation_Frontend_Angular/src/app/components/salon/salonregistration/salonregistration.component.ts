@@ -6,6 +6,7 @@ import { SalonService } from 'src/app/services/salonservices/salonservice.servic
 import { RecordexistcomponentComponent } from '../../popups/recordexistcomponent/recordexistcomponent.component';
 import { InvalidcomponentComponent } from '../../popups/invalidcomponent/invalidcomponent.component';
 import { DataService } from 'src/app/services/data.service';
+import { TermsAndConditionsComponent } from '../../terms-and-conditions/terms-and-conditions.component';
 
 
 @Component({
@@ -295,5 +296,12 @@ export class SalonregistrationComponent {
   loginBtn(){
     this.router.navigate(['salonlogin']);
   }  
+
+  termsandcondition(){
+    this.matDialog.open(TermsAndConditionsComponent,{
+      width: '1000px'
+     
+    })
+  }
 
 }

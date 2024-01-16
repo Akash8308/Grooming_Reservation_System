@@ -53,17 +53,18 @@ export class AppointmentdetailsComponent {
   selectedAppointmentTime: any=null;
   date:Date;
   isDisabled:boolean=true;
+  isAvailable:boolean=true;
   today = new Date().toISOString().split('T')[0];
   appointmenttime= [
     '10:00:00',
-    '11:00:00',
-    '12:00:00'
+    '13:00:00',
+    '16:00:00'
   ];
 
   slots=[
     '10:00:00',
-    '11:00:00',
-    '12:00:00'
+    '13:00:00',
+    '16:00:00'
   ];
   count:number=0;
   viewAvailabilty(){
@@ -133,7 +134,7 @@ export class AppointmentdetailsComponent {
     this.appointmentService.saveAppointment(this.appointment,this.userid,this.salonid,this.servicesidstr,this.stylistid).subscribe(data=>{
       console.log("appointment booked"),
       this.bookedid=data.appointmentId,
-      
+      this.matDialog.closeAll();
       this.router.navigate(['appointmentdisplay',this.salonid,this.servicesidstr,this.stylistid,this.bookedid]);
       
     });
@@ -147,11 +148,12 @@ export class AppointmentdetailsComponent {
         data=>{
           this.appointments=data,
           console.log(data),
+          this.isAvailable=!this.isAvailable;
           //this.flag=1,
           this.viewAvailabilty();
         }
      )
     
-  }
+  } 
   
 }
