@@ -37,6 +37,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	List<User> searchUser(String value);	
 	
 	@Query(value="select * from user where useris_deleted=?1",nativeQuery = true)
-	List<User> searchUserByIsDeleted(boolean value);	
+	List<User> searchUserByIsDeleted(boolean value);
+	
+	@Query(value="update user set userpassword=?1 where useremail=?2",nativeQuery = true)
+	boolean updatePassByEmail(String pass,String userEmail);	
 	
 }

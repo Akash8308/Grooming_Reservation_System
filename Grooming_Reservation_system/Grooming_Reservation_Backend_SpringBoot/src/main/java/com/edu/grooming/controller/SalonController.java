@@ -134,4 +134,9 @@ public class SalonController {
 		return salonService.getEnabledSalonByCategory(value);
 	}
 	
+	@GetMapping("/checkSalonExists/{salonEmail}")
+	public Boolean checkSalonExists(@PathVariable ("salonEmail") String salonEmail) {
+		return salonService.checkSalonExists(salonEmail);
+	}
+	
 }

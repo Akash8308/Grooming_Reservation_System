@@ -8,6 +8,7 @@ import { Service } from 'src/app/dao/service';
   providedIn: 'root'
 })
 export class SalonService {
+  
     
   salon:Salon;
   isUserLoggedIn(){
@@ -116,6 +117,10 @@ export class SalonService {
 
   getEnabledSalonByCategory(salonCatergory: string) {
       return this.http.get<Salon[]>(`${this.url}/getEnabledSalonByCategory/${salonCatergory}`);
+  }
+
+  checkSalonExists(useremail: string) {
+    return this.http.get<boolean>(`${this.url}/checkSalonExists/${useremail}`);
   }
 
 }

@@ -172,6 +172,17 @@ public class SalonServiceimpl implements SalonService {
 	public List<Salon> getAllSalonReq() {
 		return salonRepository.getgetAllSalonReq();
 	}
+
+	@Override
+	public Boolean checkSalonExists(String salonEmail) {
+		Salon salon= salonRepository.getSalonByEmailid(salonEmail);
+		if(salon != null)
+			return true;
+		else
+			return false;
+	}
+
+
 	
 
 }

@@ -14,6 +14,10 @@ export class UserDataService {
     return this.http.get<User>(`${this.url}/getUserByEmailPassword/${email}/${password}`);
   }
 
+  checkUserExists(email:String){
+    return this.http.get<boolean>(`${this.url}/checkUserExists/${email}`);
+  }
+
   getUserByEmail(email:string){
     return this.http.get<User>(`${this.url}/getUserByEmailid/${email}`);
   }
@@ -26,7 +30,7 @@ export class UserDataService {
     return this.http.get<User>(`${this.url}/getUserById/${userid}`);
   }
 
-  updateUserById(userid: number, user: User){
+  updateUserById(userid: any, user: User){
     return this.http.put<User>(`${this.url}/updateUserById/${userid}`, user);
   }
 

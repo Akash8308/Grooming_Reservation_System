@@ -32,7 +32,7 @@ public interface SalonRepository extends JpaRepository<Salon, Integer> {
 	@Query(value="select * from salon where salonstatus='Enabled'",nativeQuery=true)
 	List<Salon> findAllEnabled();	
 	
-	@Query(value="select distinct saloncategory from salon",nativeQuery = true)
+	@Query(value="select distinct saloncategory from salon where salonstatus='Enabled' ",nativeQuery = true)
 	List<String> getAllSalonCategories();	
 
 	@Query(value="select * from salon where salonstatus='Enabled' order by salonrating desc",nativeQuery=true)
@@ -46,5 +46,9 @@ public interface SalonRepository extends JpaRepository<Salon, Integer> {
 
 	@Query(value="select * from salon where salonstatus='Applied'",nativeQuery=true)
 	List<Salon> getgetAllSalonReq();
+	
+	@Query(value="select * from salon where salonemailid=?",nativeQuery=true)
+	Salon getSalonByEmailid(String salonEmail);
+	
 
 }

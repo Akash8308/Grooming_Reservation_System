@@ -112,5 +112,15 @@ public class UserController {
 	public List<User> searchUserByIsDeleted(@PathVariable("value") String value){
 		return userService.searchUserByIsDeleted(value);
 	}
+	
+	@GetMapping("/checkUserExists/{userEmail}")
+	public Boolean checkUserExists(@PathVariable ("userEmail") String userEmail) {
+		return userService.userEmail(userEmail);
+	}
+	
+//	@GetMapping("/updatePassByEmail/{userEmail}/{pass}") // http://localhost:8990/updatePassByEmail/{userEmail}/{pass}
+//	public User updatePassByEmail(@PathVariable ("userEmail") String userEmail, @PathVariable ("pass") String pass) {
+//		return userService.updatePassByEmail(userEmail, pass);
+//	}
 
 }

@@ -12,7 +12,7 @@ import com.edu.grooming.service.EmailSenderService;
 
 @RestController
 //@RequestMapping("/api/email")
-@CrossOrigin(origins = "http://localhost:8990")
+@CrossOrigin(origins = "http://localhost:4200")
 public class EmailController {
 
     @Autowired
@@ -21,7 +21,7 @@ public class EmailController {
     @PostMapping("/send") //http://localhost:8990/send
     public String sendEmail(@RequestBody EmailRequest emailRequest) {
     	emailSenderService.sendEmail(emailRequest.getTo(), emailRequest.getSubject(), emailRequest.getBody());
-    	System.out.println("Mail: Sent");
+    	System.out.println("Mail: Sent to " + emailRequest.getTo());
         return "Email sent successfully!";
     }
 }

@@ -1,19 +1,18 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
-import { User } from 'src/app/dao/user';
-import { UserDataService } from 'src/app/services/userservices/userdataservice.service';
-import { InvalidcomponentComponent } from '../../popups/invalidcomponent/invalidcomponent.component';
-import { EmailserviceService } from 'src/app/services/emailservices/emailservice.service';
 import { EmailFormatClass } from 'src/app/dao/email-format-class';
+import { User } from 'src/app/dao/user';
+import { EmailserviceService } from 'src/app/services/emailservices/emailservice.service';
+import { InvalidcomponentComponent } from '../../popups/invalidcomponent/invalidcomponent.component';
+import { SalonService } from 'src/app/services/salonservices/salonservice.service';
+import { Salon } from 'src/app/dao/salon';
 
 @Component({
-  selector: 'app-forgotpasssword',
-  templateUrl: './forgotpasssword.component.html',
-  styleUrls: ['./forgotpasssword.component.css']
+  selector: 'app-forgetpassword-salon',
+  templateUrl: './forgetpassword-salon.component.html',
+  styleUrls: ['./forgetpassword-salon.component.css']
 })
-export class ForgotpassswordComponent {
-
-  
+export class ForgetpasswordSalonComponent {
   useremail:string;
   user:User;
   isDisabled:boolean=true;
@@ -29,12 +28,12 @@ export class ForgotpassswordComponent {
   
  constructor(
     @Inject(MAT_DIALOG_DATA) public data:any,
-    private userservice:UserDataService,
+    private salonService: SalonService,
     private matDialog:MatDialog,
     private emailService: EmailserviceService
   ){}
  validateUser(){
-    this.userservice.checkUserExists(this.useremail).subscribe(
+    this.salonService.checkSalonExists(this.useremail).subscribe(
       data=> {this.isUserPresent=data,
         this.enableOtpField()
 
@@ -65,8 +64,10 @@ export class ForgotpassswordComponent {
   }
 
   sendOtp(){
+    // email body
   const to=`${this.useremail}`;
   const  subject="Password Reset";
+            // gen otp using random number
   this.otp =Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000;
   const  body=`Greetings from ChromaCuts!! \nYour One-Time Password (OTP) is: ${this.otp} to reset password for ChromaCuts account \n DO NOT share it with anyone`;
   const sendOtpUserData: EmailFormatClass = new EmailFormatClass(to, subject, body);
@@ -90,9 +91,9 @@ export class ForgotpassswordComponent {
     }
   }
 
-  savePass(user: User){
-    user.userpassword = this.firstpassword;
-    this.userservice.updateUserById(user.userid,user).subscribe(
+  savePass(salon: Salon){
+    salon.salonpassword = this.firstpassword;
+    this.salonService.updateSalonById(salon.salonid,salon).subscribe(
       ()=>{
       console.log("password is updated"),
       window.location.reload();
@@ -103,7 +104,7 @@ export class ForgotpassswordComponent {
      if(this.firstpassword == this.secondpassword){
       // this.user.userpassword=this.firstpassword;
       console.log(this.useremail)
-      this.userservice.getUserByEmail(this.useremail).subscribe(data=>this.savePass(data));
+      this.salonService.getSalonByEmail(this.useremail).subscribe(data=>this.savePass(data));
       console.log(this.user)
       
      }else{

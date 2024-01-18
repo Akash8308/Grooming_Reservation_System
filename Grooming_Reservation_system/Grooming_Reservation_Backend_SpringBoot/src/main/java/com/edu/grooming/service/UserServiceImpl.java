@@ -123,5 +123,20 @@ public class UserServiceImpl implements UserService {
 		else
 			return userRepository.searchUserByIsDeleted(true);
 	}
+
+	@Override
+	public Boolean userEmail(String userEmail) {
+		User user=userRepository.getUserByEmailid(userEmail);
+		if(user!= null) 
+			return true;
+		else
+			return false;
+	}
+
+//	@Override
+//	public User updatePassByEmail(String userEmail, String pass) {
+//		 userRepository.updatePassByEmail(pass, userEmail);
+//		 return getUserByEmailid(userEmail);
+//	}
 	
 }

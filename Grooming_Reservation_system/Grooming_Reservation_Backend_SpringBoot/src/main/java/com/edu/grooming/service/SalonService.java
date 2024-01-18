@@ -39,6 +39,9 @@ public interface SalonService  {
 
 	List<Salon> getAllSalonReq();
 
+	Boolean checkSalonExists(String salonEmail);
+
+
 	
 
 }

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SalonService } from 'src/app/services/salonservices/salonservice.service';
 import { InvalidcomponentComponent } from '../../popups/invalidcomponent/invalidcomponent.component';
+import { ForgetpasswordSalonComponent } from '../forgetpassword-salon/forgetpassword-salon.component';
 
 
 @Component({
@@ -56,7 +57,11 @@ export class SalonLoginComponent {
 
           }
         
-        
+          forgotPass(){
+            this.matDialog.open(ForgetpasswordSalonComponent,{
+              width: '700px'
+            })
+        }
     
 }
 

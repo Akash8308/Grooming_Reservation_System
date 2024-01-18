@@ -66,7 +66,9 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { TermsAndConditionsComponent } from './components/terms-and-conditions/terms-and-conditions.component'; 
 import { ForgotpassswordComponent } from './components/user/forgotpasssword/forgotpasssword.component';
 import { SalonforgotpasswordComponent } from './components/salon/salonforgotpassword/salonforgotpassword.component';
-import { ThankyouComponent } from './components/user/appointment/thankyou/thankyou.component'; 
+import { ThankyouComponent } from './components/user/appointment/thankyou/thankyou.component';
+import { ForgetpasswordSalonComponent } from './components/salon/forgetpassword-salon/forgetpassword-salon.component';
+
 
 
 @NgModule({
@@ -119,7 +121,9 @@ import { ThankyouComponent } from './components/user/appointment/thankyou/thanky
     TermsAndConditionsComponent,
     ForgotpassswordComponent,
     SalonforgotpasswordComponent,
-    ThankyouComponent
+    ThankyouComponent,
+    ForgetpasswordSalonComponent,
+
   ],
   imports: [
     NgxPaginationModule,
@@ -140,7 +144,7 @@ import { ThankyouComponent } from './components/user/appointment/thankyou/thanky
     CarouselModule,
     MatRadioModule,
     MatAutocompleteModule,
-    MatTableModule,
+    MatTableModule
    
     
 
